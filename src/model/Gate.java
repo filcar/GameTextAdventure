@@ -11,9 +11,10 @@ package model;
  */
 public class Gate implements IGate {
     private String direction;
-    private int state=0;
+    private int state=0;//0=unlock, 1=lock
     private ILocation leadToLocation;
 
+//constractor
     public Gate(String direction, ILocation leadToLocation) {
         this.direction = direction;
         this.leadToLocation = leadToLocation;

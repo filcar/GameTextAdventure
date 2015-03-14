@@ -8,6 +8,7 @@ package gametextadventure;
 import command.Exit;
 import command.Go;
 import command.ICommand;
+import command.Look;
 import controler.HandlerCommand;
 import java.util.Scanner;
 import controler.Parser;
@@ -28,12 +29,16 @@ public class GameTextAdventure {
      */
  public static void main(String[] args) {
     //initialization    
+        boolean running = true;
         ICommand go = new Go();
         ICommand exit = new Exit();
+        ICommand look = new Look();
         HandlerCommand hc = new HandlerCommand();
+     //register commands
         hc.register(go);
         hc.register(exit);
-        boolean running = true;
+        hc.register(look);
+
     //Room
         ILocation room1  = new LocationRoom("Room1","This is the first room");
         ILocation room2  = new LocationRoom("Room2","This is the second room");
