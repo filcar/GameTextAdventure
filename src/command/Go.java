@@ -5,7 +5,6 @@
  */
 package command;
 
-import model.IGate;
 import model.ILocation;
 import model.State;
 

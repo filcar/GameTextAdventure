@@ -11,13 +11,20 @@ import java.util.HashMap;
  *
  * @author fil
  */
-public interface ILocation {
+public interface IPlayer {
 
-    String getLocationDescription();
-    String getLocationTitle();
-    void registerGate (IGate gate);
-    void addItem (IItem item);
-    void removeItem (IItem item);
-    HashMap<String, IGate> getMapGate();
+    void addItem(IItem item);
+
+    int getHealth();
+
     HashMap<String, IItem> getMapItem();
+
+    String getName();
+
+    void removeItem(IItem item);
+
+    void setHealth(int health);
+
+    void setName(String name);
+    
 }

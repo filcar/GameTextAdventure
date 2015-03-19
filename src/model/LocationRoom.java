@@ -5,9 +5,7 @@
  */
 package model;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *
@@ -33,9 +31,14 @@ public class LocationRoom implements ILocation {
         }
     
     @Override
-    public void registerItem (IItem item){
+    public void addItem (IItem item){
             mapItem.put(item.getName(), item);
         }
+    
+    @Override
+    public void removeItem (IItem item){
+        mapItem.remove(item.getName(), item);
+    }    
     
     @Override
     public String getLocationTitle() {
