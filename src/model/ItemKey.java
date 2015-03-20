@@ -19,6 +19,10 @@ public class ItemKey implements IItem {
         return name;
     }
 
+    public ItemKey(String name) {
+        this.name = name;
+    }
+
     @Override
     public void setName(String name) {
         this.name = name;

@@ -18,7 +18,7 @@ public class Parser {
     
     public Parser(String input) {
         this.input = input;
-        words=input.split(" ",2);
+        words=input.split(" ");
         command=words[0].trim();
         if(words.length<2) object="NONE";
         else object=words[1].trim();    

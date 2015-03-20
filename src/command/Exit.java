@@ -7,6 +7,8 @@ package command;
 
 import model.IGate;
 import model.ILocation;
+import model.IPlayer;
+import model.Player;
 import model.State;
 
 /**
@@ -34,7 +36,7 @@ public class Exit implements ICommand {
     @Override
     public void action (State curentState,String word2){
     //ISOS APOTHIKEYSH TOY STATE
-     System.out.println("Thank you for playing '?????'\nBye-bye!!!");
+     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
      System.exit(0);
     }
     
