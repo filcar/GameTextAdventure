@@ -6,24 +6,23 @@
 package command;
 
 import model.IItem;
-import model.ILocation;
 import model.State;
 
 /**
  *
  * @author fil
  */
-public class Take implements ICommand {
+public class Drop implements ICommand {
     private String name;
 
-    public Take() {
-        this.name="TAKE";
+    public Drop() {
+        this.name="DROP";
     }
 
 
     @Override
     public String toString() {
-        return "Take{" + "name=" + name + '}';
+        return "Drop{" + "name=" + name + '}';
     }
 
     
@@ -35,18 +34,15 @@ public class Take implements ICommand {
     @Override
     public void action (State curentState,String word2){
     //    curentState.showCurentState();
-        if(curentState.getLocation().getMapItem().containsKey(word2)){
-            IItem item =curentState.getLocation().getMapItem().get(word2);
-            curentState.getLocation().removeItem(item);
-            curentState.getPlayer().addItem(item);
+        if(curentState.getPlayer().getMapItem().containsKey(word2)){
+            IItem item =curentState.getPlayer().getMapItem().get(word2);
+            curentState.getPlayer().removeItem(item);
+            curentState.getLocation().addItem(item);
             curentState.showCurentState();
-        }
-        else if (word2.equals("NONE")) {
-            System.out.println("What do you want to take?");        
         }
         else {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't take this!!!");
+            System.out.println("I can't drop this!!!");
             System.out.println("\n\n\n");
         }
     }  

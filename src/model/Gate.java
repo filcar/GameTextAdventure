@@ -10,14 +10,21 @@ package model;
  * @author fil
  */
 public class Gate implements IGate {
+    private String name;
     private String direction;
-    private int state=0;//0=unlock, 1=lock
+    private IDoorState doorState=new DoorStateOpen();
     private ILocation leadToLocation;
 
 //constractor
-    public Gate(String direction, ILocation leadToLocation) {
+    public Gate(String name, String direction, ILocation leadToLocation) {
+        this.name=name;
         this.direction = direction;
         this.leadToLocation = leadToLocation;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
@@ -30,15 +37,6 @@ public class Gate implements IGate {
         this.direction = gateName;
     }
 
-    @Override
-    public int getState() {
-        return state;
-    }
-
-    @Override
-    public void setState(int state) {
-        this.state = state;
-    }
 
     @Override
     public ILocation getLeadToLocation() {
@@ -49,6 +47,17 @@ public class Gate implements IGate {
     public void setLeadToLocation(ILocation leadToLocation) {
         this.leadToLocation = leadToLocation;
     }
+
+    @Override
+    public IDoorState getDoorState() {
+        return doorState;
+    }
+
+    @Override
+    public void setDoorState(IDoorState doorState) {
+        this.doorState = doorState;
+    }
+    
     
     
 }

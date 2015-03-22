@@ -10,17 +10,19 @@ package model;
  * @author fil
  */
 public interface IGate {
+    
+    public String getName();
 
     String getDirection();
 
     ILocation getLeadToLocation();
 
-    int getState();
-
     void setDirection(String gateName);
 
     void setLeadToLocation(ILocation leadToLocation);
 
-    void setState(int state);
+    public IDoorState getDoorState();
+    
+    public void setDoorState(IDoorState doorState);
     
 }
