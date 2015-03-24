@@ -14,11 +14,9 @@ import model.State;
  * @author fil
  */
 public class HandlerCommand {
-   //     private List<ICommand> commands = new ArrayList<>();
         private HashMap<String, ICommand> mapCommand = new HashMap<String, ICommand>();
         
         public void register (ICommand command){
-     //       commands.add(command);
             mapCommand.put(command.getName(), command);
         }
         

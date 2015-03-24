@@ -41,7 +41,7 @@ public class GameTextAdventure {
      * @param args the command line arguments
      */
  public static void main(String[] args) {
-    //initialization    
+    //initialization 
         boolean running = true;
         IPlayer player = new Player("fil");
         ICommand go = new Go();
@@ -53,7 +53,7 @@ public class GameTextAdventure {
         ICommand close= new Close();
         
     //IDooreState
-        IDoorState doorOpen = new DoorStateOpen();
+      //  IDoorState doorOpen = new DoorStateOpen();
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
        // IDoorState doorUnlock = new DoorStateUnlock();
