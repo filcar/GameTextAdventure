@@ -14,12 +14,15 @@ public class Gate implements IGate {
     private String direction;
     private IDoorState doorState=new DoorStateOpen();
     private ILocation leadToLocation;
+    private ILocation loc1;
+    private ILocation loc2;
 
 //constractor
-    public Gate(String name, String direction, ILocation leadToLocation) {
+    public Gate(String name, ILocation loc1, ILocation loc2) {
         this.name=name;
-        this.direction = direction;
-        this.leadToLocation = leadToLocation;
+        this.loc1 = loc1;
+        this.loc2 = loc2;
+        
     }
 
     @Override
@@ -29,6 +32,7 @@ public class Gate implements IGate {
 
     @Override
     public String getDirection() {
+       
         return direction;
     }
 
@@ -39,13 +43,17 @@ public class Gate implements IGate {
 
 
     @Override
-    public ILocation getLeadToLocation() {
-        return leadToLocation;
+    public ILocation getLeadToLocation(ILocation curentLocation) {
+        
+            if(curentLocation.equals(loc1)){
+                return loc2;
+            }
+            else return loc1;
     }
 
     @Override
     public void setLeadToLocation(ILocation leadToLocation) {
-        this.leadToLocation = leadToLocation;
+        System.out.println(leadToLocation);
     }
 
     @Override

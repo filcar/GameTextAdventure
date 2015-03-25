@@ -37,10 +37,15 @@ public class Go implements ICommand {
     @Override
     public void action (State curentState,String word2){
         if(curentState.getLocation().getMapGate().containsKey(word2)){
-            ILocation location =curentState.getLocation().getMapGate().get(word2).getLeadToLocation();
+            ILocation curentLocation=curentState.getLocation();
+            IGate gate=curentState.getLocation().getMapGate().get(word2);
+            ILocation location =curentState.getLocation().getMapGate().get(word2).getLeadToLocation(curentLocation);
+            //   ILocation nextLocation=gate.getLeadToLocation(curentLocation);
             String state = curentState.getLocation().getMapGate().get(word2).getDoorState().getState();
+
             if (state.equals("opened")){
-               curentState.setLocation(location);
+                curentState.setLocation(location);
+             //   System.out.println(curentState.getLocation().toString());
                 curentState.showCurentState(); 
             }
             else {

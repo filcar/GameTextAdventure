@@ -26,8 +26,9 @@ public class LocationRoom implements ILocation {
     }
     
     @Override
-    public void registerGate (IGate gate){
-            mapGate.put(gate.getDirection(), gate);
+    public void registerGate (Direction.Direct direction,IGate gate){
+            mapGate.put(direction.toString(), gate);
+           
         }
     
     @Override
@@ -42,6 +43,7 @@ public class LocationRoom implements ILocation {
     
     @Override
     public String getLocationTitle() {
+        
         return locationTitle;
     }
 

@@ -15,7 +15,7 @@ public interface IGate {
 
     String getDirection();
 
-    ILocation getLeadToLocation();
+    ILocation getLeadToLocation(ILocation curentLocation);
 
     void setDirection(String gateName);
 

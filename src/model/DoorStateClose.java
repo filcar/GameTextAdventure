@@ -38,7 +38,7 @@ public class DoorStateClose implements IDoorState {
         if(obj instanceof IGate){
             IGate gate= (IGate)obj;
             gate.setDoorState(openState);
-            result=("The door opened!!!");}
+            result=("The "+gate.getName()+" door opened!!!");}
         return result;
         
     }

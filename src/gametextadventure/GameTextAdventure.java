@@ -16,6 +16,7 @@ import command.Take;
 import controler.HandlerCommand;
 import java.util.Scanner;
 import controler.Parser;
+import model.Direction;
 import model.DoorStateClose;
 import model.DoorStateLock;
 import model.DoorStateOpen;
@@ -66,22 +67,21 @@ public class GameTextAdventure {
         hc.register(drop);
         hc.register(open);
         hc.register(close);
-
+        
     //Room
         ILocation room1  = new LocationRoom("Room1","This is the first room");
         ILocation room2  = new LocationRoom("Room2","This is the second room");
         ILocation room3  = new LocationRoom("Room3","This is the third room");
-        
+       
     //Gate of room
-        IGate westGateLoc1 = new Gate("green","WEST",room2);
-        room1.registerGate(westGateLoc1);
-        IGate eastGateLoc2 = new Gate("blue","EAST",room1); 
-        room2.registerGate(eastGateLoc2);
-        IGate northGateLoc2=new Gate("red","NORTH",room3);
-        northGateLoc2.setDoorState(doorClose);
-        room2.registerGate(northGateLoc2);
-        IGate southGateLoc3=new Gate("blue","SOUTH",room2);
-        room3.registerGate(southGateLoc3);
+        IGate GateLoc1 = new Gate("blue",room1,room2);
+        room1.registerGate(Direction.Direct.WEST,GateLoc1);
+        room2.registerGate(Direction.Direct.EAST,GateLoc1);
+        IGate GateLoc2 = new Gate("red",room2,room3);
+              GateLoc2.setDoorState(doorClose);
+        room2.registerGate(Direction.Direct.NORTH,GateLoc2);
+ //       IGate southGateLoc3=new Gate("yelow",room3,room2);
+        room3.registerGate(Direction.Direct.SOUTH,GateLoc2);
     //Items of room
         IItem key = new ItemKey("KEY");    
         room1.addItem(key);
