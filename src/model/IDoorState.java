@@ -15,8 +15,8 @@ public interface IDoorState {
     
     String open(Object obj);
     String close(Object obj);
-    String lock(Object obj);
-    String unlock(Object obj);
-      
+    String lock(Object obj,IItemKey key);
+    String unlock(Object obj,IItemKey key);
+    
     
 }

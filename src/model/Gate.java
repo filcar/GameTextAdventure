@@ -12,19 +12,38 @@ package model;
 public class Gate implements IGate {
     private String name;
     private String direction;
-    private IDoorState doorState=new DoorStateOpen();
-    private ILocation leadToLocation;
+    private IDoorState doorState;
+    private IItemKey key;
     private ILocation loc1;
     private ILocation loc2;
 
 //constractor
-    public Gate(String name, ILocation loc1, ILocation loc2) {
+ public Gate(String name, ILocation loc1, ILocation loc2) {
         this.name=name;
         this.loc1 = loc1;
         this.loc2 = loc2;
-        
+        this.doorState=new DoorStateOpen();
+    }
+ 
+ //constractor2
+ public Gate(String name, ILocation loc1, ILocation loc2,IItemKey key) {
+        this.name=name;
+        this.loc1 = loc1;
+        this.loc2 = loc2;
+        this.doorState = new DoorStateLock();   
+        this.key = key;
     }
 
+    @Override
+    public IItemKey getKey() {
+        return key;
+    }
+
+    @Override
+    public void setKey(IItemKey key) {
+        this.key = key;
+    }
+        
     @Override
     public String getName() {
         return name;

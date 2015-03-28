@@ -5,23 +5,24 @@
  */
 package command;
 
-import model.IGate;
+import model.IItem;
 import model.State;
 
 /**
  *
  * @author fil
  */
-public class Close implements ICommand {
+public class Use implements ICommand {
     private String name;
 
-    public Close() {
-        this.name="CLOSE";
+    public Use() {
+        this.name="USE";
     }
+
 
     @Override
     public String toString() {
-        return "Close{" + "name=" + name + '}';
+        return "Use{" + "name=" + name + '}';
     }
 
     
@@ -33,14 +34,18 @@ public class Close implements ICommand {
     @Override
     public void action (State curentState,String word2){
     //    curentState.showCurentState();
-        if(curentState.getLocation().getMapGate().containsKey(word2)){
-            IGate gate=curentState.getLocation().getMapGate().get(word2);
-            System.out.println(gate.getDoorState().close(gate));
-            
+        if(curentState.getPlayer().getMapItem().containsKey(word2)){
+            IItem item =curentState.getPlayer().getMapItem().get(word2);
+            curentState.getPlayer().setCurrentItem(item);
+            System.out.println("\nNow you can use the "+item.getName()+" .\n");
+          //  curentState.showCurentState();
+        }
+        else if (word2.equals("NONE")) {
+            System.out.println("What do you want to use?");        
         }
         else {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't close something!!!");
+            System.out.println("I can't use this!!!");
             System.out.println("\n\n\n");
         }
     }  

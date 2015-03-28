@@ -53,7 +53,7 @@ public class DoorStateOpen implements IDoorState {
     }
     
     @Override
-    public String lock(Object obj){
+    public String lock(Object obj,IItemKey key){
       //  IDoorState openState = new DoorStateOpen();
         if(obj instanceof IGate){
             result=("Close the door first!");
@@ -61,7 +61,7 @@ public class DoorStateOpen implements IDoorState {
     return result;
     }
     @Override
-    public String unlock(Object obj){
+    public String unlock(Object obj,IItemKey key){
      //   IDoorState openState = new DoorStateOpen();
         if(obj instanceof IGate){
             result=("There is not locked door!");

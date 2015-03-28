@@ -24,5 +24,9 @@ public interface IGate {
     public IDoorState getDoorState();
     
     public void setDoorState(IDoorState doorState);
+   
+    public IItemKey getKey();
+   
+    public void setKey(IItemKey key);
     
 }

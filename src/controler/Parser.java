@@ -13,7 +13,7 @@ public class Parser {
 
     private String input;
     private  String words[];
-    private String[] ingnoreWord = {"to", "the","for"};
+    private String[] ingnoreWord = {" to ", " the "," for "," with "};
     private  String command;
     private  String obj;  
     

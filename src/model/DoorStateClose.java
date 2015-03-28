@@ -52,18 +52,19 @@ public class DoorStateClose implements IDoorState {
     }
     
     @Override
-    public String lock(Object obj){
+    public String lock(Object obj,IItemKey key){
         IDoorState lockState = new DoorStateLock();
         //nead key
         if(obj instanceof IGate){
             IGate gate = (IGate)obj;
             gate.setDoorState(lockState);
+            gate.setKey(key);
             result=("The door is locked!");
         }
     return result;
     }
     @Override
-    public String unlock(Object obj){
+    public String unlock(Object obj,IItemKey key){
      //   IDoorState closeState = new DoorStateClose();
         if(obj instanceof IGate){
             result=("The door is closed but not locked!");

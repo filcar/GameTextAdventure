@@ -10,9 +10,13 @@ import command.Drop;
 import command.Exit;
 import command.Go;
 import command.ICommand;
+import command.Lock;
 import command.Look;
 import command.Open;
+import command.Shoot;
 import command.Take;
+import command.UnLock;
+import command.Use;
 import controler.HandlerCommand;
 import java.util.Scanner;
 import controler.Parser;
@@ -27,10 +31,14 @@ import model.IGate;
 import model.IItem;
 import model.ILocation;
 import model.IPlayer;
-import model.ItemKey;
+import model.DoorKey;
+import model.IItemKey;
+import typeOfItem.IShootable;
 import model.LocationRoom;
+import model.Monster;
 import model.Player;
 import model.State;
+import model.Weapon;
 
 /**
  *
@@ -52,12 +60,15 @@ public class GameTextAdventure {
         ICommand look = new Look();
         ICommand open = new Open();
         ICommand close= new Close();
+        ICommand lock = new Lock();
+        ICommand unlock = new UnLock();
+        ICommand shoot= new Shoot(); 
+        ICommand use =  new Use();
+        
         
     //IDooreState
-      //  IDoorState doorOpen = new DoorStateOpen();
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
-       // IDoorState doorUnlock = new DoorStateUnlock();
         HandlerCommand hc = new HandlerCommand();
      //register commands
         hc.register(go);
@@ -67,25 +78,34 @@ public class GameTextAdventure {
         hc.register(drop);
         hc.register(open);
         hc.register(close);
+        hc.register(lock);
+        hc.register(unlock);
+        hc.register(shoot);
+        hc.register(use);
         
-    //Room
+//Room
         ILocation room1  = new LocationRoom("Room1","This is the first room");
         ILocation room2  = new LocationRoom("Room2","This is the second room");
         ILocation room3  = new LocationRoom("Room3","This is the third room");
-       
-    //Gate of room
+//Items
+        IItem key = new DoorKey("KEY"); 
+        IItem pistol = new Weapon("PISTOL");
+        IItem monster = new Monster("MONSTER");  
+        
+        
+//Gate of room
         IGate GateLoc1 = new Gate("blue",room1,room2);
         room1.registerGate(Direction.Direct.WEST,GateLoc1);
         room2.registerGate(Direction.Direct.EAST,GateLoc1);
-        IGate GateLoc2 = new Gate("red",room2,room3);
-              GateLoc2.setDoorState(doorClose);
+        IGate GateLoc2 = new Gate("red",room2,room3,(IItemKey)key);
+//              GateLoc2.setDoorState(doorLock);
         room2.registerGate(Direction.Direct.NORTH,GateLoc2);
- //       IGate southGateLoc3=new Gate("yelow",room3,room2);
         room3.registerGate(Direction.Direct.SOUTH,GateLoc2);
-    //Items of room
-        IItem key = new ItemKey("KEY");    
+
+//Add Items to room
         room1.addItem(key);
-        
+        room1.addItem(pistol);
+        room1.addItem(monster);
     //initialize CurentState    
         State curentState=new State(room1, player);
         curentState.showCurentState();

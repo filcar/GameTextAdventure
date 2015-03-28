@@ -39,7 +39,8 @@ public class Go implements ICommand {
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             ILocation curentLocation=curentState.getLocation();
             IGate gate=curentState.getLocation().getMapGate().get(word2);
-            ILocation location =curentState.getLocation().getMapGate().get(word2).getLeadToLocation(curentLocation);
+            ILocation location =curentState.getLocation().getMapGate().
+                    get(word2).getLeadToLocation(curentLocation);
             //   ILocation nextLocation=gate.getLeadToLocation(curentLocation);
             String state = curentState.getLocation().getMapGate().get(word2).getDoorState().getState();
 

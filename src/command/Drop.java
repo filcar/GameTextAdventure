@@ -38,7 +38,8 @@ public class Drop implements ICommand {
             IItem item =curentState.getPlayer().getMapItem().get(word2);
             curentState.getPlayer().removeItem(item);
             curentState.getLocation().addItem(item);
-            curentState.showCurentState();
+            System.out.println("\nDropped.\n");
+           // curentState.showCurentState();
         }
         else {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
