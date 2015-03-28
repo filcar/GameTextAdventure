@@ -15,14 +15,25 @@ public class Player implements IPlayer {
     private String name;
     private int health=100;
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
-
+    private IItem currentItem;
     public Player() {
     }
 
-    public Player(String name) {
+     public Player(String name) {
         this.name = name;
     }
     
+    @Override
+    public IItem getCurrentItem() {
+        return currentItem;
+    }
+
+    @Override
+    public void setCurrentItem(IItem currentItem) {
+        this.currentItem = currentItem;
+    }
+
+     
     @Override
     public void addItem (IItem item){
         mapItem.put(item.getName(), item);

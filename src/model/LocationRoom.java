@@ -52,11 +52,13 @@ public class LocationRoom implements ILocation {
         return locationDescription;
     }
 
+    @Override
     public HashMap<String, IGate> getMapGate() {
         return mapGate;
     }
 
 
+    @Override
     public HashMap<String, IItem> getMapItem() {
         return mapItem;
     }

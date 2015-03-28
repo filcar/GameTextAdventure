@@ -12,6 +12,9 @@ import java.util.HashMap;
  * @author fil
  */
 public interface IPlayer {
+    public IItem getCurrentItem();
+    
+    public void setCurrentItem(IItem currentItem);
 
     void addItem(IItem item);
 

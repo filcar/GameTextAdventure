@@ -6,24 +6,25 @@
 package command;
 
 import model.IItem;
+import typeOfItem.IShootable;
 import model.State;
-import typeOfItem.INonTakeable;
+import model.Weapon;
 
 /**
  *
  * @author fil
  */
-public class Take implements ICommand {
+public class Shoot implements ICommand {
     private String name;
 
-    public Take() {
-        this.name="TAKE";
+    public Shoot() {
+        this.name="SHOOT";
     }
 
 
     @Override
     public String toString() {
-        return "Take{" + "name=" + name + '}';
+        return "Shoot{" + "name=" + name + '}';
     }
 
     
@@ -34,25 +35,27 @@ public class Take implements ICommand {
     
     @Override
     public void action (State curentState,String word2){
-    //    curentState.showCurentState();       
+    //    curentState.showCurentState();
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
-            if(!(item instanceof INonTakeable)){
-                curentState.getLocation().removeItem(item);
-                curentState.getPlayer().addItem(item);
-                System.out.println("\nTaken.\n");
+            if(item instanceof IShootable){
+                if (curentState.getPlayer().getCurrentItem() instanceof Weapon){
+                    Weapon weapon=(Weapon)curentState.getPlayer().getCurrentItem();
+                    Integer a =weapon.shoot((IShootable) item);
+                    if(a<1) 
+                        curentState.getLocation().removeItem(item);
+                }
+                else    System.out.println("You must have and use a weapon to shoot " +item.getName());
             }
-            else {
-                System.out.println("You can't take "+item.getName());
-            }
+            else System.out.println("\nYou can't shoot "+ word2 +".\n");
           //  curentState.showCurentState();
         }
         else if (word2.equals("NONE")) {
-            System.out.println("What do you want to take?");        
+            System.out.println("What do you want to shoot?");        
         }
         else {
             System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't take this!!!");
+            System.out.println("There is'nt such item!");
             System.out.println("\n\n\n");
         }
     }  
