@@ -152,29 +152,24 @@ public class GameTextAdventure {
         dungeonR.registerGate(Direction.Direct.NORTHWEST,GateLoc9);
         
         IGate GateLoc10 = new Gate("white",monsterLair,dungeonR);
-        treasureR.registerGate(Direction.Direct.NORTHEAST,GateLoc10);
-        monsterLair.registerGate(Direction.Direct.EAST,GateLoc10);
+        monsterLair.registerGate(Direction.Direct.NORTHEAST,GateLoc10);
+        dungeonR.registerGate(Direction.Direct.EAST,GateLoc10);
         
         IGate GateLoc11 = new Gate("magenta",filtersR,dungeonR);
         filtersR.registerGate(Direction.Direct.SOUTH,GateLoc11);
         dungeonR.registerGate(Direction.Direct.UP,GateLoc11);
         
         IGate GateLoc12 = new Gate("white",truncheonsR,dungeonR);
-        truncheonsR.registerGate(Direction.Direct.EAST,GateLoc12);
+        truncheonsR.registerGate(Direction.Direct.SOUTHEAST,GateLoc12);
         dungeonR.registerGate(Direction.Direct.NORTH,GateLoc12);
-        
-        
-        
-        
-        
-        
+       
 
 //Add Items to room
-        room1.addItem(key);
-        room1.addItem(pistol);
-        room1.addItem(monster);
+        startupR.addItem(key);
+        startupR.addItem(pistol);
+        startupR.addItem(monster);
     //initialize CurentState    
-        State curentState=new State(room1, player);
+        State curentState=new State(startupR, player);
         curentState.showCurentState();
     //loop fo running
     while(running){
