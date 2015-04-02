@@ -100,11 +100,63 @@ public class GameTextAdventure {
         ILocation dungeonR  = new LocationRoom("dungeonRoom","This is the dungeon room");
                 
 //Items
-        IItem key = new DoorKey("KEY"); 
+        //startup room
+        IItem key = new DoorKey("KEY");
         IItem pistol = new Weapon("PISTOL");
-        IItem monster = new Monster("MONSTER");  
+        IItem monster = new Monster("MONSTER");
         
+        //filters room
+        IItem aluminiumKey = new DoorKey("ALUMINIUMKEY");
+        IItem toadstools = new Weapon("TOADSTOOLS");
+        IItem belladonna = new Weapon("BELLADONNA");
+        IItem mandrake = new Weapon("MANDRAKE");
+        IItem cobra = new Monster("COBRA");
+        IItem viper = new Monster("VIPER");
+        IItem coralsnake = new Monster("CORALSNAKE");
         
+        //truncheons room
+        IItem fashionKey = new DoorKey("FASHIONKEY");
+        IItem truncheon = new Weapon("TRUNCHEON");
+        IItem crossbow = new Weapon("CROSSBOW");
+        IItem yataghan = new Weapon("YATAGHAN");
+        IItem ork = new Monster("ORK");
+        IItem darkelf = new Monster("DARKELF");
+        IItem hecatonchires = new Monster("HECATONCHIRES");
+        
+        //witch nest
+        IItem goldenKey = new DoorKey("GOLDENKEY");
+        IItem blade = new Weapon("BLADE");
+        IItem hammer = new Weapon("HAMMER");
+        IItem kalchas = new Monster("KALCHAS");
+        IItem circe = new Monster("CIRCE");
+        IItem cassandra = new Monster("CASSANDRA");
+        
+        //monster lair
+        IItem silverKey = new DoorKey("SILVERKEY");
+        IItem scissors = new Weapon("SCISSORS");
+        IItem razors = new Weapon("RAZORS");
+        IItem griffin = new Monster("GRIFFIN");
+        IItem dragon = new Monster("DRAGON");
+        IItem centaur = new Monster("CENTAUR");
+        
+        //treasure room
+        IItem bronzeKey = new DoorKey("BRONZEKEY");
+        IItem diamondSword = new Weapon("DIAMONDSWORD");
+        IItem scepter = new Weapon("SCEPTER");
+        IItem elf = new Monster("ELF");
+        IItem dwarf = new Monster("DWARF");
+        IItem angel = new Monster("ANGEL");
+        
+        //dungeon room
+        IItem diamondKey = new DoorKey("DIAMONDKEY");
+        IItem doubleax = new Weapon("DOUBLEAX");
+        IItem bludgeon = new Weapon("BLUDGEON");
+        IItem drizzt = new Monster("DRIZZTDOURDEN");
+        IItem zaknafein = new Monster("ZAKNAFEIN");
+        IItem mielikki = new Monster("MIELIKKI");
+ 
+        
+       
 //Gate of room
     //    IGate GateLoc1 = new Gate("blue",room1,room2);
     //    room1.registerGate(Direction.Direct.WEST,GateLoc1);
@@ -147,19 +199,19 @@ public class GameTextAdventure {
         treasureR.registerGate(Direction.Direct.EAST,GateLoc8);
         truncheonsR.registerGate(Direction.Direct.NORTH,GateLoc8);
         
-        IGate GateLoc9 = new Gate("magenta",witchNest,dungeonR);
+        IGate GateLoc9 = new Gate("black",witchNest,dungeonR);
         witchNest.registerGate(Direction.Direct.WEST,GateLoc9);
         dungeonR.registerGate(Direction.Direct.NORTHWEST,GateLoc9);
         
-        IGate GateLoc10 = new Gate("white",monsterLair,dungeonR);
+        IGate GateLoc10 = new Gate("turquoise",monsterLair,dungeonR);
         monsterLair.registerGate(Direction.Direct.NORTHEAST,GateLoc10);
         dungeonR.registerGate(Direction.Direct.EAST,GateLoc10);
         
-        IGate GateLoc11 = new Gate("magenta",filtersR,dungeonR);
+        IGate GateLoc11 = new Gate("light blue",filtersR,dungeonR);
         filtersR.registerGate(Direction.Direct.SOUTH,GateLoc11);
         dungeonR.registerGate(Direction.Direct.UP,GateLoc11);
         
-        IGate GateLoc12 = new Gate("white",truncheonsR,dungeonR);
+        IGate GateLoc12 = new Gate("light green",truncheonsR,dungeonR);
         truncheonsR.registerGate(Direction.Direct.SOUTHEAST,GateLoc12);
         dungeonR.registerGate(Direction.Direct.NORTH,GateLoc12);
        
@@ -168,6 +220,53 @@ public class GameTextAdventure {
         startupR.addItem(key);
         startupR.addItem(pistol);
         startupR.addItem(monster);
+        
+        filtersR.addItem(aluminiumKey);
+        filtersR.addItem(toadstools);
+        filtersR.addItem(belladonna);
+        filtersR.addItem(mandrake);
+        filtersR.addItem(cobra);
+        filtersR.addItem(viper);
+        filtersR.addItem(coralsnake);
+        
+        truncheonsR.addItem(fashionKey);
+        truncheonsR.addItem(truncheon);
+        truncheonsR.addItem(crossbow);
+        truncheonsR.addItem(yataghan);
+        truncheonsR.addItem(ork);
+        truncheonsR.addItem(darkelf);
+        truncheonsR.addItem(hecatonchires);
+        
+        witchNest.addItem(goldenKey);
+        witchNest.addItem(blade);
+        witchNest.addItem(hammer);
+        witchNest.addItem(kalchas);
+        witchNest.addItem(circe);
+        witchNest.addItem(cassandra);
+ 
+        monsterLair.addItem(silverKey);
+        monsterLair.addItem(scissors);
+        monsterLair.addItem(razors);
+        monsterLair.addItem(griffin);
+        monsterLair.addItem(dragon);
+        monsterLair.addItem(centaur);
+        
+        treasureR.addItem(bronzeKey);
+        treasureR.addItem(diamondSword);
+        treasureR.addItem(scepter);
+        treasureR.addItem(elf);
+        treasureR.addItem(dwarf);
+        treasureR.addItem(angel);
+        
+        dungeonR.addItem(diamondKey);
+        dungeonR.addItem(doubleax);
+        dungeonR.addItem(bludgeon);
+        dungeonR.addItem(drizzt);
+        dungeonR.addItem(zaknafein);
+        dungeonR.addItem(mielikki);
+        
+        
+        
     //initialize CurentState    
         State curentState=new State(startupR, player);
         curentState.showCurentState();
