@@ -13,6 +13,7 @@ import model.State;
  */
 public class Look implements ICommand {
     private String name;
+    private String result="";
 
     public Look() {
         this.name="LOOK";
@@ -30,8 +31,9 @@ public class Look implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
        curentState.showCurentState();
+       return result;
     }
     
 }

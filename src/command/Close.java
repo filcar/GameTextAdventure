@@ -14,6 +14,7 @@ import model.State;
  */
 public class Close implements ICommand {
     private String name;
+    private String result="";
 
     public Close() {
         this.name="CLOSE";
@@ -31,18 +32,17 @@ public class Close implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
-            System.out.println(gate.getDoorState().close(gate));
+            result=(gate.getDoorState().close(gate));
             
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't close something!!!");
-            System.out.println("\n\n\n");
+            result=("I can't close something!!!");
         }
+        return result;
     }  
     
 }

@@ -20,7 +20,7 @@ import command.Use;
 import controler.HandlerCommand;
 import java.util.Scanner;
 import controler.Parser;
-import model.Direction;
+import model.Direct2;
 import model.DoorStateClose;
 import model.DoorStateLock;
 import model.DoorStateOpen;
@@ -38,7 +38,7 @@ import model.LocationRoom;
 import model.Monster;
 import model.Player;
 import model.State;
-import model.Weapon;
+import model.WeaponGun;
 
 /**
  *
@@ -102,55 +102,55 @@ public class GameTextAdventure {
 //Items
         //startup room
         IItem key = new DoorKey("KEY");
-        IItem pistol = new Weapon("PISTOL");
+        IItem pistol = new WeaponGun("PISTOL");
         IItem monster = new Monster("MONSTER");
         
         //filters room
         IItem aluminiumKey = new DoorKey("ALUMINIUMKEY");
-        IItem toadstools = new Weapon("TOADSTOOLS");
-        IItem belladonna = new Weapon("BELLADONNA");
-        IItem mandrake = new Weapon("MANDRAKE");
+        IItem toadstools = new WeaponGun("TOADSTOOLS");
+        IItem belladonna = new WeaponGun("BELLADONNA");
+        IItem mandrake = new WeaponGun("MANDRAKE");
         IItem cobra = new Monster("COBRA");
         IItem viper = new Monster("VIPER");
         IItem coralsnake = new Monster("CORALSNAKE");
         
         //truncheons room
         IItem fashionKey = new DoorKey("FASHIONKEY");
-        IItem truncheon = new Weapon("TRUNCHEON");
-        IItem crossbow = new Weapon("CROSSBOW");
-        IItem yataghan = new Weapon("YATAGHAN");
+        IItem truncheon = new WeaponGun("TRUNCHEON");
+        IItem crossbow = new WeaponGun("CROSSBOW");
+        IItem yataghan = new WeaponGun("YATAGHAN");
         IItem ork = new Monster("ORK");
         IItem darkelf = new Monster("DARKELF");
         IItem hecatonchires = new Monster("HECATONCHIRES");
         
         //witch nest
         IItem goldenKey = new DoorKey("GOLDENKEY");
-        IItem blade = new Weapon("BLADE");
-        IItem hammer = new Weapon("HAMMER");
+        IItem blade = new WeaponGun("BLADE");
+        IItem hammer = new WeaponGun("HAMMER");
         IItem kalchas = new Monster("KALCHAS");
         IItem circe = new Monster("CIRCE");
         IItem cassandra = new Monster("CASSANDRA");
         
         //monster lair
         IItem silverKey = new DoorKey("SILVERKEY");
-        IItem scissors = new Weapon("SCISSORS");
-        IItem razors = new Weapon("RAZORS");
+        IItem scissors = new WeaponGun("SCISSORS");
+        IItem razors = new WeaponGun("RAZORS");
         IItem griffin = new Monster("GRIFFIN");
         IItem dragon = new Monster("DRAGON");
         IItem centaur = new Monster("CENTAUR");
         
         //treasure room
         IItem bronzeKey = new DoorKey("BRONZEKEY");
-        IItem diamondSword = new Weapon("DIAMONDSWORD");
-        IItem scepter = new Weapon("SCEPTER");
+        IItem diamondSword = new WeaponGun("DIAMONDSWORD");
+        IItem scepter = new WeaponGun("SCEPTER");
         IItem elf = new Monster("ELF");
         IItem dwarf = new Monster("DWARF");
         IItem angel = new Monster("ANGEL");
         
         //dungeon room
         IItem diamondKey = new DoorKey("DIAMONDKEY");
-        IItem doubleax = new Weapon("DOUBLEAX");
-        IItem bludgeon = new Weapon("BLUDGEON");
+        IItem doubleax = new WeaponGun("DOUBLEAX");
+        IItem bludgeon = new WeaponGun("BLUDGEON");
         IItem drizzt = new Monster("DRIZZTDOURDEN");
         IItem zaknafein = new Monster("ZAKNAFEIN");
         IItem mielikki = new Monster("MIELIKKI");
@@ -168,52 +168,52 @@ public class GameTextAdventure {
         
     
         IGate GateLoc1 = new Gate("blue",startupR,filtersR);
-        startupR.registerGate(Direction.Direct.WEST,GateLoc1);
-        filtersR.registerGate(Direction.Direct.EAST,GateLoc1);
+        startupR.registerGate(Direct2.WEST,GateLoc1);
+        filtersR.registerGate(Direct2.EAST,GateLoc1);
         
         IGate GateLoc2 = new Gate("red",startupR,truncheonsR);
-        startupR.registerGate(Direction.Direct.NORTH,GateLoc2);
-        truncheonsR.registerGate(Direction.Direct.SOUTH,GateLoc2);
+        startupR.registerGate(Direct2.NORTH,GateLoc2);
+        truncheonsR.registerGate(Direct2.SOUTH,GateLoc2);
         
         IGate GateLoc3 = new Gate("green",filtersR,witchNest);
-        filtersR.registerGate(Direction.Direct.UP,GateLoc3);
-        witchNest.registerGate(Direction.Direct.SOUTHWEST,GateLoc3);
+        filtersR.registerGate(Direct2.UP,GateLoc3);
+        witchNest.registerGate(Direct2.SOUTHWEST,GateLoc3);
         
         IGate GateLoc4 = new Gate("yellow",truncheonsR,monsterLair);
-        truncheonsR.registerGate(Direction.Direct.UP,GateLoc4);
-        monsterLair.registerGate(Direction.Direct.DOWN,GateLoc4);
+        truncheonsR.registerGate(Direct2.UP,GateLoc4);
+        monsterLair.registerGate(Direct2.DOWN,GateLoc4);
         
         IGate GateLoc5 = new Gate("orange",witchNest,treasureR);
-        witchNest.registerGate(Direction.Direct.NORTHEAST,GateLoc5);
-        treasureR.registerGate(Direction.Direct.SOUTHWEST,GateLoc5);
+        witchNest.registerGate(Direct2.NORTHEAST,GateLoc5);
+        treasureR.registerGate(Direct2.SOUTHWEST,GateLoc5);
         
         IGate GateLoc6 = new Gate("purple",monsterLair,treasureR);
-        monsterLair.registerGate(Direction.Direct.NORTHWEST,GateLoc6);
-        treasureR.registerGate(Direction.Direct.SOUTHEAST,GateLoc6);
+        monsterLair.registerGate(Direct2.NORTHWEST,GateLoc6);
+        treasureR.registerGate(Direct2.SOUTHEAST,GateLoc6);
         
         IGate GateLoc7 = new Gate("magenta",treasureR,filtersR);
-        treasureR.registerGate(Direction.Direct.WEST,GateLoc7);
-        filtersR.registerGate(Direction.Direct.WEST,GateLoc7);
+        treasureR.registerGate(Direct2.WEST,GateLoc7);
+        filtersR.registerGate(Direct2.WEST,GateLoc7);
         
         IGate GateLoc8 = new Gate("white",treasureR,truncheonsR);
-        treasureR.registerGate(Direction.Direct.EAST,GateLoc8);
-        truncheonsR.registerGate(Direction.Direct.NORTH,GateLoc8);
+        treasureR.registerGate(Direct2.EAST,GateLoc8);
+        truncheonsR.registerGate(Direct2.NORTH,GateLoc8);
         
         IGate GateLoc9 = new Gate("black",witchNest,dungeonR);
-        witchNest.registerGate(Direction.Direct.WEST,GateLoc9);
-        dungeonR.registerGate(Direction.Direct.NORTHWEST,GateLoc9);
+        witchNest.registerGate(Direct2.WEST,GateLoc9);
+        dungeonR.registerGate(Direct2.NORTHWEST,GateLoc9);
         
         IGate GateLoc10 = new Gate("turquoise",monsterLair,dungeonR);
-        monsterLair.registerGate(Direction.Direct.NORTHEAST,GateLoc10);
-        dungeonR.registerGate(Direction.Direct.EAST,GateLoc10);
+        monsterLair.registerGate(Direct2.NORTHEAST,GateLoc10);
+        dungeonR.registerGate(Direct2.EAST,GateLoc10);
         
         IGate GateLoc11 = new Gate("light blue",filtersR,dungeonR);
-        filtersR.registerGate(Direction.Direct.SOUTH,GateLoc11);
-        dungeonR.registerGate(Direction.Direct.UP,GateLoc11);
+        filtersR.registerGate(Direct2.SOUTH,GateLoc11);
+        dungeonR.registerGate(Direct2.UP,GateLoc11);
         
         IGate GateLoc12 = new Gate("light green",truncheonsR,dungeonR);
-        truncheonsR.registerGate(Direction.Direct.SOUTHEAST,GateLoc12);
-        dungeonR.registerGate(Direction.Direct.NORTH,GateLoc12);
+        truncheonsR.registerGate(Direct2.SOUTHEAST,GateLoc12);
+        dungeonR.registerGate(Direct2.NORTH,GateLoc12);
        
 
 //Add Items to room

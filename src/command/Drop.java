@@ -14,6 +14,7 @@ import model.State;
  */
 public class Drop implements ICommand {
     private String name;
+    private String result="";
 
     public Drop() {
         this.name="DROP";
@@ -32,20 +33,19 @@ public class Drop implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getPlayer().getMapItem().containsKey(word2)){
             IItem item =curentState.getPlayer().getMapItem().get(word2);
             curentState.getPlayer().removeItem(item);
             curentState.getLocation().addItem(item);
-            System.out.println("\nDropped.\n");
+            result=("\nDropped.\n");
            // curentState.showCurentState();
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't drop this!!!");
-            System.out.println("\n\n\n");
+            result=("I can't drop this!!!");
         }
+        return result;
     }  
     
 }

@@ -18,7 +18,8 @@ import model.State;
  */
 public class Open implements ICommand {
     private String name;
-
+    private String result="";
+    
     public Open() {
         this.name="OPEN";
     }
@@ -35,21 +36,20 @@ public class Open implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
-            System.out.println(gate.getDoorState().open(gate));
+            result=(gate.getDoorState().open(gate));
 //            IDoorState doorState=gate.getDoorState().open(gate);
 //            gate.setDoorState(doorState);
             
 
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("What do you want to open?");
-            System.out.println("\n\n\n");
+            result=("What do you want to open?");
         }
+        return result;
     }  
     
 }

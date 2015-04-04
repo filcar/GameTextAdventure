@@ -21,15 +21,16 @@ public class HandlerCommand {
         }
         
 public void handle(String word1, String word2, State curentState){
+    String result="";
     if (mapCommand.containsKey(word1)){
-    mapCommand.get(word1).action(curentState,word2);
+     result=mapCommand.get(word1).action(curentState,word2);
     
     }
     else {
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        System.out.println("Command not found!!\n\n\n\n");
+        result =("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        result =result+("Command not found!!\n\n\n\n");
     }
-    
+    System.out.println(result);
     }
     
     

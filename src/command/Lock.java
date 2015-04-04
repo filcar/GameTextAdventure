@@ -15,6 +15,7 @@ import model.State;
  */
 public class Lock implements ICommand {
     private String name;
+    private String result="";
 
     public Lock() {
         this.name="LOCK";
@@ -32,22 +33,22 @@ public class Lock implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
             if (curentState.getPlayer().getCurrentItem() instanceof IItemKey){
                 IItemKey key = (IItemKey)(curentState.getPlayer().getCurrentItem());
                 ///
-                System.out.println(gate.getDoorState().lock(gate,key));
+                result=(gate.getDoorState().lock(gate,key));
             }
-            else    System.out.println("You must have and use a key to lock " +gate.getName()+" door");
+            else    
+                result=("You must have and use a key to lock " +gate.getName()+" door");
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't Lock something!!!");
-            System.out.println("\n\n\n");
+            result=("I can't Lock something!!!");
         }
+        return result;
     }  
     
 }
