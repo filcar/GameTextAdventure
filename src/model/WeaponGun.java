@@ -11,11 +11,12 @@ import typeOfItem.IShootable;
  *
  * @author fil
  */
-public class Weapon implements IWeapon {
+public class WeaponGun implements IWeapon {
     private String name;
-    private int damage=50;
+    private int bullet=2;
+    private int damage=90;
 
-    public Weapon(String name) {
+    public WeaponGun(String name) {
         this.name = name;
     }
    
@@ -42,8 +43,17 @@ public class Weapon implements IWeapon {
     
     @Override
     public Integer shoot(IShootable obj){
-        System.out.println("I shooted!!");
-        return (obj.shooting(damage));
+     //   System.out.println("I shooted!!");
+        int temp;
+        if(bullet<1){
+            temp =-1;
+        }
+        else{
+            temp=obj.shooting(damage);
+            if(temp<0) temp=0;
+            bullet=bullet-1;
+        }
+        return temp;
             
     }
 

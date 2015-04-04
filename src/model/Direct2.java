@@ -9,7 +9,6 @@ package model;
  *
  * @author fil
  */
-public class Direction {
- public enum Direct {WEST, EAST, NORTH, SOUTH, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST, UP, DOWN};
-    
+public enum Direct2 {
+    WEST, EAST, NORTH, SOUTH, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST, UP, DOWN
 }

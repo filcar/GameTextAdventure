@@ -26,7 +26,7 @@ public class LocationRoom implements ILocation {
     }
     
     @Override
-    public void registerGate (Direction.Direct direction,IGate gate){
+    public void registerGate (Direct2 direction,IGate gate){
             mapGate.put(direction.toString(), gate);
            
         }

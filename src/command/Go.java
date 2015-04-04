@@ -18,6 +18,7 @@ import model.State;
  */
 public class Go implements ICommand {
     private String name;
+    private String result="";
 
     public Go() {
         this.name="GO";
@@ -35,29 +36,27 @@ public class Go implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             ILocation curentLocation=curentState.getLocation();
             IGate gate=curentState.getLocation().getMapGate().get(word2);
             ILocation location =curentState.getLocation().getMapGate().
                     get(word2).getLeadToLocation(curentLocation);
-            //   ILocation nextLocation=gate.getLeadToLocation(curentLocation);
             String state = curentState.getLocation().getMapGate().get(word2).getDoorState().getState();
 
             if (state.equals("opened")){
                 curentState.setLocation(location);
-             //   System.out.println(curentState.getLocation().toString());
                 curentState.showCurentState(); 
             }
             else {
-                System.out.println("the Door is "+state);
+                result=("the Door is "+state);
             }
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't go there, this is no way out!!!");
-            System.out.println("\n\n\n");
+            result=("I can't go there, this is no way out!!!");
+
         }
+        return result;
     }  
     
 }

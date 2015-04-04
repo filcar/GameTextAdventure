@@ -14,6 +14,6 @@ import model.State;
 public interface ICommand {
 
     public String getName();
-    public void action(State curentState,String word2);
+    public String action(State curentState,String word2);
     
 }
