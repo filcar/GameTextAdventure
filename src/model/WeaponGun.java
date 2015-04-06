@@ -5,16 +5,17 @@
  */
 package model;
 
+import typeOfItem.ICanShoot;
 import typeOfItem.IShootable;
 
 /**
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon {
+public class WeaponGun implements IWeapon, ICanShoot {
     private String name;
-    private int bullet=2;
-    private int damage=90;
+    private int bullet=5;
+    private int damage=50;
 
     public WeaponGun(String name) {
         this.name = name;
@@ -44,13 +45,12 @@ public class WeaponGun implements IWeapon {
     @Override
     public Integer shoot(IShootable obj){
      //   System.out.println("I shooted!!");
-        int temp;
+        int temp=1;
         if(bullet<1){
             temp =-1;
         }
         else{
-            temp=obj.shooting(damage);
-            if(temp<0) temp=0;
+            if(obj.shooting(damage)<0) temp=0;
             bullet=bullet-1;
         }
         return temp;

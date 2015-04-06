@@ -17,7 +17,7 @@ import model.WeaponGun;
  */
 public class Shoot implements ICommand {
     private String name;
-    private String result="";
+
 
     public Shoot() {
         this.name="SHOOT";
@@ -37,14 +37,16 @@ public class Shoot implements ICommand {
     
     @Override
     public String action (State curentState,String word2){
+         String result="";
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
             if(item instanceof IShootable){
                 if (curentState.getPlayer().getCurrentItem() instanceof WeaponGun){
                     WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
-                    Integer a =weapon.shoot((IShootable) item);
+                    int a=weapon.shoot((IShootable) item);
                     if(a==0) curentState.getLocation().removeItem(item);
+                    if(a==1) result="...";
                     if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }
                 else    result=("You must have and use a weapon to shoot " +item.getName());

@@ -21,6 +21,5 @@ public interface IWeapon extends IItem{
 
     void setName(String name);
 
-    Integer shoot(IShootable obj);
     
 }

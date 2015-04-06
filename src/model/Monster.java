@@ -7,6 +7,7 @@ package model;
 
 import typeOfItem.IShootable;
 import java.util.HashMap;
+import java.util.Random;
 import typeOfItem.INonTakeable;
 
 /**
@@ -14,8 +15,10 @@ import typeOfItem.INonTakeable;
  * @author fil
  */
 public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
-    private String name;
-    private int health=100;
+    private String name;    
+    Random rand = new Random();
+    private int health=(rand.nextInt(50))+70;
+
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
     
     public Monster() {
