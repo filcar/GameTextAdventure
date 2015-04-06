@@ -20,10 +20,10 @@ import command.Use;
 import controler.HandlerCommand;
 import java.util.Scanner;
 import controler.Parser;
+import controler.TokenType;
 import model.Direct2;
 import model.DoorStateClose;
 import model.DoorStateLock;
-import model.DoorStateOpen;
 //import model.DoorStateUnlock;
 import model.Gate;
 import model.IDoorState;
@@ -32,8 +32,6 @@ import model.IItem;
 import model.ILocation;
 import model.IPlayer;
 import model.DoorKey;
-import model.IItemKey;
-import typeOfItem.IShootable;
 import model.LocationRoom;
 import model.Monster;
 import model.Player;
@@ -52,6 +50,7 @@ public class GameTextAdventure {
  public static void main(String[] args) {
     //initialization 
         boolean running = true;
+        TokenType tokenType=new TokenType();
         IPlayer player = new Player("fil");
         ICommand go = new Go();
         ICommand take = new Take();

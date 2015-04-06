@@ -5,6 +5,7 @@
  */
 package command;
 
+import controler.TokenType;
 import java.util.Scanner;
 import model.DoorStateOpen;
 import model.IDoorState;

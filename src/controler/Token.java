@@ -10,16 +10,18 @@ package controler;
  * @author fil
  */
 public class Token {
-            public TokenType type;
+    //    public TokenType type;
+     public String type;
         public String data;
 
-        public Token(TokenType type, String data) {
+//        public Token(TokenType type, String data) {
+         public Token(String type, String data) {
             this.type = type;
             this.data = data;
         }
 
         @Override
         public String toString() {
-            return String.format("(%s %s)", type.name(), data);
+            return String.format("(%s %s)",type, data); //type.name(), data);
         }
 }

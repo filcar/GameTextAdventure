@@ -5,6 +5,7 @@
  */
 package command;
 
+import controler.TokenType;
 import model.IItem;
 import typeOfItem.IShootable;
 import model.State;
