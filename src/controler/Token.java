@@ -15,10 +15,14 @@ public class Token {
         public String data;
 
 //        public Token(TokenType type, String data) {
-         public Token(String type, String data) {
-            this.type = type;
+         public Token(TokType type, String data) {
+            this.type = type.name();
             this.data = data;
         }
+
+    public String getType() {
+        return type;
+    }
 
         @Override
         public String toString() {

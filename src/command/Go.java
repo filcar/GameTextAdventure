@@ -18,7 +18,6 @@ import model.State;
  */
 public class Go implements ICommand {
     private String name;
-    private String result="";
 
     public Go() {
         this.name="GO";
@@ -37,6 +36,7 @@ public class Go implements ICommand {
     
     @Override
     public String action (State curentState,String word2){
+        String result="";
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             ILocation curentLocation=curentState.getLocation();
             IGate gate=curentState.getLocation().getMapGate().get(word2);

@@ -27,19 +27,18 @@ public class Lexer {
 //        for (TokenType tokenType : TokenType.values())
 //            tokenPatternsBuffer.append(String.format("|(?<%s>%s)", tokenType.name(), tokenType.pattern));
 //------------------
-    TokenType tokenType=new TokenType();
+    TokenType2 tokenType=new TokenType2();
     HashMap map = tokenType.getTokenTypes();
-    Iterator<String> keySetIterator = map.keySet().iterator();
+    Iterator<TokType> keySetIterator = map.keySet().iterator();
 
     while(keySetIterator.hasNext()){
-    String key = keySetIterator.next();
+    TokType key = keySetIterator.next();
       //  System.out.println("key: " + key + " value: " + map.get(key));
-
         tokenPatternsBuffer.append(String.format("|(?<%s>%s)", key, map.get(key)));}
 //------------------
         Pattern tokenPatterns = Pattern.compile(new String(tokenPatternsBuffer.substring(1)));
         // Begin matching tokens
-        Matcher matcher = tokenPatterns.matcher(input);
+        Matcher matcher = tokenPatterns.matcher(input.toUpperCase());
 
 //while (matcher.find()) {
 //for(TokenType tokenType : TokenType.values()) {
@@ -47,13 +46,14 @@ public class Lexer {
 //tokens.add(new Token(tokenType, matcher.group(tokenType.name())));
 //break;
 //------------------
-        Iterator<String> keySetIterator1 = map.keySet().iterator();
+        
 while (matcher.find()) {
-    while(keySetIterator1.hasNext()){
-    String key = keySetIterator1.next(); 
-if (matcher.group(key) != null) {
-tokens.add(new Token(key, matcher.group(key)));
-break;
+    keySetIterator= map.keySet().iterator();
+        while(keySetIterator.hasNext()){
+        TokType key = keySetIterator.next(); 
+        if (matcher.group(key.name()) != null) {
+            tokens.add(new Token(key, matcher.group(key.name())));
+        break;
 //-----------------
 }
 }
