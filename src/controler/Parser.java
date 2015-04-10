@@ -22,7 +22,7 @@ public class Parser {
     
     public Parser(String input2) {
     //Παρεμβολή του lexer για τον νέο parser===============================
-        ArrayList<Token> tokens = lexer.lex(input2); 
+        ArrayList<Token> tokens = lexer.lex(" "+input2+" "); 
         Integer j=0;
         if(tokens.isEmpty()) 
             System.out.println("Command not found!!!");
@@ -41,7 +41,7 @@ public class Parser {
                     System.out.println("verb Item !!!");
                     j=1;}
                 if(tokens.get(1).type.equals(TokType.DIRECTION.name())){
-                if (tokens.get(0).data.matches("(OPEN|CLOSE|LOCK|UNLOCK)")){
+                if (tokens.get(0).data.matches("(GO|OPEN|CLOSE|LOCK|UNLOCK)")){
                     j=1;
                     System.out.println("verb gate !!!");
                 }

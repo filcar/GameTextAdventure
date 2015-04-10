@@ -26,10 +26,10 @@ public class TokenType2 {
     private List<String> preposition = new ArrayList<String>();
 
     public TokenType2() {
-       String verb ="(GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE)";
-       String item="MONSTER|PISTOL";  
-       String direction="WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN";
-       String prepos ="WITH|FOR|INTO|IN|BY";
+       String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
+       String item="(MONSTER|PISTOL) ";  
+       String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
+       String prepos ="(WITH|FOR|INTO|IN|BY) ";
        tokenTypes.put(TokType.VERB, verb);
        tokenTypes.put(TokType.ITEM, item);    
        tokenTypes.put(TokType.DIRECTION, direction);  
