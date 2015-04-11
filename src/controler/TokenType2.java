@@ -27,7 +27,7 @@ public class TokenType2 {
 
     public TokenType2() {
        String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
-       String item="(MONSTER|PISTOL) ";  
+       String item="(MONSTER|PISTOL|KEY) ";  
        String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
        String prepos ="(WITH|FOR|INTO|IN|BY) ";
        tokenTypes.put(TokType.VERB, verb);
@@ -43,12 +43,12 @@ public class TokenType2 {
 	while (iterator.hasNext()) {
             verb=verb+"|"+(iterator.next());
 	}
-        verb="("+verb+")";
+        verb=" ("+verb+") ";
         iterator = items.iterator();
 	while (iterator.hasNext()) {
             item=item+"|"+(iterator.next());
 	}
-        item="("+item+")";
+        item="("+item+") ";
         tokenTypes.put(TokType.VERB, verb);
         tokenTypes.put(TokType.ITEM, item);
     }

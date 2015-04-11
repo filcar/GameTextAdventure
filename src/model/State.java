@@ -57,13 +57,22 @@ public class State {
             }
         }
         //-----------
-        result1=result1+"\n"+("At the "+ direction +" there is a "+ doorState+" door that leads to "+leads+".");
+        result1=result1+"\n"+("At the "+ direction +" there is a "+doorState+" "+door.getName()+" door that leads to "+leads+".");
+        
     } 
-
+    result1=result1+("\nExisting items in the room:"+location.getMapItem().keySet());
+    result1=result1+("\n=========ABOUT YOU==========");
+    if(player.getMapItem().isEmpty())
+        result1=result1+("\nYou haven't taken any item!!!");
+    else
+        result1=result1+("\nYou have taken these items:"+ player.getMapItem().keySet().toString());
+    if (player.getCurrentItem()==null){}
+    else 
+        result1=result1+("\nYou have a "+player.getCurrentItem().getName().toLowerCase()+" in your hands");
     System.out.println(result1);
-    System.out.println("Existing items in the room:"+location.getMapItem().keySet());
+    
 //    System.out.println("There are exit to go:"+location.getMapGate().keySet());
-    System.out.println("You have items:"+ player.getMapItem().keySet());
+    
     System.out.println("\n\n\n");
 }
 }

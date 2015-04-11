@@ -24,13 +24,11 @@ public class Lexer {
 
     // Lexer2 logic begins here
         StringBuffer tokenPatternsBuffer = new StringBuffer();
-//        for (TokenType tokenType : TokenType.values())
-//            tokenPatternsBuffer.append(String.format("|(?<%s>%s)", tokenType.name(), tokenType.pattern));
+
 //------------------
     TokenType2 tokenType=new TokenType2();
     HashMap map = tokenType.getTokenTypes();
     Iterator<TokType> keySetIterator = map.keySet().iterator();
-
     while(keySetIterator.hasNext()){
     TokType key = keySetIterator.next();
       //  System.out.println("key: " + key + " value: " + map.get(key));

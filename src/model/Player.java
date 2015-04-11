@@ -15,7 +15,7 @@ public class Player implements IPlayer {
     private String name;
     private int health=100;
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
-    private IItem currentItem;
+    private IItem currentItem=null;
     public Player() {
     }
 
@@ -31,6 +31,7 @@ public class Player implements IPlayer {
     @Override
     public void setCurrentItem(IItem currentItem) {
         this.currentItem = currentItem;
+        
     }
 
      

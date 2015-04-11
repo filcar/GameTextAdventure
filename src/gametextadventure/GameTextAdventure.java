@@ -273,7 +273,8 @@ public class GameTextAdventure {
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(input);
+        Parser parser= new Parser(hc,input);
+        System.out.println("---------"+parser.parsing());
         String word1 = parser.getCommand().toUpperCase();
         String word2 = parser.getObject().toUpperCase();
         hc.handle(word1, word2,curentState);
