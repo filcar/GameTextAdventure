@@ -18,6 +18,7 @@ import command.Take;
 import command.UnLock;
 import command.Use;
 import controler.HandlerCommand;
+import controler.Lexer;
 import java.util.Scanner;
 import controler.Parser;
 import controler.TokenType;
@@ -51,6 +52,7 @@ public class GameTextAdventure {
     //initialization 
         boolean running = true;
         TokenType tokenType=new TokenType();
+        Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
         ICommand go = new Go();
         ICommand take = new Take();
@@ -273,12 +275,14 @@ public class GameTextAdventure {
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(hc,input);
+        Parser parser= new Parser(hc,lexer.lex(" "+input+" "),curentState);
         System.out.println("---------"+parser.parsing());
-        String word1 = parser.getCommand().toUpperCase();
-        String word2 = parser.getObject().toUpperCase();
-        hc.handle(word1, word2,curentState);
-        
+//        if (!parser.parsing().equals("Syntax error!!!")){
+//            String word1 = parser.getCommand().toUpperCase();
+//            String word2 = parser.getObject().toUpperCase();
+//            hc.handle(word1, word2,curentState);
+//        }
+ //       else System.out.println("Syntax error!!!");
     }        
         
     }

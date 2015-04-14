@@ -35,5 +35,10 @@ public class Look implements ICommand {
        curentState.showCurentState();
        return result;
     }
+    @Override
+    public String action1 (State curentState){
+       curentState.showCurentState();
+       return result;
+    }
     
 }

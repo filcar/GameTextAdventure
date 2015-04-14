@@ -42,5 +42,10 @@ public class Exit implements ICommand {
     return "";     
     }
 
-    
+    @Override
+    public String action1 (State curentState){
+     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+     System.exit(0);
+    return "";   
+    } 
 }

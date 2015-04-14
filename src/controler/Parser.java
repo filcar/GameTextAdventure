@@ -8,6 +8,7 @@ package controler;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import model.State;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Parser {
     private  String[] ingnoreWord = {" to ", " the "," for "," with "};
     private  String command;
     private String obj;  
+    private State currentState; 
     private Lexer lexer=new Lexer();
     private ArrayList<Token> tokens=new ArrayList<>();
     private HandlerCommand hc;    
@@ -27,10 +29,11 @@ public class Parser {
     private HashMap<String,Integer> syntaxs = new HashMap<String,Integer>();
     private String result;
     
-    public Parser(HandlerCommand hc, String input2) {
+    public Parser(HandlerCommand hc,ArrayList<Token> tokens, State currentState) {
     //Παρεμβολή του lexer για τον νέο parser===============================
         this.hc=hc;
-        tokens = lexer.lex(" "+input2+" "); 
+        this.currentState=currentState;
+        this.tokens = tokens;//lexer.lex(" "+input2+" "); 
         syntaxs.put("<VERB>",1);
         syntaxs.put("<VERB><ITEM>",2);
         syntaxs.put("<VERB><DIRECTION>",2);
@@ -86,20 +89,20 @@ public class Parser {
         
         //-=====================================================
         //αγνοησε τις λέξεις του πίνακα ingnoreWord
-        for (int i=0;i<ingnoreWord.length;i++)
-           input2=input2.replaceAll(ingnoreWord[i], "");
-        //αφαίρεσε τα διπλα κενά
-        while(input2.contains("  "))
-           input2= input2.replaceAll("  "," ");        
-        //αφαίρεσε τα κενά της αρχής
-        while(input2.startsWith(" "))
-           input2= input2.replaceFirst(" ","");
-                
-        this.input = input2;
-        words=input.split(" ",3);
-        command=words[0].trim();
-        if(words.length<2) obj="NONE";
-        else obj=words[1].trim();    
+////        for (int i=0;i<ingnoreWord.length;i++)
+////           input2=input2.replaceAll(ingnoreWord[i], "");
+////        //αφαίρεσε τα διπλα κενά
+////        while(input2.contains("  "))
+////           input2= input2.replaceAll("  "," ");        
+////        //αφαίρεσε τα κενά της αρχής
+////        while(input2.startsWith(" "))
+////           input2= input2.replaceFirst(" ","");
+////                
+////        this.input = input2;
+////        words=input.split(" ",3);
+////        command=words[0].trim();
+////        if(words.length<2) obj="NONE";
+////        else obj=words[1].trim();    
 
     }
     
@@ -109,9 +112,16 @@ public class Parser {
         else {
                 switch (syntaxs.get(syntax)){
                 case 1:        
+                    command=tokens.get(0).data.toString();
+                    hc.handle1(command, currentState);
                     result="case 1" ;
+                    
+
                 break;
-                case 2:        
+                case 2:      
+                    command=tokens.get(0).data.toString();
+                    obj=tokens.get(1).data.toString();;
+                    hc.handle(command,obj,currentState);
                     result="case 2" ;
                 break;
                 case 4:        

@@ -32,6 +32,18 @@ public void handle(String word1, String word2, State curentState){
     }
     System.out.println(result);
     }
+public void handle1(String word1, State curentState){
+    String result="";
+    String word2="";
+    if (mapCommand.containsKey(word1)){
+     result=mapCommand.get(word1).action1(curentState);
     
+    }
+    else {
+        result =("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        result =result+("Command not found!!\n\n\n\n");
+    }
+    System.out.println(result);
+    }    
     
 }

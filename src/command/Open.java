@@ -52,5 +52,10 @@ public class Open implements ICommand {
         }
         return result;
     }  
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
     
 }

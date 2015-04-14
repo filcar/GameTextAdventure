@@ -51,4 +51,9 @@ public class Lock implements ICommand {
         return result;
     }  
     
+    @Override
+    public String action1 (State curentState){
+        result=("Do you wont lock something. What???");
+    return result;
+    }
 }
