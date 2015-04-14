@@ -23,6 +23,8 @@ public class TokenType2 {
     private HashMap<TokType, String> tokenTypes = new HashMap<>();
     private List<String> verbs = new ArrayList<String>();
     private List<String> items = new ArrayList<String>();
+    private List<String> gate = new ArrayList<String>();
+    private List<String> directions= new ArrayList<String>();
     private List<String> preposition = new ArrayList<String>();
 
     public TokenType2() {
