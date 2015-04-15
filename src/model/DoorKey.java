@@ -5,6 +5,7 @@
  */
 package model;
 
+import static controler.Lexer.tokenType;
 import typeOfItem.IShootable;
 
 /**
@@ -21,10 +22,12 @@ public class DoorKey implements IItemKey,IShootable {
     @Override
     public String getName() {
         return name;
+        
     }
 
     public DoorKey(String name) {
         this.name = name;
+        tokenType.addList(this);
     }
 
     @Override

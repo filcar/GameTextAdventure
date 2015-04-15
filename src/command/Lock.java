@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.IItemKey;
 import model.State;
@@ -19,6 +20,7 @@ public class Lock implements ICommand {
 
     public Lock() {
         this.name="LOCK";
+        tokenType.addList(this);
     }
 
     @Override

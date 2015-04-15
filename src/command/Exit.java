@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.ILocation;
 import model.IPlayer;
@@ -21,6 +22,7 @@ public class Exit implements ICommand {
 
     public Exit() {
         this.name="EXIT";
+        tokenType.addList(this);
     }
 
     @Override

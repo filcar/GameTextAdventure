@@ -22,6 +22,7 @@ import controler.Lexer;
 import java.util.Scanner;
 import controler.Parser;
 import controler.TokenType;
+import controler.TokenType2;
 import model.Direct2;
 import model.DoorStateClose;
 import model.DoorStateLock;
@@ -48,10 +49,10 @@ public class GameTextAdventure {
     /**
      * @param args the command line arguments
      */
+    //public static TokenType2 tokenType=new TokenType2();
  public static void main(String[] args) {
     //initialization 
         boolean running = true;
-        TokenType tokenType=new TokenType();
         Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
         ICommand go = new Go();
@@ -276,7 +277,7 @@ public class GameTextAdventure {
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         Parser parser= new Parser(hc,lexer.lex(" "+input+" "),curentState);
-        System.out.println("---------"+parser.parsing());
+        parser.parsing();
 //        if (!parser.parsing().equals("Syntax error!!!")){
 //            String word1 = parser.getCommand().toUpperCase();
 //            String word2 = parser.getObject().toUpperCase();

@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import controler.TokenType;
 import java.util.Scanner;
 import model.DoorStateOpen;
@@ -23,6 +24,7 @@ public class Open implements ICommand {
     
     public Open() {
         this.name="OPEN";
+        tokenType.addList(this);
     }
 
     @Override

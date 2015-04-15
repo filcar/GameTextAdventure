@@ -28,7 +28,8 @@ public class TokenType2 {
     private List<String> preposition = new ArrayList<String>();
 
     public TokenType2() {
-       String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
+     //  String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
+        String verb =" (OPEN) ";
        String item="(MONSTER|PISTOL|KEY) ";  
        String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
        String prepos ="(WITH|FOR|INTO|IN|BY) ";
@@ -58,10 +59,11 @@ public class TokenType2 {
     public void addList(Object obj){
         if (obj instanceof ICommand)
             verbs.add(((ICommand)obj).getName());
-        if (obj instanceof IPlayer)
-            items.add(((ICommand)obj).getName());
+//        if (obj instanceof IPlayer)
+//            items.add(((IPlayer)obj).getName());
         if (obj instanceof IItem)
             items.add(((IItem)obj).getName());
+        addHashmap();
         System.out.println(tokenTypes);
     }
     

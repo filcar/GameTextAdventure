@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import controler.TokenType;
 import model.IItem;
 import typeOfItem.IShootable;
@@ -21,6 +22,7 @@ public class Shoot implements ICommand {
 
     public Shoot() {
         this.name="SHOOT";
+        tokenType.addList(this);
     }
 
 

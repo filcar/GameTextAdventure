@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.IItemKey;
 import model.State;
@@ -19,6 +20,7 @@ public class UnLock implements ICommand {
 
     public UnLock() {
         this.name="UNLOCK";
+        tokenType.addList(this);
     }
 
     @Override

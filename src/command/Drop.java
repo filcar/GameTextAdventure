@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IItem;
 import model.State;
 
@@ -18,6 +19,7 @@ public class Drop implements ICommand {
 
     public Drop() {
         this.name="DROP";
+        tokenType.addList(this);
     }
 
 

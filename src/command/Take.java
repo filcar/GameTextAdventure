@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IItem;
 import model.State;
 import typeOfItem.INonTakeable;
@@ -19,6 +20,7 @@ public class Take implements ICommand {
 
     public Take() {
         this.name="TAKE";
+        tokenType.addList(this);
     }
 
 

@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.State;
 
 /**
@@ -17,6 +18,7 @@ public class Look implements ICommand {
 
     public Look() {
         this.name="LOOK";
+        tokenType.addList(this);
     }
 
     @Override

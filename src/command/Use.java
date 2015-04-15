@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IItem;
 import model.State;
 
@@ -18,6 +19,7 @@ public class Use implements ICommand {
 
     public Use() {
         this.name="USE";
+        tokenType.addList(this);
     }
 
 

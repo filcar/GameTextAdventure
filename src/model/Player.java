@@ -5,6 +5,7 @@
  */
 package model;
 
+import static controler.Lexer.tokenType;
 import java.util.HashMap;
 
 /**

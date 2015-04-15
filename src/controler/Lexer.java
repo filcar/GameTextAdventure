@@ -17,6 +17,8 @@ import java.util.regex.Pattern;
  * @author fil
  */
 public class Lexer {
+ 
+    public static TokenType2 tokenType=new TokenType2();
     
     public  ArrayList<Token> lex(String input) {
     // The tokens to return
@@ -26,7 +28,7 @@ public class Lexer {
         StringBuffer tokenPatternsBuffer = new StringBuffer();
 
 //------------------
-    TokenType2 tokenType=new TokenType2();
+  //  TokenType2 tokenType=new TokenType2();
     HashMap map = tokenType.getTokenTypes();
     Iterator<TokType> keySetIterator = map.keySet().iterator();
     while(keySetIterator.hasNext()){

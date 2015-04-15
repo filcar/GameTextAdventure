@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.State;
 
@@ -18,6 +19,7 @@ public class Close implements ICommand {
 
     public Close() {
         this.name="CLOSE";
+        tokenType.addList(this);
     }
 
     @Override

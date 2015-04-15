@@ -5,6 +5,7 @@
  */
 package model;
 
+import static controler.Lexer.tokenType;
 import typeOfItem.IShootable;
 import java.util.HashMap;
 import java.util.Random;
@@ -26,6 +27,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     
     public Monster(String name) {
         this.name = name;
+        tokenType.addList(this);
     }
     
     @Override

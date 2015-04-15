@@ -5,6 +5,7 @@
  */
 package model;
 
+import static controler.Lexer.tokenType;
 import typeOfItem.ICanShoot;
 import typeOfItem.IShootable;
 
@@ -19,6 +20,7 @@ public class WeaponGun implements IWeapon, ICanShoot {
 
     public WeaponGun(String name) {
         this.name = name;
+        tokenType.addList(this);
     }
    
     

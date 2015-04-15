@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import model.DoorStateOpen;
 import model.IDoorState;
@@ -21,6 +22,7 @@ public class Go implements ICommand {
 
     public Go() {
         this.name="GO";
+        tokenType.addList(this);
     }
 
     @Override
