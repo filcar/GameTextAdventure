@@ -20,7 +20,7 @@ import model.IPlayer;
  */
 public class TokenType2 {
 
-    private HashMap<TokType, String> tokenTypes = new HashMap<>();
+    private HashMap<TokType, String> tokenTypes = new HashMap<TokType, String>();
     private List<String> verbs = new ArrayList<String>();
     private List<String> items = new ArrayList<String>();
     private List<String> gate = new ArrayList<String>();
@@ -29,7 +29,7 @@ public class TokenType2 {
 
     public TokenType2() {
      //  String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
-        String verb =" (OPEN) ";
+       String verb =" (OPEN) ";
        String item="(MONSTER|PISTOL|KEY) ";  
        String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
        String prepos ="(WITH|FOR|INTO|IN|BY) ";
@@ -42,14 +42,17 @@ public class TokenType2 {
     public void addHashmap (){
        String verb="";
        String item="";
-        Iterator<String> iterator = verbs.iterator();
+        
+       Iterator<String> iterator = verbs.iterator();
 	while (iterator.hasNext()) {
             verb=verb+"|"+(iterator.next());
 	}
         verb=" ("+verb+") ";
-        iterator = items.iterator();
-	while (iterator.hasNext()) {
-            item=item+"|"+(iterator.next());
+       
+        Iterator<String> iterator1 = items.iterator();
+	item=(iterator1.next());
+        while (iterator1.hasNext()) {
+            item=item+"|"+(iterator1.next());
 	}
         item="("+item+") ";
         tokenTypes.put(TokType.VERB, verb);
@@ -63,13 +66,17 @@ public class TokenType2 {
 //            items.add(((IPlayer)obj).getName());
         if (obj instanceof IItem)
             items.add(((IItem)obj).getName());
-        addHashmap();
-        System.out.println(tokenTypes);
+
     }
     
     public HashMap<TokType, String> getTokenTypes() {
+      //  System.out.println(tokenTypes);
         return tokenTypes;
     }
+
+//    public void setItems(List<String> items) {
+//        this.items = items;
+//    }
 
     
 }

@@ -23,7 +23,7 @@ public class Parser {
     private String obj;  
     private State currentState; 
     private Lexer lexer=new Lexer();
-    private ArrayList<Token> tokens=new ArrayList<>();
+    private ArrayList<Token> tokens=new ArrayList<Token>();
     private HandlerCommand hc;    
     private String syntax;  
     private HashMap<String,Integer> syntaxs = new HashMap<String,Integer>();
@@ -40,7 +40,7 @@ public class Parser {
         syntaxs.put("<VERB><ITEM><PREPOSITION><ITEM>",4);
         syntax="";
         for(Token token : tokens){
-        syntax=syntax+"<"+token.type+">";
+        syntax=syntax+"<"+token.getType()+">";
         }
         
 ////        Integer j=0;

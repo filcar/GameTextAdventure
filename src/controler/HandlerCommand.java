@@ -32,6 +32,7 @@ public void handle(String word1, String word2, State curentState){
     }
     System.out.println(result);
     }
+
 public void handle1(String word1, State curentState){
     String result="";
     String word2="";

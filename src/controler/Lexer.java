@@ -53,11 +53,12 @@ while (matcher.find()) {
         TokType key = keySetIterator.next(); 
         if (matcher.group(key.name()) != null) {
             tokens.add(new Token(key, matcher.group(key.name()).trim()));
-        break;
+            break;
 //-----------------
+        }
+    }
 }
-}
-}
+
  return tokens;
     }
     

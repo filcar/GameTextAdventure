@@ -19,6 +19,7 @@ import command.UnLock;
 import command.Use;
 import controler.HandlerCommand;
 import controler.Lexer;
+import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import controler.Parser;
 import controler.TokenType;
@@ -272,12 +273,13 @@ public class GameTextAdventure {
     //initialize CurentState    
         State curentState=new State(startupR, player);
         curentState.showCurentState();
+        tokenType.addHashmap();
     //loop fo running
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         Parser parser= new Parser(hc,lexer.lex(" "+input+" "),curentState);
-        parser.parsing();
+        System.out.println(parser.parsing());
 //        if (!parser.parsing().equals("Syntax error!!!")){
 //            String word1 = parser.getCommand().toUpperCase();
 //            String word2 = parser.getObject().toUpperCase();
