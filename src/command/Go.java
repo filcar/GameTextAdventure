@@ -6,9 +6,6 @@
 package command;
 
 import static controler.Lexer.tokenType;
-import java.util.Scanner;
-import model.DoorStateOpen;
-import model.IDoorState;
 import model.IGate;
 import model.ILocation;
 import model.State;
@@ -63,7 +60,7 @@ public class Go implements ICommand {
     
     @Override
     public String action1 (State curentState){
-        String result=("Not implement!!!");
+        String result=("Where are you want to go???");
         return result;
     }
 }

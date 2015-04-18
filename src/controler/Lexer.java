@@ -29,12 +29,12 @@ public class Lexer {
 
 //------------------
   //  TokenType2 tokenType=new TokenType2();
-    HashMap map = tokenType.getTokenTypes();
-    Iterator<TokType> keySetIterator = map.keySet().iterator();
-    while(keySetIterator.hasNext()){
-    TokType key = keySetIterator.next();
-      //  System.out.println("key: " + key + " value: " + map.get(key));
-        tokenPatternsBuffer.append(String.format("|(?<%s>%s)", key, map.get(key)));}
+        HashMap map = tokenType.getTokenTypes();
+        Iterator<TokType> keySetIterator = map.keySet().iterator();
+        while(keySetIterator.hasNext()){
+            TokType key = keySetIterator.next();
+            //  System.out.println("key: " + key + " value: " + map.get(key));
+            tokenPatternsBuffer.append(String.format("|(?<%s>%s)", key, map.get(key)));}
 //------------------
         Pattern tokenPatterns = Pattern.compile(new String(tokenPatternsBuffer.substring(1)));
         // Begin matching tokens

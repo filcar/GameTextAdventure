@@ -23,10 +23,10 @@ public class Parser {
     private String obj;  
     private State currentState; 
     private Lexer lexer=new Lexer();
-    private ArrayList<Token> tokens=new ArrayList<Token>();
+    private ArrayList<Token> tokens=new ArrayList<>();
     private HandlerCommand hc;    
     private String syntax;  
-    private HashMap<String,Integer> syntaxs = new HashMap<String,Integer>();
+    private HashMap<String,Integer> syntaxs = new HashMap<>();
     private String result;
     
     public Parser(HandlerCommand hc,ArrayList<Token> tokens, State currentState) {
@@ -108,13 +108,13 @@ public class Parser {
     
     public String parsing(){
         if(!syntaxs.containsKey(syntax)) 
-            result =("Syntax error!!!");
+            result =("I can't find this command or syntax error!!!");
         else {
                 switch (syntaxs.get(syntax)){
                 case 1:        
                     command=tokens.get(0).data.toString();
                     hc.handle1(command, currentState);
-                    result="case 1" ;
+                    result="ok1" ;
                     
 
                 break;
@@ -122,10 +122,10 @@ public class Parser {
                     command=tokens.get(0).data.toString();
                     obj=tokens.get(1).data.toString();;
                     hc.handle(command,obj,currentState);
-                    result="case 2" ;
+                    result="ok2" ;
                 break;
                 case 4:        
-                    result="case 4" ;
+                    result="ok4" ;
                 break;                    
                 }
             }       

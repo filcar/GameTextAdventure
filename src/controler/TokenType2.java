@@ -29,7 +29,7 @@ public class TokenType2 {
 
     public TokenType2() {
      //  String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
-       String verb =" (OPEN) ";
+       String verb =" (GO|OPEN|EXIT) ";
        String item="(MONSTER|PISTOL|KEY) ";  
        String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
        String prepos ="(WITH|FOR|INTO|IN|BY) ";
@@ -44,6 +44,7 @@ public class TokenType2 {
        String item="";
         
        Iterator<String> iterator = verbs.iterator();
+       verb=(iterator.next());
 	while (iterator.hasNext()) {
             verb=verb+"|"+(iterator.next());
 	}
@@ -70,7 +71,7 @@ public class TokenType2 {
     }
     
     public HashMap<TokType, String> getTokenTypes() {
-      //  System.out.println(tokenTypes);
+        System.out.println(tokenTypes);
         return tokenTypes;
     }
 
