@@ -54,7 +54,7 @@ public class Take implements ICommand {
             result=("What do you want to take?");        
         }
         else {
-            result=("I can't take this!!!");
+            result=(word2+" doesn't exists!!");
         }    
         return result;
     }  

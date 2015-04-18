@@ -71,7 +71,7 @@ public class TokenType2 {
     }
     
     public HashMap<TokType, String> getTokenTypes() {
-        System.out.println(tokenTypes);
+      //  System.out.println(tokenTypes);
         return tokenTypes;
     }
 

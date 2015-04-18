@@ -20,7 +20,7 @@ public class HandlerCommand {
             mapCommand.put(command.getName(), command);
         }
         
-public void handle(String word1, String word2, State curentState){
+public String handle(String word1, String word2, State curentState){
     String result="";
     if (mapCommand.containsKey(word1)){
      result=mapCommand.get(word1).action(curentState,word2);
@@ -30,10 +30,10 @@ public void handle(String word1, String word2, State curentState){
         result =("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         result =result+("Command not found!!\n\n\n\n");
     }
-    System.out.println(result);
+       return result;//System.out.println(result);
     }
 
-public void handle1(String word1, State curentState){
+public String handle1(String word1, State curentState){
     String result="";
     String word2="";
     if (mapCommand.containsKey(word1)){
@@ -44,7 +44,8 @@ public void handle1(String word1, State curentState){
         result =("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         result =result+("Command not found!!\n\n\n\n");
     }
-    System.out.println(result);
+    return result;
+//System.out.println(result);
     }    
     
 }
