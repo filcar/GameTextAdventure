@@ -20,6 +20,7 @@ public class Use implements ICommand {
     public Use() {
         this.name="USE";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 

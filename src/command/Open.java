@@ -25,6 +25,8 @@ public class Open implements ICommand {
     public Open() {
         this.name="OPEN";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override

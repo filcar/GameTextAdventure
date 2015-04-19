@@ -21,6 +21,8 @@ public class UnLock implements ICommand {
     public UnLock() {
         this.name="UNLOCK";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override

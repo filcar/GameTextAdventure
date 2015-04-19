@@ -19,6 +19,7 @@ public class Look implements ICommand {
     public Look() {
         this.name="LOOK";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">", 1);
     }
 
     @Override

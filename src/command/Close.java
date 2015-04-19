@@ -20,6 +20,8 @@ public class Close implements ICommand {
     public Close() {
         this.name="CLOSE";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override

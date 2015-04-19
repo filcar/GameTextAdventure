@@ -21,6 +21,7 @@ public class Take implements ICommand {
     public Take() {
         this.name="TAKE";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 

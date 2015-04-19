@@ -20,6 +20,7 @@ public class Drop implements ICommand {
     public Drop() {
         this.name="DROP";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 

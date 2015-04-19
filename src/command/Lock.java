@@ -21,6 +21,8 @@ public class Lock implements ICommand {
     public Lock() {
         this.name="LOCK";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override

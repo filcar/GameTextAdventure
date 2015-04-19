@@ -20,6 +20,7 @@ public class Go implements ICommand {
     public Go() {
         this.name="GO";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
     }
 
     @Override

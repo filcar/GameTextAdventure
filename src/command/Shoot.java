@@ -23,6 +23,7 @@ public class Shoot implements ICommand {
     public Shoot() {
         this.name="SHOOT";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 

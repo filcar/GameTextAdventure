@@ -23,6 +23,7 @@ public class Exit implements ICommand {
     public Exit() {
         this.name="EXIT";
         tokenType.addList(this);
+        syntaxs.put("<"+name+">", 1);
     }
 
     @Override

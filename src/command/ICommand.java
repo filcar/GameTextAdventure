@@ -5,6 +5,7 @@
  */
 package command;
 
+import java.util.HashMap;
 import model.State;
 
 /**
@@ -16,5 +17,6 @@ public interface ICommand {
     public String getName();
     public String action1(State curentState);
     public String action(State curentState,String word2);
+    static public HashMap<String,Integer> syntaxs = new HashMap<>();
     
 }

@@ -5,6 +5,8 @@
  */
 package controler;
 
+import command.ICommand;
+import static command.ICommand.syntaxs;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,13 +36,15 @@ public class Parser {
         this.hc=hc;
         this.currentState=currentState;
         this.tokens = tokens;//lexer.lex(" "+input2+" "); 
-        syntaxs.put("<VERB>",1);
-        syntaxs.put("<VERB><ITEM>",2);
-        syntaxs.put("<VERB><DIRECTION>",2);
-        syntaxs.put("<VERB><ITEM><PREPOSITION><ITEM>",4);
+         syntaxs=(HashMap)ICommand.syntaxs.clone();
+//        syntaxs.put("<VERB>",1);
+//        syntaxs.put("<VERB><ITEM>",2);
+//        syntaxs.put("<VERB><DIRECTION>",2);
+//        syntaxs.put("<VERB><ITEM><PREPOSITION><ITEM>",4);
         syntax="";
         for(Token token : tokens){
-        syntax=syntax+"<"+token.getType()+">";
+            if (token.type.equals("VERB")) syntax="<"+token.data+">";
+            else syntax=syntax+"<"+token.getType()+">";
         }
         
 ////        Integer j=0;
