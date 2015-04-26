@@ -22,7 +22,7 @@ public class Parser {
     private  String words[];
     private  String[] ingnoreWord = {" to ", " the "," for "," with "};
     private  String command;
-    private String obj;  
+    private String obj,obj2,prepos;  
     private State currentState; 
     private Lexer lexer=new Lexer();
     private ArrayList<Token> tokens=new ArrayList<>();
@@ -98,7 +98,7 @@ public class Parser {
     
     public String parsing(){
         if(!syntaxs.containsKey(syntax)) 
-            result =("I can't find this command or syntax error!!!");
+            result =("Syntax error!!!");
         else {
                 switch (syntaxs.get(syntax)){
                 case 1:        
@@ -110,12 +110,16 @@ public class Parser {
                 break;
                 case 2:      
                     command=tokens.get(0).data.toString();
-                    obj=tokens.get(1).data.toString();;
+                    obj=tokens.get(1).data.toString();
                     result=hc.handle(command,obj,currentState);
                     //result="ok2" ;
                 break;
                 case 4:        
-                    result="Not implement yet!" ;
+                    command=tokens.get(0).data.toString() ;
+                    obj=tokens.get(1).data.toString();
+                    prepos=tokens.get(2).data.toString();
+                    obj2=tokens.get(3).data.toString();
+                    result=hc.handle2(command,obj, prepos, obj2, currentState);
                 break;                    
                 }
             }       

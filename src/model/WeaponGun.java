@@ -6,14 +6,16 @@
 package model;
 
 import static controler.Lexer.tokenType;
+import typeOfItem.ICanBePut;
 import typeOfItem.ICanShoot;
+import typeOfItem.IConteiner;
 import typeOfItem.IShootable;
 
 /**
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon, ICanShoot {
+public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
     private String name;
     private int bullet=5;
     private int damage=50;
@@ -69,6 +71,21 @@ public class WeaponGun implements IWeapon, ICanShoot {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    @Override
+    public String put(ICanBePut bullets){
+        String result="";
+        BulletSet bulletset= (BulletSet)bullets;
+        int temp=bulletset.getBullet();
+        Integer sumBullet=temp+bullet;
+        Integer restBullet=sumBullet.compareTo(5);
+        if(restBullet>=0)     {   
+            bullet = 5;
+            temp = sumBullet-bullet;
+            bulletset.setBullet(temp);
+        }
+            result = "Rest of "+bulletset.getName()+": "+temp;
+        
+        return result;
+    }
     
 }

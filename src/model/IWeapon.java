@@ -5,8 +5,6 @@
  */
 package model;
 
-import typeOfItem.IShootable;
-
 /**
  *
  * @author fil
@@ -15,11 +13,11 @@ public interface IWeapon extends IItem{
 
     int getDamages();
 
-    String getName();
+ //   String getName();
 
     void setDamages(int damages);
 
-    void setName(String name);
+ //   void setName(String name);
 
     
 }

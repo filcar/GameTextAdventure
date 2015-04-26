@@ -60,4 +60,10 @@ public class Drop implements ICommand {
         return result;
     }
     
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
+    
 }

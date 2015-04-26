@@ -47,16 +47,22 @@ public class UnLock implements ICommand {
                 result=(gate.getDoorState().unlock(gate,key));
             }
             else    
-                result=("You must have and use a key to lock " +gate.getName()+" door");
+                result=("You must have and use a key to unlock " +gate.getName()+" door");
         }
         else {
-            result=("I can't Lock something!!!");
+            result=("I can't unlock something!!!");
         }
         return result;
     }  
     
     @Override
     public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
         String result=("Not implement!!!");
         return result;
     }

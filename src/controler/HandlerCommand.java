@@ -35,7 +35,6 @@ public String handle(String word1, String word2, State curentState){
 
 public String handle1(String word1, State curentState){
     String result="";
-    String word2="";
     if (mapCommand.containsKey(word1)){
      result=mapCommand.get(word1).action1(curentState);
     
@@ -48,4 +47,17 @@ public String handle1(String word1, State curentState){
 //System.out.println(result);
     }    
     
+public String handle2(String verb,String item1, String prepos, String item2, State curentState){
+    String result="";
+    if (mapCommand.containsKey(verb)){
+     result=mapCommand.get(verb).action2(curentState,item1, prepos, item2);
+    
+    }
+    else {
+        result =("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+        result =result+("Command not found!!\n\n\n\n");
+    }
+    return result;
+}
+
 }

@@ -5,13 +5,14 @@
  */
 package typeOfItem;
 
+import model.BulletSet;
+
 /**
  *
  * @author fil
  */
-public interface ICanShoot {
+public interface IConteiner {
     
-Integer shoot(IShootable obj);
-   
+    String put(ICanBePut obj);
     
 }

@@ -60,4 +60,10 @@ public class Lock implements ICommand {
         result=("Do you wont lock something. What???");
     return result;
     }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

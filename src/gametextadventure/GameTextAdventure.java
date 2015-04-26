@@ -13,6 +13,7 @@ import command.ICommand;
 import command.Lock;
 import command.Look;
 import command.Open;
+import command.Put;
 import command.Shoot;
 import command.Take;
 import command.UnLock;
@@ -22,8 +23,8 @@ import controler.Lexer;
 import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import controler.Parser;
-import controler.TokenType;
 import controler.TokenType2;
+import model.BulletSet;
 import model.Direct2;
 import model.DoorStateClose;
 import model.DoorStateLock;
@@ -67,6 +68,7 @@ public class GameTextAdventure {
         ICommand unlock = new UnLock();
         ICommand shoot= new Shoot(); 
         ICommand use =  new Use();
+        ICommand put = new Put();
         
         
     //IDooreState
@@ -85,6 +87,7 @@ public class GameTextAdventure {
         hc.register(unlock);
         hc.register(shoot);
         hc.register(use);
+        hc.register(put);
         
 //Room
 //        ILocation room1  = new LocationRoom("Room1","This is the first room");
@@ -107,6 +110,7 @@ public class GameTextAdventure {
         IItem key = new DoorKey("KEY");
         IItem pistol = new WeaponGun("PISTOL");
         IItem monster = new Monster("MONSTER");
+        IItem bullet9 = new BulletSet("BULLET9");
         
         //filters room
         IItem aluminiumKey = new DoorKey("ALUMINIUMKEY");
@@ -223,6 +227,7 @@ public class GameTextAdventure {
         startupR.addItem(key);
         startupR.addItem(pistol);
         startupR.addItem(monster);
+        startupR.addItem(bullet9);
         
         filtersR.addItem(aluminiumKey);
         filtersR.addItem(toadstools);

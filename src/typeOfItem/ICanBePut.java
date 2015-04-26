@@ -9,9 +9,6 @@ package typeOfItem;
  *
  * @author fil
  */
-public interface ICanShoot {
-    
-Integer shoot(IShootable obj);
-   
+public interface ICanBePut {
     
 }
