@@ -48,12 +48,19 @@ import model.WeaponGun;
  */
 public class GameTextAdventure {
 
+
     /**
      * @param args the command line arguments
      */
     //public static TokenType2 tokenType=new TokenType2();
  public static void main(String[] args) {
-    //initialization 
+    GameTextAdventure game = new GameTextAdventure();
+    game.go();
+        
+    }
+ 
+ private void go(){
+//initialization 
         boolean running = true;
         Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
@@ -74,7 +81,21 @@ public class GameTextAdventure {
     //IDooreState
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
-        HandlerCommand hc = new HandlerCommand();
+     //Room
+     // ground floor
+        ILocation startupR  = new LocationRoom("startupRoom","This is the entrance of the player");
+        ILocation filtersR  = new LocationRoom("filtersRoom","This is the filters' room");
+        ILocation truncheonsR  = new LocationRoom("weaponsRoom","This is the weapons' room");
+     // first floor
+        ILocation witchNest  = new LocationRoom("witchNest","This is the nests of the witches");
+        ILocation monsterLair  = new LocationRoom("monsterLair","This is the lairs of the monsters");
+     // top floor
+        ILocation treasureR  = new LocationRoom("treasureRoom","This is the treasure's room");
+     // basement
+        ILocation dungeonR  = new LocationRoom("dungeonRoom","This is the dungeon room");
+     //initialize CurentState    
+        State curentState=new State(startupR, player);
+        HandlerCommand hc = new HandlerCommand(curentState);
      //register commands
         hc.register(go);
         hc.register(take);
@@ -89,21 +110,7 @@ public class GameTextAdventure {
         hc.register(use);
         hc.register(put);
         
-//Room
-//        ILocation room1  = new LocationRoom("Room1","This is the first room");
-//        ILocation room2  = new LocationRoom("Room2","This is the second room");
-//        ILocation room3  = new LocationRoom("Room3","This is the third room");
-     // ground floor
-        ILocation startupR  = new LocationRoom("startupRoom","This is the entrance of the player");
-        ILocation filtersR  = new LocationRoom("filtersRoom","This is the filters' room");
-        ILocation truncheonsR  = new LocationRoom("weaponsRoom","This is the weapons' room");
-     // first floor
-        ILocation witchNest  = new LocationRoom("witchNest","This is the nests of the witches");
-        ILocation monsterLair  = new LocationRoom("monsterLair","This is the lairs of the monsters");
-     // top floor
-        ILocation treasureR  = new LocationRoom("treasureRoom","This is the treasure's room");
-     // basement
-        ILocation dungeonR  = new LocationRoom("dungeonRoom","This is the dungeon room");
+
                 
 //Items
         //startup room
@@ -165,14 +172,7 @@ public class GameTextAdventure {
         
        
 //Gate of room
-    //    IGate GateLoc1 = new Gate("blue",room1,room2);
-    //    room1.registerGate(Direction.Direct.WEST,GateLoc1);
-    //    room2.registerGate(Direction.Direct.EAST,GateLoc1);
-    //    IGate GateLoc2 = new Gate("red",room2,room3,(IItemKey)key);
-//              GateLoc2.setDoorState(doorLock);
-    //    room2.registerGate(Direction.Direct.NORTH,GateLoc2);
-    //    room3.registerGate(Direction.Direct.SOUTH,GateLoc2);
-        
+      
     
         IGate GateLoc1 = new Gate("blue",startupR,filtersR);
         startupR.registerGate(Direct2.WEST,GateLoc1);
@@ -275,24 +275,16 @@ public class GameTextAdventure {
         
         
         
-    //initialize CurentState    
-        State curentState=new State(startupR, player);
+    // show current State
         curentState.showCurentState();
-        tokenType.addHashmap();
-    //loop fo running
+        tokenType.addHashmap();       
+    //loop to running
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(hc,lexer.lex(" "+input+" "),curentState);
+        Parser parser= new Parser(hc,lexer.lex(" "+input+" "));
         System.out.println(parser.parsing());
-//        if (!parser.parsing().equals("Syntax error!!!")){
-//            String word1 = parser.getCommand().toUpperCase();
-//            String word2 = parser.getObject().toUpperCase();
-//            hc.handle(word1, word2,curentState);
-//        }
- //       else System.out.println("Syntax error!!!");
-    }        
-        
-    }
-    
+    }         
+ 
+ }
 }
