@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.State;
 
 /**
@@ -17,6 +18,8 @@ public class Look implements ICommand {
 
     public Look() {
         this.name="LOOK";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">", 1);
     }
 
     @Override
@@ -35,5 +38,15 @@ public class Look implements ICommand {
        curentState.showCurentState();
        return result;
     }
+    @Override
+    public String action1 (State curentState){
+       curentState.showCurentState();
+       return result;
+    }
     
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IItem;
 import model.State;
 
@@ -18,6 +19,8 @@ public class Drop implements ICommand {
 
     public Drop() {
         this.name="DROP";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 
@@ -37,7 +40,10 @@ public class Drop implements ICommand {
     //    curentState.showCurentState();
         if(curentState.getPlayer().getMapItem().containsKey(word2)){
             IItem item =curentState.getPlayer().getMapItem().get(word2);
-            curentState.getPlayer().removeItem(item);
+            if(!(curentState.getPlayer().getCurrentItem()==null) 
+                    && curentState.getPlayer().getCurrentItem().equals(item))
+                curentState.getPlayer().setCurrentItem(null);
+            curentState.getPlayer().removeItem(item);            
             curentState.getLocation().addItem(item);
             result=("\nDropped.\n");
            // curentState.showCurentState();
@@ -47,5 +53,17 @@ public class Drop implements ICommand {
         }
         return result;
     }  
+    
+    @Override
+    public String action1 (State curentState){
+        result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
     
 }

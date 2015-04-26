@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.State;
 
@@ -18,6 +19,9 @@ public class Close implements ICommand {
 
     public Close() {
         this.name="CLOSE";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -44,5 +48,16 @@ public class Close implements ICommand {
         }
         return result;
     }  
+    @Override
+    public String action1 (State curentState){
+        result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
     
 }

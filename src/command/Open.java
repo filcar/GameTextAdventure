@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import model.DoorStateOpen;
 import model.IDoorState;
@@ -22,6 +23,9 @@ public class Open implements ICommand {
     
     public Open() {
         this.name="OPEN";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -51,5 +55,15 @@ public class Open implements ICommand {
         }
         return result;
     }  
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
     
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IItem;
 import model.State;
 import typeOfItem.INonTakeable;
@@ -19,6 +20,8 @@ public class Take implements ICommand {
 
     public Take() {
         this.name="TAKE";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 
@@ -52,9 +55,20 @@ public class Take implements ICommand {
             result=("What do you want to take?");        
         }
         else {
-            result=("I can't take this!!!");
+            result=(word2+" doesn't exists!!");
         }    
         return result;
     }  
    
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

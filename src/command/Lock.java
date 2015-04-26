@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.IItemKey;
 import model.State;
@@ -19,6 +20,9 @@ public class Lock implements ICommand {
 
     public Lock() {
         this.name="LOCK";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -51,4 +55,15 @@ public class Lock implements ICommand {
         return result;
     }  
     
+    @Override
+    public String action1 (State curentState){
+        result=("Do you wont lock something. What???");
+    return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

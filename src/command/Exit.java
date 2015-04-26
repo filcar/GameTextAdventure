@@ -5,6 +5,7 @@
  */
 package command;
 
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.ILocation;
 import model.IPlayer;
@@ -21,6 +22,8 @@ public class Exit implements ICommand {
 
     public Exit() {
         this.name="EXIT";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">", 1);
     }
 
     @Override
@@ -42,5 +45,15 @@ public class Exit implements ICommand {
     return "";     
     }
 
-    
+    @Override
+    public String action1 (State curentState){
+     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+     System.exit(0);
+    return "";   
+    } 
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

@@ -5,19 +5,24 @@
  */
 package model;
 
+import static controler.Lexer.tokenType;
+import typeOfItem.ICanBePut;
+import typeOfItem.ICanShoot;
+import typeOfItem.IConteiner;
 import typeOfItem.IShootable;
 
 /**
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon {
+public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
     private String name;
-    private int bullet=2;
-    private int damage=90;
+    private int bullet=5;
+    private int damage=50;
 
     public WeaponGun(String name) {
         this.name = name;
+        tokenType.addList(this);
     }
    
     
@@ -44,13 +49,12 @@ public class WeaponGun implements IWeapon {
     @Override
     public Integer shoot(IShootable obj){
      //   System.out.println("I shooted!!");
-        int temp;
+        int temp=1;
         if(bullet<1){
             temp =-1;
         }
         else{
-            temp=obj.shooting(damage);
-            if(temp<0) temp=0;
+            if(obj.shooting(damage)<0) temp=0;
             bullet=bullet-1;
         }
         return temp;
@@ -67,6 +71,21 @@ public class WeaponGun implements IWeapon {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    
+    @Override
+    public String put(ICanBePut bullets){
+        String result="";
+        BulletSet bulletset= (BulletSet)bullets;
+        int temp=bulletset.getBullet();
+        Integer sumBullet=temp+bullet;
+        Integer restBullet=sumBullet.compareTo(5);
+        if(restBullet>=0)     {   
+            bullet = 5;
+            temp = sumBullet-bullet;
+            bulletset.setBullet(temp);
+        }
+            result = "Rest of "+bulletset.getName()+": "+temp;
+        
+        return result;
+    }
     
 }

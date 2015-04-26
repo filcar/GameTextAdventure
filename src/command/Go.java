@@ -5,9 +5,7 @@
  */
 package command;
 
-import java.util.Scanner;
-import model.DoorStateOpen;
-import model.IDoorState;
+import static controler.Lexer.tokenType;
 import model.IGate;
 import model.ILocation;
 import model.State;
@@ -18,10 +16,11 @@ import model.State;
  */
 public class Go implements ICommand {
     private String name;
-    private String result="";
 
     public Go() {
         this.name="GO";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
     }
 
     @Override
@@ -37,6 +36,7 @@ public class Go implements ICommand {
     
     @Override
     public String action (State curentState,String word2){
+        String result="";
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             ILocation curentLocation=curentState.getLocation();
             IGate gate=curentState.getLocation().getMapGate().get(word2);
@@ -59,4 +59,15 @@ public class Go implements ICommand {
         return result;
     }  
     
+    @Override
+    public String action1 (State curentState){
+        String result=("Where are you want to go???");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

@@ -13,17 +13,21 @@ import command.ICommand;
 import command.Lock;
 import command.Look;
 import command.Open;
+import command.Put;
 import command.Shoot;
 import command.Take;
 import command.UnLock;
 import command.Use;
 import controler.HandlerCommand;
+import controler.Lexer;
+import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import controler.Parser;
+import controler.TokenType2;
+import model.BulletSet;
 import model.Direct2;
 import model.DoorStateClose;
 import model.DoorStateLock;
-import model.DoorStateOpen;
 //import model.DoorStateUnlock;
 import model.Gate;
 import model.IDoorState;
@@ -32,8 +36,6 @@ import model.IItem;
 import model.ILocation;
 import model.IPlayer;
 import model.DoorKey;
-import model.IItemKey;
-import typeOfItem.IShootable;
 import model.LocationRoom;
 import model.Monster;
 import model.Player;
@@ -49,9 +51,11 @@ public class GameTextAdventure {
     /**
      * @param args the command line arguments
      */
+    //public static TokenType2 tokenType=new TokenType2();
  public static void main(String[] args) {
     //initialization 
         boolean running = true;
+        Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
         ICommand go = new Go();
         ICommand take = new Take();
@@ -64,6 +68,7 @@ public class GameTextAdventure {
         ICommand unlock = new UnLock();
         ICommand shoot= new Shoot(); 
         ICommand use =  new Use();
+        ICommand put = new Put();
         
         
     //IDooreState
@@ -82,6 +87,7 @@ public class GameTextAdventure {
         hc.register(unlock);
         hc.register(shoot);
         hc.register(use);
+        hc.register(put);
         
 //Room
 //        ILocation room1  = new LocationRoom("Room1","This is the first room");
@@ -104,6 +110,7 @@ public class GameTextAdventure {
         IItem key = new DoorKey("KEY");
         IItem pistol = new WeaponGun("PISTOL");
         IItem monster = new Monster("MONSTER");
+        IItem bullet9 = new BulletSet("BULLET9");
         
         //filters room
         IItem aluminiumKey = new DoorKey("ALUMINIUMKEY");
@@ -220,6 +227,7 @@ public class GameTextAdventure {
         startupR.addItem(key);
         startupR.addItem(pistol);
         startupR.addItem(monster);
+        startupR.addItem(bullet9);
         
         filtersR.addItem(aluminiumKey);
         filtersR.addItem(toadstools);
@@ -270,15 +278,19 @@ public class GameTextAdventure {
     //initialize CurentState    
         State curentState=new State(startupR, player);
         curentState.showCurentState();
+        tokenType.addHashmap();
     //loop fo running
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(input);
-        String word1 = parser.getCommand().toUpperCase();
-        String word2 = parser.getObject().toUpperCase();
-        hc.handle(word1, word2,curentState);
-        
+        Parser parser= new Parser(hc,lexer.lex(" "+input+" "),curentState);
+        System.out.println(parser.parsing());
+//        if (!parser.parsing().equals("Syntax error!!!")){
+//            String word1 = parser.getCommand().toUpperCase();
+//            String word2 = parser.getObject().toUpperCase();
+//            hc.handle(word1, word2,curentState);
+//        }
+ //       else System.out.println("Syntax error!!!");
     }        
         
     }
