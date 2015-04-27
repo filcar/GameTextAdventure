@@ -10,16 +10,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import model.IItem;
-import model.IPlayer;
 
 /**
  *
  * @author fil
  */
 public class TokenType2 {
-
+    //private HashMap<String,Integer> syntaxs = new HashMap<>();
     private HashMap<TokType, String> tokenTypes = new HashMap<TokType, String>();
     private List<String> verbs = new ArrayList<String>();
     private List<String> items = new ArrayList<String>();
