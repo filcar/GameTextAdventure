@@ -19,32 +19,34 @@ public class Parser {
     private  String[] ingnoreWord = {" to ", " the "," for "," with "};
     private  String command;
     private String obj,obj2,prepos;  
-    private Lexer lexer=new Lexer();
     private ArrayList<Token> tokens=new ArrayList<>();
     private HandlerCommand hc;    
     private String syntax;  
     private HashMap<String,Integer> syntaxs = new HashMap<>();
     private String result;
+    private HashMap tokenType;
     
-    public Parser(HandlerCommand hc,String input,HashMap tokenType,HashMap<String,Integer> syntaxs) {
+    public Parser(HandlerCommand hc,HashMap tokenType,HashMap<String,Integer> syntaxs) {
             //public Parser(HandlerCommand hc,ArrayList<Token> tokens,HashMap<String,Integer> syntaxs) {
     //Παρεμβολή του lexer για τον νέο parser===============================
         this.hc=hc;
-        
-        this.tokens = lexer.lex(" "+input+" ",tokenType); 
+        this.tokenType=tokenType;
         this.syntaxs=syntaxs;
 //        syntaxs.put("<VERB>",1);
 //        syntaxs.put("<VERB><ITEM>",2);
 //        syntaxs.put("<VERB><DIRECTION>",2);
 //        syntaxs.put("<VERB><ITEM><PREPOSITION><ITEM>",4);
         syntax="";
+
+    }
+    
+    public String parsing(String input){
+        Lexer lexer=new Lexer();
+        this.tokens = lexer.lex(" "+input+" ",tokenType); 
         for(Token token : tokens){
             if (token.type.equals("VERB")) syntax="<"+token.data+">";
             else syntax=syntax+"<"+token.getType()+">";
         }
-    }
-    
-    public String parsing(){
         if(!syntaxs.containsKey(syntax)) 
             result =("Syntax error!!!");
         else {

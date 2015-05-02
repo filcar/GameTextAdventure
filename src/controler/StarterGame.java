@@ -273,8 +273,8 @@ public StarterGame() {
 
 
 public String go(String input){
-        Parser parser= new Parser(hc,input,tokenType.getTokenTypes(),syntaxs);
-        return (parser.parsing());
+        Parser parser= new Parser(hc,tokenType.getTokenTypes(),syntaxs);
+        return (parser.parsing(input));
     }   
 
 

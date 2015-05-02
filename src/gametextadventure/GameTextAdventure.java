@@ -285,8 +285,8 @@ public class GameTextAdventure {
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(hc,input,tokenType.getTokenTypes(),syntaxs);
-        System.out.println(parser.parsing());
+        Parser parser= new Parser(hc,tokenType.getTokenTypes(),syntaxs);
+        System.out.println(parser.parsing(input));
     }         
  
  }
