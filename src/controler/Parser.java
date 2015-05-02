@@ -5,7 +5,6 @@
  */
 package controler;
 
-import command.ICommand;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -27,11 +26,13 @@ public class Parser {
     private HashMap<String,Integer> syntaxs = new HashMap<>();
     private String result;
     
-    public Parser(HandlerCommand hc,ArrayList<Token> tokens) {
+    public Parser(HandlerCommand hc,String input,HashMap tokenType,HashMap<String,Integer> syntaxs) {
+            //public Parser(HandlerCommand hc,ArrayList<Token> tokens,HashMap<String,Integer> syntaxs) {
     //Παρεμβολή του lexer για τον νέο parser===============================
         this.hc=hc;
-        this.tokens = tokens;//lexer.lex(" "+input2+" "); 
-         syntaxs=(HashMap)ICommand.syntaxs.clone();
+        
+        this.tokens = lexer.lex(" "+input+" ",tokenType); 
+        this.syntaxs=syntaxs;
 //        syntaxs.put("<VERB>",1);
 //        syntaxs.put("<VERB><ITEM>",2);
 //        syntaxs.put("<VERB><DIRECTION>",2);

@@ -5,9 +5,7 @@
  */
 package model;
 
-import static controler.Lexer.tokenType;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map.Entry;
 
 /**

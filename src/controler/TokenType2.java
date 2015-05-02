@@ -17,7 +17,6 @@ import model.IItem;
  * @author fil
  */
 public class TokenType2 {
-    //private HashMap<String,Integer> syntaxs = new HashMap<>();
     private HashMap<TokType, String> tokenTypes = new HashMap<TokType, String>();
     private List<String> verbs = new ArrayList<String>();
     private List<String> items = new ArrayList<String>();

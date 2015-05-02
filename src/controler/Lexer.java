@@ -17,9 +17,9 @@ import java.util.regex.Pattern;
  */
 public class Lexer {
  
-    public static TokenType2 tokenType=new TokenType2();
+ //   public static TokenType2 tokenType=new TokenType2();
     
-    public  ArrayList<Token> lex(String input) {
+    public  ArrayList<Token> lex(String input, HashMap map) {
     // The tokens to return
         ArrayList<Token> tokens = new ArrayList<Token>();
 
@@ -28,7 +28,7 @@ public class Lexer {
 
 //------------------
   //  TokenType2 tokenType=new TokenType2();
-        HashMap map = tokenType.getTokenTypes();
+        //map = tokenType.getTokenTypes();
         Iterator<TokType> keySetIterator = map.keySet().iterator();
         while(keySetIterator.hasNext()){
             TokType key = keySetIterator.next();

@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
 import typeOfItem.IShootable;
 import model.State;
@@ -19,7 +20,7 @@ public class Shoot implements ICommand {
     private String name;
 
 
-    public Shoot() {
+    public Shoot(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="SHOOT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM>", 2);

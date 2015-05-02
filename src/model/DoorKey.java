@@ -5,7 +5,7 @@
  */
 package model;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
 import typeOfItem.IShootable;
 
 /**
@@ -25,7 +25,7 @@ public class DoorKey implements IItemKey {
         
     }
 
-    public DoorKey(String name) {
+    public DoorKey(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }

@@ -19,11 +19,10 @@ import command.Take;
 import command.UnLock;
 import command.Use;
 import controler.HandlerCommand;
-import controler.Lexer;
-import static controler.Lexer.tokenType;
 import java.util.Scanner;
 import controler.Parser;
 import controler.TokenType2;
+import java.util.HashMap;
 import model.BulletSet;
 import model.Direct2;
 import model.DoorStateClose;
@@ -61,21 +60,22 @@ public class GameTextAdventure {
  
  private void go(){
 //initialization 
-        boolean running = true;
-        Lexer lexer = new Lexer();
+        HashMap<String,Integer> syntaxs = new HashMap<>();
+        TokenType2 tokenType=new TokenType2();
+      //  Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
-        ICommand go = new Go();
-        ICommand take = new Take();
-        ICommand drop = new Drop();
-        ICommand exit = new Exit();
-        ICommand look = new Look();
-        ICommand open = new Open();
-        ICommand close= new Close();
-        ICommand lock = new Lock();
-        ICommand unlock = new UnLock();
-        ICommand shoot= new Shoot(); 
-        ICommand use =  new Use();
-        ICommand put = new Put();
+        ICommand go = new Go(syntaxs,tokenType);
+        ICommand take = new Take(syntaxs,tokenType);
+        ICommand drop = new Drop(syntaxs,tokenType);
+        ICommand exit = new Exit(syntaxs,tokenType);
+        ICommand look = new Look(syntaxs,tokenType);
+        ICommand open = new Open(syntaxs,tokenType);
+        ICommand close= new Close(syntaxs,tokenType);
+        ICommand lock = new Lock(syntaxs,tokenType);
+        ICommand unlock = new UnLock(syntaxs,tokenType);
+        ICommand shoot= new Shoot(syntaxs,tokenType); 
+        ICommand use =  new Use(syntaxs,tokenType);
+        ICommand put = new Put(syntaxs,tokenType);
         
         
     //IDooreState
@@ -114,60 +114,60 @@ public class GameTextAdventure {
                 
 //Items
         //startup room
-        IItem key = new DoorKey("KEY");
-        IItem pistol = new WeaponGun("PISTOL");
-        IItem monster = new Monster("MONSTER");
-        IItem bullet9 = new BulletSet("BULLET9");
+        IItem key = new DoorKey("KEY",tokenType);
+        IItem pistol = new WeaponGun("PISTOL",tokenType);
+        IItem monster = new Monster("MONSTER",tokenType);
+        IItem bullet9 = new BulletSet("BULLET",tokenType);
         
         //filters room
-        IItem aluminiumKey = new DoorKey("ALUMINIUMKEY");
-        IItem toadstools = new WeaponGun("TOADSTOOLS");
-        IItem belladonna = new WeaponGun("BELLADONNA");
-        IItem mandrake = new WeaponGun("MANDRAKE");
-        IItem cobra = new Monster("COBRA");
-        IItem viper = new Monster("VIPER");
-        IItem coralsnake = new Monster("CORALSNAKE");
+        IItem aluminiumKey = new DoorKey("ALUMINIUMKEY",tokenType);
+        IItem toadstools = new WeaponGun("TOADSTOOLS",tokenType);
+        IItem belladonna = new WeaponGun("BELLADONNA",tokenType);
+        IItem mandrake = new WeaponGun("MANDRAKE",tokenType);
+        IItem cobra = new Monster("COBRA",tokenType);
+        IItem viper = new Monster("VIPER",tokenType);
+        IItem coralsnake = new Monster("CORALSNAKE",tokenType);
         
         //truncheons room
-        IItem fashionKey = new DoorKey("FASHIONKEY");
-        IItem truncheon = new WeaponGun("TRUNCHEON");
-        IItem crossbow = new WeaponGun("CROSSBOW");
-        IItem yataghan = new WeaponGun("YATAGHAN");
-        IItem ork = new Monster("ORK");
-        IItem darkelf = new Monster("DARKELF");
-        IItem hecatonchires = new Monster("HECATONCHIRES");
+        IItem fashionKey = new DoorKey("FASHIONKEY",tokenType);
+        IItem truncheon = new WeaponGun("TRUNCHEON",tokenType);
+        IItem crossbow = new WeaponGun("CROSSBOW",tokenType);
+        IItem yataghan = new WeaponGun("YATAGHAN",tokenType);
+        IItem ork = new Monster("ORK",tokenType);
+        IItem darkelf = new Monster("DARKELF",tokenType);
+        IItem hecatonchires = new Monster("HECATONCHIRES",tokenType);
         
         //witch nest
-        IItem goldenKey = new DoorKey("GOLDENKEY");
-        IItem blade = new WeaponGun("BLADE");
-        IItem hammer = new WeaponGun("HAMMER");
-        IItem kalchas = new Monster("KALCHAS");
-        IItem circe = new Monster("CIRCE");
-        IItem cassandra = new Monster("CASSANDRA");
+        IItem goldenKey = new DoorKey("GOLDENKEY",tokenType);
+        IItem blade = new WeaponGun("BLADE",tokenType);
+        IItem hammer = new WeaponGun("HAMMER",tokenType);
+        IItem kalchas = new Monster("KALCHAS",tokenType);
+        IItem circe = new Monster("CIRCE",tokenType);
+        IItem cassandra = new Monster("CASSANDRA",tokenType);
         
         //monster lair
-        IItem silverKey = new DoorKey("SILVERKEY");
-        IItem scissors = new WeaponGun("SCISSORS");
-        IItem razors = new WeaponGun("RAZORS");
-        IItem griffin = new Monster("GRIFFIN");
-        IItem dragon = new Monster("DRAGON");
-        IItem centaur = new Monster("CENTAUR");
+        IItem silverKey = new DoorKey("SILVERKEY",tokenType);
+        IItem scissors = new WeaponGun("SCISSORS",tokenType);
+        IItem razors = new WeaponGun("RAZORS",tokenType);
+        IItem griffin = new Monster("GRIFFIN",tokenType);
+        IItem dragon = new Monster("DRAGON",tokenType);
+        IItem centaur = new Monster("CENTAUR",tokenType);
         
         //treasure room
-        IItem bronzeKey = new DoorKey("BRONZEKEY");
-        IItem diamondSword = new WeaponGun("DIAMONDSWORD");
-        IItem scepter = new WeaponGun("SCEPTER");
-        IItem elf = new Monster("ELF");
-        IItem dwarf = new Monster("DWARF");
-        IItem angel = new Monster("ANGEL");
+        IItem bronzeKey = new DoorKey("BRONZEKEY",tokenType);
+        IItem diamondSword = new WeaponGun("DIAMONDSWORD",tokenType);
+        IItem scepter = new WeaponGun("SCEPTER",tokenType);
+        IItem elf = new Monster("ELF",tokenType);
+        IItem dwarf = new Monster("DWARF",tokenType);
+        IItem angel = new Monster("ANGEL",tokenType);
         
         //dungeon room
-        IItem diamondKey = new DoorKey("DIAMONDKEY");
-        IItem doubleax = new WeaponGun("DOUBLEAX");
-        IItem bludgeon = new WeaponGun("BLUDGEON");
-        IItem drizzt = new Monster("DRIZZTDOURDEN");
-        IItem zaknafein = new Monster("ZAKNAFEIN");
-        IItem mielikki = new Monster("MIELIKKI");
+        IItem diamondKey = new DoorKey("DIAMONDKEY",tokenType);
+        IItem doubleax = new WeaponGun("DOUBLEAX",tokenType);
+        IItem bludgeon = new WeaponGun("BLUDGEON",tokenType);
+        IItem drizzt = new Monster("DRIZZTDOURDEN",tokenType);
+        IItem zaknafein = new Monster("ZAKNAFEIN",tokenType);
+        IItem mielikki = new Monster("MIELIKKI",tokenType);
  
         
        
@@ -214,11 +214,11 @@ public class GameTextAdventure {
         monsterLair.registerGate(Direct2.NORTHEAST,GateLoc10);
         dungeonR.registerGate(Direct2.EAST,GateLoc10);
         
-        IGate GateLoc11 = new Gate("light blue",filtersR,dungeonR);
+        IGate GateLoc11 = new Gate("red",filtersR,dungeonR);
         filtersR.registerGate(Direct2.SOUTH,GateLoc11);
         dungeonR.registerGate(Direct2.UP,GateLoc11);
         
-        IGate GateLoc12 = new Gate("light green",truncheonsR,dungeonR);
+        IGate GateLoc12 = new Gate("green",truncheonsR,dungeonR);
         truncheonsR.registerGate(Direct2.SOUTHEAST,GateLoc12);
         dungeonR.registerGate(Direct2.NORTH,GateLoc12);
        
@@ -279,10 +279,11 @@ public class GameTextAdventure {
         curentState.showCurentState();
         tokenType.addHashmap();       
     //loop to running
+    boolean running = true;
     while(running){
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
-        Parser parser= new Parser(hc,lexer.lex(" "+input+" "));
+        Parser parser= new Parser(hc,input,tokenType.getTokenTypes(),syntaxs);
         System.out.println(parser.parsing());
     }         
  

@@ -5,11 +5,10 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
-import typeOfItem.IShootable;
 import model.State;
-import model.WeaponGun;
 import typeOfItem.ICanBePut;
 import typeOfItem.IConteiner;
 
@@ -21,7 +20,7 @@ public class Put implements ICommand {
     private String name;
 
 
-    public Put() {
+    public Put(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="PUT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM><PREPOSITION><ITEM>", 4);

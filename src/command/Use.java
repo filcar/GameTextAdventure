@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
 import model.State;
 
@@ -17,7 +18,7 @@ public class Use implements ICommand {
     private String name;
     private String result="";
 
-    public Use() {
+    public Use(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="USE";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM>", 2);

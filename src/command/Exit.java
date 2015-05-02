@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.ILocation;
 import model.IPlayer;
@@ -20,7 +21,7 @@ public class Exit implements ICommand {
     private String name;
     private String result="";
 
-    public Exit() {
+    public Exit(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="EXIT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">", 1);

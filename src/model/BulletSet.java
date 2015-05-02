@@ -5,7 +5,7 @@
  */
 package model;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
 import typeOfItem.ICanBePut;
 
 /**
@@ -17,7 +17,7 @@ public class BulletSet implements IItem,ICanBePut{
     String state;
     Integer bullet=5;
 
-    public BulletSet(String name) {
+    public BulletSet(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }

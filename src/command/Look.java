@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.State;
 
 /**
@@ -16,7 +17,7 @@ public class Look implements ICommand {
     private String name;
     private String result="";
 
-    public Look() {
+    public Look(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="LOOK";
         tokenType.addList(this);
         syntaxs.put("<"+name+">", 1);

@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.ILocation;
 import model.State;
@@ -17,7 +18,7 @@ import model.State;
 public class Go implements ICommand {
     private String name;
 
-    public Go() {
+    public Go(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="GO";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
