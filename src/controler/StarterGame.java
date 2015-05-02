@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gametextadventure;
+package controler;
 
 import command.Close;
 import command.Drop;
@@ -18,24 +18,18 @@ import command.Shoot;
 import command.Take;
 import command.UnLock;
 import command.Use;
-import controler.HandlerCommand;
-import java.util.Scanner;
-import controler.Parser;
-import controler.StarterGame;
-import controler.TokenType2;
 import java.util.HashMap;
 import model.BulletSet;
 import model.Direct2;
+import model.DoorKey;
 import model.DoorStateClose;
 import model.DoorStateLock;
-//import model.DoorStateUnlock;
 import model.Gate;
 import model.IDoorState;
 import model.IGate;
 import model.IItem;
 import model.ILocation;
 import model.IPlayer;
-import model.DoorKey;
 import model.LocationRoom;
 import model.Monster;
 import model.Player;
@@ -46,24 +40,10 @@ import model.WeaponGun;
  *
  * @author fil
  */
-public class GameTextAdventure {
-
-
-    /**
-     * @param args the command line arguments
-     */
-    //public static TokenType2 tokenType=new TokenType2();
- public static void main(String[] args) {
-    GameTextAdventure game = new GameTextAdventure();
-    //StarterGame starter = new StarterGame();
-    game.go();
-    //starter.go();
-    }
- 
- private void go(){
+public class StarterGame {
 //initialization 
         HashMap<String,Integer> syntaxs = new HashMap<>();
-        TokenType2 tokenType=new TokenType2();
+        TokenType2 tokenType=new TokenType2();   
       //  Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
         ICommand go = new Go(syntaxs,tokenType);
@@ -78,8 +58,6 @@ public class GameTextAdventure {
         ICommand shoot= new Shoot(syntaxs,tokenType); 
         ICommand use =  new Use(syntaxs,tokenType);
         ICommand put = new Put(syntaxs,tokenType);
-        
-        
     //IDooreState
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
@@ -97,23 +75,7 @@ public class GameTextAdventure {
         ILocation dungeonR  = new LocationRoom("dungeonRoom","This is the dungeon room");
      //initialize CurentState    
         State curentState=new State(startupR, player);
-        HandlerCommand hc = new HandlerCommand(curentState);
-     //register commands
-        hc.register(go);
-        hc.register(take);
-        hc.register(exit);
-        hc.register(look);
-        hc.register(drop);
-        hc.register(open);
-        hc.register(close);
-        hc.register(lock);
-        hc.register(unlock);
-        hc.register(shoot);
-        hc.register(use);
-        hc.register(put);
-        
-
-                
+        HandlerCommand hc = new HandlerCommand(curentState);        
 //Items
         //startup room
         IItem key = new DoorKey("KEY",tokenType);
@@ -170,7 +132,27 @@ public class GameTextAdventure {
         IItem drizzt = new Monster("DRIZZTDOURDEN",tokenType);
         IItem zaknafein = new Monster("ZAKNAFEIN",tokenType);
         IItem mielikki = new Monster("MIELIKKI",tokenType);
- 
+        private String result;
+        
+        
+public StarterGame() {
+          
+
+     //register commands
+        hc.register(go);
+        hc.register(take);
+        hc.register(exit);
+        hc.register(look);
+        hc.register(drop);
+        hc.register(open);
+        hc.register(close);
+        hc.register(lock);
+        hc.register(unlock);
+        hc.register(shoot);
+        hc.register(use);
+        hc.register(put);
+                
+
         
        
 //Gate of room
@@ -278,16 +260,23 @@ public class GameTextAdventure {
         
         
     // show current State
-        System.out.println(curentState.showCurentState());
+        
         tokenType.addHashmap();       
     //loop to running
-    boolean running = true;
-    while(running){
-        Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-        Parser parser= new Parser(hc,input,tokenType.getTokenTypes(),syntaxs);
-        System.out.println(parser.parsing());
-    }         
  
  }
+
+    public String getResult() {
+        result = curentState.showCurentState();
+        return result;
+    }
+
+
+public String go(String input){
+        Parser parser= new Parser(hc,input,tokenType.getTokenTypes(),syntaxs);
+        return (parser.parsing());
+    }   
+
+
+    
 }

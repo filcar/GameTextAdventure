@@ -36,18 +36,18 @@ public class Look implements ICommand {
     
     @Override
     public String action (State curentState,String word2){
-       curentState.showCurentState();
+       result=curentState.showCurentState();
        return result;
     }
     @Override
     public String action1 (State curentState){
-       curentState.showCurentState();
+       result=curentState.showCurentState();
        return result;
     }
     
     @Override
     public String action2 (State curentState,String item1, String prepos, String item2){
-        String result=("Not implement!!!");
+        result=("Not implement!!!");
         return result;
     }
 }

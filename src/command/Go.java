@@ -47,7 +47,7 @@ public class Go implements ICommand {
 
             if (state.equals("opened")){
                 curentState.setLocation(location);
-                curentState.showCurentState(); 
+                result=curentState.showCurentState(); 
             }
             else {
                 result=("the Door is "+state);
