@@ -12,6 +12,7 @@ package typeOfItem;
 public interface IShootable {
     
     Integer shooting(Integer damage); 
+    String getResult();
     
    
     

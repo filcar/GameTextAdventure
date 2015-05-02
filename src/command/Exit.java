@@ -41,14 +41,14 @@ public class Exit implements ICommand {
     @Override
     public String action (State curentState,String word2){
     //ISOS APOTHIKEYSH TOY STATE
-     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+  //   System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
      System.exit(0);
     return "";     
     }
 
     @Override
     public String action1 (State curentState){
-     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+ //    System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
      System.exit(0);
     return "";   
     } 

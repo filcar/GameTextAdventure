@@ -5,6 +5,7 @@
  */
 package controler;
 
+import command.Exit;
 import command.ICommand;
 import java.util.HashMap;
 import model.State;
@@ -29,7 +30,9 @@ public void register (ICommand command){
 public String handle(String word1, String word2){
     String result="";
     if (mapCommand.containsKey(word1)){
-        result=mapCommand.get(word1).action(curentState,word2);
+        if(mapCommand.get(word1) instanceof Exit) 
+            result=("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+        result=result+mapCommand.get(word1).action(curentState,word2);
     
     }
     else {

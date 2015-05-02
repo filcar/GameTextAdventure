@@ -11,7 +11,7 @@ package typeOfItem;
  */
 public interface ICanShoot {
     
-Integer shoot(IShootable obj);
+int shoot(IShootable obj);
    
     
 }

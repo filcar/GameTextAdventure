@@ -48,8 +48,9 @@ public class Shoot implements ICommand {
                 if (curentState.getPlayer().getCurrentItem() instanceof WeaponGun){
                     WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
                     int a=weapon.shoot((IShootable) item);
+                    result=((IShootable) item).getResult();
                     if(a==0) curentState.getLocation().removeItem(item);
-                    if(a==1) result="...";
+                    if(a==1) result=((IShootable) item).getResult();
                     if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }
                 else    result=("You must have and use a weapon to shoot " +item.getName());

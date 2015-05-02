@@ -17,8 +17,14 @@ import typeOfItem.INonTakeable;
  */
 public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     private String name;    
-    Random rand = new Random();
+    private Random rand = new Random();
     private int health=(rand.nextInt(50))+70;
+    private String result="";
+
+    @Override
+    public String getResult() {
+        return result;
+    }
 
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
     
@@ -89,9 +95,9 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     public Integer shooting(Integer damage){
        health = health-damage;
        if (health<1) 
-           System.out.println("You killed the "+this.getName());
+           result=("You killed the "+this.getName());
        else if(health>1 && health<100)
-           System.out.println("The "+this.getName()+" is still alive but they have "+this.getHealth()+"% health");    
+           result=("The "+this.getName()+" is still alive but they have "+this.getHealth()+"% health");    
        return health;
        } 
 }

@@ -19,6 +19,7 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
     private String name;
     private int bullet=5;
     private int damage=50;
+    private String result;
 
     public WeaponGun(String name,TokenType2 tokenType) {
         this.name = name;
@@ -47,15 +48,20 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
     }
     
     @Override
-    public Integer shoot(IShootable obj){
-     //   System.out.println("I shooted!!");
+    public int shoot(IShootable obj){
         int temp=1;
+        result=obj.getResult();
         if(bullet<1){
             temp =-1;
+            result=("You don't have any bullet!\n Your gun is empty!"); ;
         }
         else{
-            if(obj.shooting(damage)<0) temp=0;
+            if(obj.shooting(damage)<0) {
+                temp=0;
+                result=obj.getResult();
+            }
             bullet=bullet-1;
+
         }
         return temp;
             
