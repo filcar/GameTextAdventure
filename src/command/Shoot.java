@@ -7,7 +7,9 @@ package command;
 
 import controler.TokenType2;
 import java.util.HashMap;
+import java.util.Map;
 import model.IItem;
+import model.IPlayer;
 import typeOfItem.IShootable;
 import model.State;
 import model.WeaponGun;
@@ -49,7 +51,17 @@ public class Shoot implements ICommand {
                     WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
                     int a=weapon.shoot((IShootable) item);
                     result=((IShootable) item).getResult();
-                    if(a==0) curentState.getLocation().removeItem(item);
+                    if(a==0) 
+                    {
+                        if ((item instanceof IPlayer) & !((IPlayer)item).getMapItem().isEmpty())
+                            for (Map.Entry<String, IItem> entry : ((IPlayer)item).getMapItem().entrySet()) {
+                            result = result+"\na "+entry.getKey()+" dropted from "+item.getName();                                
+                            ((IPlayer)item).removeItem(entry.getValue());
+                            curentState.getLocation().addItem(entry.getValue());
+                        } 
+                        curentState.getLocation().removeItem(item);
+                    
+                    }
                     if(a==1) result=((IShootable) item).getResult();
                     if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }

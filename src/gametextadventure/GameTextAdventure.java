@@ -176,11 +176,11 @@ public class GameTextAdventure {
 //Gate of room
       
     
-        IGate GateLoc1 = new Gate("blue",startupR,filtersR);
+        IGate GateLoc1 = new Gate("blue",startupR,filtersR,key);
         startupR.registerGate(Direct2.WEST,GateLoc1);
         filtersR.registerGate(Direct2.EAST,GateLoc1);
         
-        IGate GateLoc2 = new Gate("red",startupR,truncheonsR);
+        IGate GateLoc2 = new Gate("red",startupR,truncheonsR,key);
         startupR.registerGate(Direct2.NORTH,GateLoc2);
         truncheonsR.registerGate(Direct2.SOUTH,GateLoc2);
         
@@ -226,10 +226,11 @@ public class GameTextAdventure {
        
 
 //Add Items to room
-        startupR.addItem(key);
+    //    startupR.addItem(key);
         startupR.addItem(pistol);
         startupR.addItem(monster);
         startupR.addItem(bullet9);
+        ((IPlayer)monster).addItem(key);
         
         filtersR.addItem(aluminiumKey);
         filtersR.addItem(toadstools);

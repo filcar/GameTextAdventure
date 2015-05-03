@@ -50,15 +50,12 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
     @Override
     public int shoot(IShootable obj){
         int temp=1;
-        result=obj.getResult();
         if(bullet<1){
             temp =-1;
-            result=("You don't have any bullet!\n Your gun is empty!"); ;
         }
         else{
             if(obj.shooting(damage)<0) {
                 temp=0;
-                result=obj.getResult();
             }
             bullet=bullet-1;
 

@@ -8,6 +8,7 @@ package model;
 import controler.TokenType2;
 import typeOfItem.IShootable;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import typeOfItem.INonTakeable;
 
@@ -38,7 +39,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     
     @Override
     public void addItem(IItem item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mapItem.put(item.getName(), item);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
 
     @Override
     public HashMap<String, IItem> getMapItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mapItem;    
     }
 
     @Override
@@ -58,7 +59,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
 
     @Override
     public void removeItem(IItem item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       mapItem.remove(item.getName(), item);
     }
 
     @Override
@@ -94,10 +95,12 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     @Override
     public Integer shooting(Integer damage){
        health = health-damage;
-       if (health<1) 
+       if (health<1) {
            result=("You killed the "+this.getName());
+
+       }
        else if(health>1 && health<100)
-           result=("The "+this.getName()+" is still alive but they have "+this.getHealth()+"% health");    
+           result=("The "+this.getName()+" is still alive but it has "+this.getHealth()+"% health");    
        return health;
        } 
 }

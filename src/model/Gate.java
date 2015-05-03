@@ -26,12 +26,12 @@ public class Gate implements IGate {
     }
  
  //constractor2
- public Gate(String name, ILocation loc1, ILocation loc2,IItemKey key) {
+ public Gate(String name, ILocation loc1, ILocation loc2,IItem key) {
         this.name=name;
         this.loc1 = loc1;
         this.loc2 = loc2;
         this.doorState = new DoorStateLock();   
-        this.key = key;
+        this.key = (IItemKey)key;
     }
 
     @Override
