@@ -42,7 +42,7 @@ public class Parser {
     
     public String parsing(String input){
         Lexer lexer=new Lexer();
-        this.tokens = lexer.lex(" "+input+" ",tokenType); 
+        this.tokens = lexer.lex(input,tokenType); 
         for(Token token : tokens){
             if (token.type.equals("VERB")) syntax="<"+token.data+">";
             else syntax=syntax+"<"+token.getType()+">";

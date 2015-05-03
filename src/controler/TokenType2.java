@@ -23,17 +23,18 @@ public class TokenType2 {
     private List<String> gate = new ArrayList<String>();
     private List<String> directions= new ArrayList<String>();
     private List<String> preposition = new ArrayList<String>();
+    String direction;
+    String prepos;
 
     public TokenType2() {
      //  String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
-       String verb =" (GO|OPEN|EXIT) ";
-       String item="(MONSTER|PISTOL|KEY) ";  
-       String direction="(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN) ";
-       String prepos ="(WITH|FOR|INTO|IN|BY) ";
+       String verb ="\\b(GO|OPEN|EXIT)\\b";
+       String item="\\b(MONSTER|PISTOL|KEY)\\b";  
+       direction="\\b(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN)\\b";
+       prepos ="\\b(WITH|FOR|INTO|IN|BY)\\b";
        tokenTypes.put(TokType.VERB, verb);
        tokenTypes.put(TokType.ITEM, item);    
-       tokenTypes.put(TokType.DIRECTION, direction);  
-       tokenTypes.put(TokType.PREPOSITION, prepos);
+
     }
     
     public void addHashmap (){
@@ -45,16 +46,18 @@ public class TokenType2 {
 	while (iterator.hasNext()) {
             verb=verb+"|"+(iterator.next());
 	}
-        verb=" ("+verb+") ";
+        verb="\\b("+verb+")\\b";
        
         Iterator<String> iterator1 = items.iterator();
 	item=(iterator1.next());
         while (iterator1.hasNext()) {
             item=item+"|"+(iterator1.next());
 	}
-        item="("+item+") ";
+        item="\\b("+item+")\\b";
         tokenTypes.put(TokType.VERB, verb);
         tokenTypes.put(TokType.ITEM, item);
+        tokenTypes.put(TokType.DIRECTION, direction);  
+        tokenTypes.put(TokType.PREPOSITION, prepos);
     }
     
     public void addList(Object obj){

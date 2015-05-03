@@ -144,7 +144,7 @@ public class GuiGame extends javax.swing.JFrame {
     String tmp=jTextField1.getText();
     String result = starter.go(tmp);
     textArea1.setText(result);
-        
+    jTextField1.setText("");
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
