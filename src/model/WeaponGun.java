@@ -15,7 +15,7 @@ import typeOfItem.IShootable;
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
+public class WeaponGun implements IWeapon, ICanShoot, IConteiner {
     private String name;
     private int bullet=5;
     private int damage=50;
