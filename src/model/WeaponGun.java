@@ -86,7 +86,7 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
             temp = sumBullet-bullet;
             bulletset.setBullet(temp);
         }
-            result = "Rest of "+bulletset.getName()+": "+temp;
+            result = name+" having now "+bullet+" bullets\nRest of "+bulletset.getName()+": "+temp;
         
         return result;
     }

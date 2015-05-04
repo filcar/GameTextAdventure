@@ -16,6 +16,8 @@ public class Player implements IPlayer {
     private int health=100;
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
     private IItem currentItem=null;
+    private int damage=25;
+    
     public Player() {
     }
 
@@ -69,6 +71,13 @@ public class Player implements IPlayer {
         return mapItem;
     }
 
-
+    @Override
+    public String damageAttack(IPlayer player) {
+        int temp=player.getHealth()-damage;
+        player.setHealth(temp);
+        String result = "Are you angry and attacking you, and causes -"+temp+" damage."
+                   + "\n"+player.getName()+" have now "+player.getHealth()+ " life!!!";
+        return result;
+    }
     
 }

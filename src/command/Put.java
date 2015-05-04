@@ -73,9 +73,9 @@ public class Put implements ICommand {
     public String action2 (State curentState,String noun1, String prepos, String noun2){
         String result="";
            if(!curentState.getPlayer().getMapItem().containsKey(noun1))
-               result="i don't have "+noun1;
+               result="I don't have "+noun1;
            else if (!curentState.getPlayer().getMapItem().containsKey(noun2))
-               result="i don't have "+noun2;
+               result="I don't have "+noun2;
            else if (!prepos.matches("(IN)|(INTO)"))
                result="syntax error";
            else {

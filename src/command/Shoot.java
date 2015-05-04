@@ -62,7 +62,12 @@ public class Shoot implements ICommand {
                         curentState.getLocation().removeItem(item);
                     
                     }
-                    if(a==1) result=((IShootable) item).getResult();
+                    if(a==1) {
+                        result=((IShootable) item).getResult();
+                        if (item instanceof IPlayer){
+                            result = result+"\n"+((IPlayer)item).damageAttack(curentState.getPlayer());
+                        }
+                    }
                     if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }
                 else    result=("You must have and use a weapon to shoot " +item.getName());

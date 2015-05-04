@@ -20,7 +20,17 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     private String name;    
     private Random rand = new Random();
     private int health=(rand.nextInt(50))+70;
+    private int damage=(rand.nextInt(10))+5;
     private String result="";
+
+    @Override
+    public String damageAttack(IPlayer player) {
+        int temp=player.getHealth()-damage;
+        player.setHealth(temp);
+        result = "Now it is angry, attacking you and causes -"+damage+" damage."
+                   + "\n"+player.getName()+" having now "+player.getHealth()+ " life!!!";
+        return result;
+    }
 
     @Override
     public String getResult() {
