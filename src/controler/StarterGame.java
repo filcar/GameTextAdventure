@@ -267,7 +267,7 @@ public StarterGame() {
  
  }
 
-    public String getResult() {
+public String getResult() {
         result = curentState.showCurentState();
         return result;
     }
@@ -278,6 +278,9 @@ public String go(String input){
         return (parser.parsing(input));
     }   
 
-
+public int getHealth(){
+        int health=player.getHealth();
+        return health;
+    }
     
 }

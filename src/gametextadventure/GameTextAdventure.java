@@ -23,7 +23,9 @@ import java.util.Scanner;
 import controler.Parser;
 import controler.StarterGame;
 import controler.TokenType2;
+import java.awt.Image;
 import java.util.HashMap;
+import javax.swing.ImageIcon;
 import model.BulletSet;
 import model.Direct2;
 import model.DoorStateClose;
@@ -275,7 +277,6 @@ public class GameTextAdventure {
         dungeonR.addItem(drizzt);
         dungeonR.addItem(zaknafein);
         dungeonR.addItem(mielikki);
-        
         
         
     // show current State
