@@ -5,11 +5,9 @@
  */
 package command;
 
-import java.util.Scanner;
-import model.DoorStateOpen;
-import model.IDoorState;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
-import model.ILocation;
 import model.State;
 
 /**
@@ -18,9 +16,13 @@ import model.State;
  */
 public class Open implements ICommand {
     private String name;
-
-    public Open() {
+    private String result="";
+    
+    public Open(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="OPEN";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -35,21 +37,30 @@ public class Open implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
-            System.out.println(gate.getDoorState().open(gate));
+            result=(gate.getDoorState().open(gate));
 //            IDoorState doorState=gate.getDoorState().open(gate);
 //            gate.setDoorState(doorState);
             
 
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("What do you want to open?");
-            System.out.println("\n\n\n");
+            result=("What do you want to open?");
         }
+        return result;
     }  
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
     
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

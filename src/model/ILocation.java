@@ -15,7 +15,7 @@ public interface ILocation {
 
     String getLocationDescription();
     String getLocationTitle();
-    void registerGate (Direction.Direct direction,IGate gate);
+    void registerGate (Direct2 direction,IGate gate);
     void addItem (IItem item);
     void removeItem (IItem item);
     HashMap<String, IGate> getMapGate();

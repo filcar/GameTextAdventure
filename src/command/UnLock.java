@@ -5,6 +5,8 @@
  */
 package command;
 
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.IItemKey;
 import model.State;
@@ -15,9 +17,13 @@ import model.State;
  */
 public class UnLock implements ICommand {
     private String name;
+    private String result="";
 
-    public UnLock() {
+    public UnLock(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="UNLOCK";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -32,22 +38,33 @@ public class UnLock implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
             if (curentState.getPlayer().getCurrentItem() instanceof IItemKey){
                 IItemKey key = (IItemKey)(curentState.getPlayer().getCurrentItem());
-                ///
-                System.out.println(gate.getDoorState().unlock(gate,key));
+                
+                result=(gate.getDoorState().unlock(gate,key));
             }
-            else    System.out.println("You must have and use a key to lock " +gate.getName()+" door");
+            else    
+                result=("You must have and use a key to unlock " +gate.getName()+" door");
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't Lock something!!!");
-            System.out.println("\n\n\n");
+            result=("I can't unlock something!!!");
         }
+        return result;
     }  
     
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

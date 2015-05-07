@@ -5,10 +5,14 @@
  */
 package command;
 
+import controler.TokenType2;
+import java.util.HashMap;
+import java.util.Map;
 import model.IItem;
+import model.IPlayer;
 import typeOfItem.IShootable;
 import model.State;
-import model.Weapon;
+import model.WeaponGun;
 
 /**
  *
@@ -17,8 +21,11 @@ import model.Weapon;
 public class Shoot implements ICommand {
     private String name;
 
-    public Shoot() {
+
+    public Shoot(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="SHOOT";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 
@@ -34,30 +41,58 @@ public class Shoot implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
+         String result="";
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
             if(item instanceof IShootable){
-                if (curentState.getPlayer().getCurrentItem() instanceof Weapon){
-                    Weapon weapon=(Weapon)curentState.getPlayer().getCurrentItem();
-                    Integer a =weapon.shoot((IShootable) item);
-                    if(a<1) 
+                if (curentState.getPlayer().getCurrentItem() instanceof WeaponGun){
+                    WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
+                    int a=weapon.shoot((IShootable) item);
+                    result=((IShootable) item).getResult();
+                    if(a==0) 
+                    {
+                        if ((item instanceof IPlayer) & !((IPlayer)item).getMapItem().isEmpty())
+                            for (Map.Entry<String, IItem> entry : ((IPlayer)item).getMapItem().entrySet()) {
+                            result = result+"\na "+entry.getKey()+" dropted from "+item.getName();                                
+                            ((IPlayer)item).removeItem(entry.getValue());
+                            curentState.getLocation().addItem(entry.getValue());
+                        } 
                         curentState.getLocation().removeItem(item);
+                    
+                    }
+                    if(a==1) {
+                        result=((IShootable) item).getResult();
+                        if (item instanceof IPlayer){
+                            result = result+"\n"+((IPlayer)item).damageAttack(curentState.getPlayer());
+                        }
+                    }
+                    if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }
-                else    System.out.println("You must have and use a weapon to shoot " +item.getName());
+                else    result=("You must have and use a weapon to shoot " +item.getName());
             }
-            else System.out.println("\nYou can't shoot "+ word2 +".\n");
+            else result=("\nYou can't shoot "+ word2 +".\n");
           //  curentState.showCurentState();
         }
         else if (word2.equals("NONE")) {
-            System.out.println("What do you want to shoot?");        
+            result=("What do you want to shoot?");        
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("There is'nt such item!");
-            System.out.println("\n\n\n");
+            result=("There is'nt such item!");
         }
+        return result;
     }  
     
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

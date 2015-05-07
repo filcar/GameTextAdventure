@@ -5,6 +5,8 @@
  */
 package command;
 
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
 import model.State;
 import typeOfItem.INonTakeable;
@@ -15,9 +17,12 @@ import typeOfItem.INonTakeable;
  */
 public class Take implements ICommand {
     private String name;
+    private String result="";
 
-    public Take() {
+    public Take(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="TAKE";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 
@@ -33,28 +38,38 @@ public class Take implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();       
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
             if(!(item instanceof INonTakeable)){
                 curentState.getLocation().removeItem(item);
                 curentState.getPlayer().addItem(item);
-                System.out.println("\nTaken.\n");
+                result=("\nTaken.\n");
             }
             else {
-                System.out.println("You can't take "+item.getName());
+                result=("You can't take "+item.getName());
             }
           //  curentState.showCurentState();
         }
         else if (word2.equals("NONE")) {
-            System.out.println("What do you want to take?");        
+            result=("What do you want to take?");        
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't take this!!!");
-            System.out.println("\n\n\n");
-        }
+            result=(word2+" doesn't exists!!");
+        }    
+        return result;
     }  
+   
+    @Override
+    public String action1 (State curentState){
+        String result=("Not implement!!!");
+        return result;
+    }
     
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
 }

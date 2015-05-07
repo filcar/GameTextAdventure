@@ -9,11 +9,9 @@ package typeOfItem;
  *
  * @author fil
  */
-public interface IShootable {
+public interface ICanShoot {
     
-    Integer shooting(Integer damage); 
-    String getResult();
-    
+int shoot(IShootable obj);
    
     
 }

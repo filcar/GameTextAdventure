@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package typeOfItem;
+package model;
 
 /**
  *
  * @author fil
  */
-public interface IShootable {
-    
-    Integer shooting(Integer damage); 
-    String getResult();
-    
-   
-    
+public enum Direct2 {
+    WEST, EAST, NORTH, SOUTH, NORTHWEST, NORTHEAST, SOUTHWEST, SOUTHEAST, UP, DOWN
 }

@@ -5,6 +5,9 @@
  */
 package command;
 
+//import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.State;
 
@@ -14,9 +17,13 @@ import model.State;
  */
 public class Close implements ICommand {
     private String name;
+    private String result="";
 
-    public Close() {
+    public Close(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="CLOSE";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
     @Override
@@ -31,18 +38,28 @@ public class Close implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getLocation().getMapGate().containsKey(word2)){
             IGate gate=curentState.getLocation().getMapGate().get(word2);
-            System.out.println(gate.getDoorState().close(gate));
+            result=(gate.getDoorState().close(gate));
             
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't close something!!!");
-            System.out.println("\n\n\n");
+            result=("I can't close something!!!");
         }
+        return result;
     }  
+    @Override
+    public String action1 (State curentState){
+        result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
     
 }

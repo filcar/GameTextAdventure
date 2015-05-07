@@ -30,4 +30,6 @@ public interface IPlayer {
 
     void setName(String name);
     
+    String damageAttack(IPlayer player);
+    
 }

@@ -38,32 +38,39 @@ public class State {
         return location;
     }
     
-    public void  showCurentState(){
+    public String  showCurentState(){
     //Runtime.getRuntime().exec("cls");
-    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    String result1="->"+location.getLocationTitle();
-    result1=result1+"\n"+(location.getLocationDescription());
+        String result1="-->"+location.getLocationTitle();
+        result1=result1+"\n"+(location.getLocationDescription());
     //Λήψη στοιχείων για τις εξόδους
-   Iterator<IGate> gateIterator = location.getMapGate().values().iterator();
-      while(gateIterator.hasNext()){
-        IGate door = gateIterator.next();
-        String doorState = door.getDoorState().getState();
-        ILocation nextLocation = door.getLeadToLocation(location);
-        String leads = nextLocation.getLocationTitle();
+        Iterator<IGate> gateIterator = location.getMapGate().values().iterator();
+        while(gateIterator.hasNext()){
+            IGate door = gateIterator.next();
+            String doorState = door.getDoorState().getState();
+            ILocation nextLocation = door.getLeadToLocation(location);
+            String leads = nextLocation.getLocationTitle();
         //--------Λήψη του direction από το Hasmap
-        for (Entry<String, IGate> entry : location.getMapGate().entrySet()) {
-            if (entry.getValue().equals(door)) {
-                direction=entry.getKey();
+            for (Entry<String, IGate> entry : location.getMapGate().entrySet()) {
+                if (entry.getValue().equals(door)) {
+                    direction=entry.getKey();
+                }
             }
-        }
         //-----------
-        result1=result1+"\n"+("At the "+ direction +" there is a "+ doorState+" door that leads to "+leads+".");
-    } 
-
-    System.out.println(result1);
-    System.out.println("Existing items in the room:"+location.getMapItem().keySet());
+            result1=result1+"\n"+("At the "+ direction +" there is a "+doorState+" "+door.getName()+" door that leads to "+leads+".");
+        
+        } 
+    result1=result1+("\nExisting items in the room:"+location.getMapItem().keySet());
+    result1=result1+("\n=========ABOUT YOU==========");
+    if(player.getMapItem().isEmpty())
+        result1=result1+("\nYou haven't taken any item!!!");
+    else
+        result1=result1+("\nYou have taken these items:"+ player.getMapItem().keySet().toString());
+    if (player.getCurrentItem()==null){}
+    else 
+        result1=result1+("\nYou have a "+player.getCurrentItem().getName().toLowerCase()+" in your hands");
+  //  System.out.println(result1+"\n\n\n");
+    return result1;
 //    System.out.println("There are exit to go:"+location.getMapGate().keySet());
-    System.out.println("You have items:"+ player.getMapItem().keySet());
-    System.out.println("\n\n\n");
+    
 }
 }

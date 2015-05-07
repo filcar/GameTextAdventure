@@ -5,6 +5,9 @@
  */
 package command;
 
+//import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
 import model.State;
 
@@ -14,9 +17,12 @@ import model.State;
  */
 public class Drop implements ICommand {
     private String name;
+    private String result="";
 
-    public Drop() {
+    public Drop(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="DROP";
+        tokenType.addList(this);
+        syntaxs.put("<"+name+">"+"<ITEM>", 2);
     }
 
 
@@ -32,20 +38,34 @@ public class Drop implements ICommand {
     }
     
     @Override
-    public void action (State curentState,String word2){
+    public String action (State curentState,String word2){
     //    curentState.showCurentState();
         if(curentState.getPlayer().getMapItem().containsKey(word2)){
             IItem item =curentState.getPlayer().getMapItem().get(word2);
-            curentState.getPlayer().removeItem(item);
+            if(!(curentState.getPlayer().getCurrentItem()==null) 
+                    && curentState.getPlayer().getCurrentItem().equals(item))
+                curentState.getPlayer().setCurrentItem(null);
+            curentState.getPlayer().removeItem(item);            
             curentState.getLocation().addItem(item);
-            System.out.println("\nDropped.\n");
+            result=("\nDropped.\n");
            // curentState.showCurentState();
         }
         else {
-            System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-            System.out.println("I can't drop this!!!");
-            System.out.println("\n\n\n");
+            result=("I can't drop this!!!");
         }
+        return result;
     }  
+    
+    @Override
+    public String action1 (State curentState){
+        result=("Not implement!!!");
+        return result;
+    }
+    
+    @Override
+    public String action2 (State curentState,String item1, String prepos, String item2){
+        String result=("Not implement!!!");
+        return result;
+    }
     
 }

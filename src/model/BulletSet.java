@@ -6,43 +6,49 @@
 package model;
 
 import controler.TokenType2;
-import typeOfItem.IShootable;
+import typeOfItem.ICanBePut;
 
 /**
  *
  * @author fil
  */
-public class DoorKey implements IItemKey {
-    private String name;
-    private String state;
-  
-    
-    //isos mia lista apo pragamta poy mporei na kanei
+public class BulletSet implements IItem,ICanBePut{
+    String name;
+    String state;
+    Integer bullet=5;
 
-    @Override
-    public String getName() {
-        return name;
-        
-    }
-
-    public DoorKey(String name,TokenType2 tokenType) {
+    public BulletSet(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
 
     @Override
-    public void setName(String name) {
-        this.name = name;
+    public String getName() {
+        return name;
     }
 
     @Override
     public String getState() {
         return state;
+  
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name=name;
     }
 
     @Override
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Integer getBullet() {
+        return bullet;
+    }
+    
+    public void setBullet(int bullet) {
+        this.bullet=bullet;
     }
     
 }

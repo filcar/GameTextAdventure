@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package typeOfItem;
+
+import model.BulletSet;
 
 /**
  *
  * @author fil
  */
-public class Direction {
- public enum Direct {WEST, EAST, NORTH, SOUTH};
+public interface IConteiner {
+    
+    String put(ICanBePut obj);
     
 }
