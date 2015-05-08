@@ -18,6 +18,16 @@ import model.State;
 public class UnLock implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public UnLock(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="UNLOCK";

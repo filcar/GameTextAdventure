@@ -18,6 +18,16 @@ import typeOfItem.INonTakeable;
 public class Take implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Take(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="TAKE";

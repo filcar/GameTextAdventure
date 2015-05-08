@@ -20,6 +20,16 @@ import model.State;
 public class Exit implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Exit(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="EXIT";
