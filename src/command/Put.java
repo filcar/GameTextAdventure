@@ -5,11 +5,10 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
-import typeOfItem.IShootable;
 import model.State;
-import model.WeaponGun;
 import typeOfItem.ICanBePut;
 import typeOfItem.IConteiner;
 
@@ -19,9 +18,18 @@ import typeOfItem.IConteiner;
  */
 public class Put implements ICommand {
     private String name;
+    private String description;
 
+    @Override
+    public String getDescription() {
+        return description;
+    }
 
-    public Put() {
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Put(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="PUT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM><PREPOSITION><ITEM>", 4);
@@ -74,9 +82,9 @@ public class Put implements ICommand {
     public String action2 (State curentState,String noun1, String prepos, String noun2){
         String result="";
            if(!curentState.getPlayer().getMapItem().containsKey(noun1))
-               result="i don't have "+noun1;
+               result="I don't have "+noun1;
            else if (!curentState.getPlayer().getMapItem().containsKey(noun2))
-               result="i don't have "+noun2;
+               result="I don't have "+noun2;
            else if (!prepos.matches("(IN)|(INTO)"))
                result="syntax error";
            else {

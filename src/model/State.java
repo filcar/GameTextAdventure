@@ -5,9 +5,7 @@
  */
 package model;
 
-import static controler.Lexer.tokenType;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map.Entry;
 
 /**
@@ -40,9 +38,9 @@ public class State {
         return location;
     }
     
-    public void  showCurentState(){
+    public String  showCurentState(){
     //Runtime.getRuntime().exec("cls");
-        String result1="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n->"+location.getLocationTitle();
+        String result1="-->"+location.getLocationTitle();
         result1=result1+"\n"+(location.getLocationDescription());
     //Λήψη στοιχείων για τις εξόδους
         Iterator<IGate> gateIterator = location.getMapGate().values().iterator();
@@ -70,8 +68,8 @@ public class State {
     if (player.getCurrentItem()==null){}
     else 
         result1=result1+("\nYou have a "+player.getCurrentItem().getName().toLowerCase()+" in your hands");
-    System.out.println(result1+"\n\n\n");
-    
+  //  System.out.println(result1+"\n\n\n");
+    return result1;
 //    System.out.println("There are exit to go:"+location.getMapGate().keySet());
     
 }

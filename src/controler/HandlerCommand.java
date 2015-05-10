@@ -5,6 +5,7 @@
  */
 package controler;
 
+import command.Exit;
 import command.ICommand;
 import java.util.HashMap;
 import model.State;
@@ -14,16 +15,24 @@ import model.State;
  * @author fil
  */
 public class HandlerCommand {
-        private HashMap<String, ICommand> mapCommand = new HashMap<String, ICommand>();
-        
-        public void register (ICommand command){
+
+private State curentState;
+private HashMap<String, ICommand> mapCommand = new HashMap<String, ICommand>();
+
+public HandlerCommand(State curentState) {
+        this.curentState = curentState;
+    }
+    
+public void register (ICommand command){
             mapCommand.put(command.getName(), command);
         }
         
-public String handle(String word1, String word2, State curentState){
+public String handle(String word1, String word2){
     String result="";
     if (mapCommand.containsKey(word1)){
-     result=mapCommand.get(word1).action(curentState,word2);
+        if(mapCommand.get(word1) instanceof Exit) 
+            result=("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+        result=result+mapCommand.get(word1).action(curentState,word2);
     
     }
     else {
@@ -33,7 +42,7 @@ public String handle(String word1, String word2, State curentState){
        return result;//System.out.println(result);
     }
 
-public String handle1(String word1, State curentState){
+public String handle1(String word1){
     String result="";
     if (mapCommand.containsKey(word1)){
      result=mapCommand.get(word1).action1(curentState);
@@ -44,10 +53,9 @@ public String handle1(String word1, State curentState){
         result =result+("Command not found!!\n\n\n\n");
     }
     return result;
-//System.out.println(result);
     }    
     
-public String handle2(String verb,String item1, String prepos, String item2, State curentState){
+public String handle2(String verb,String item1, String prepos, String item2){
     String result="";
     if (mapCommand.containsKey(verb)){
      result=mapCommand.get(verb).action2(curentState,item1, prepos, item2);

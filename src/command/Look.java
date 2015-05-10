@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.State;
 
 /**
@@ -15,8 +16,18 @@ import model.State;
 public class Look implements ICommand {
     private String name;
     private String result="";
+    private String description;
 
-    public Look() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Look(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="LOOK";
         tokenType.addList(this);
         syntaxs.put("<"+name+">", 1);
@@ -35,18 +46,18 @@ public class Look implements ICommand {
     
     @Override
     public String action (State curentState,String word2){
-       curentState.showCurentState();
+       result=curentState.showCurentState();
        return result;
     }
     @Override
     public String action1 (State curentState){
-       curentState.showCurentState();
+       result=curentState.showCurentState();
        return result;
     }
     
     @Override
     public String action2 (State curentState,String item1, String prepos, String item2){
-        String result=("Not implement!!!");
+        result=("Not implement!!!");
         return result;
     }
 }

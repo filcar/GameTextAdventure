@@ -5,7 +5,9 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+//import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IItem;
 import model.State;
 
@@ -16,11 +18,21 @@ import model.State;
 public class Drop implements ICommand {
     private String name;
     private String result="";
+    private String description;
 
-    public Drop() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public Drop(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="DROP";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM>", 2);
+        description="...";
     }
 
 

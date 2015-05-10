@@ -5,9 +5,10 @@
  */
 package model;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
 import typeOfItem.IShootable;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 import typeOfItem.INonTakeable;
 
@@ -17,22 +18,38 @@ import typeOfItem.INonTakeable;
  */
 public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     private String name;    
-    Random rand = new Random();
+    private Random rand = new Random();
     private int health=(rand.nextInt(50))+70;
+    private int damage=(rand.nextInt(10))+5;
+    private String result="";
+
+    @Override
+    public String damageAttack(IPlayer player) {
+        int temp=player.getHealth()-damage;
+        player.setHealth(temp);
+        result = "Now it is angry, attacking you and causes -"+damage+" damage."
+                   + "\n"+player.getName()+" having now "+player.getHealth()+ " life!!!";
+        return result;
+    }
+
+    @Override
+    public String getResult() {
+        return result;
+    }
 
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
     
     public Monster() {
     }
     
-    public Monster(String name) {
+    public Monster(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
     
     @Override
     public void addItem(IItem item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        mapItem.put(item.getName(), item);
     }
 
     @Override
@@ -42,7 +59,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
 
     @Override
     public HashMap<String, IItem> getMapItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mapItem;    
     }
 
     @Override
@@ -52,7 +69,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
 
     @Override
     public void removeItem(IItem item) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       mapItem.remove(item.getName(), item);
     }
 
     @Override
@@ -88,10 +105,12 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
     @Override
     public Integer shooting(Integer damage){
        health = health-damage;
-       if (health<1) 
-           System.out.println("You killed the "+this.getName());
+       if (health<1) {
+           result=("You killed the "+this.getName());
+
+       }
        else if(health>1 && health<100)
-           System.out.println("The "+this.getName()+" is still alive but they have "+this.getHealth()+"% health");    
+           result=("The "+this.getName()+" is still alive but it has "+this.getHealth()+"% health");    
        return health;
        } 
 }

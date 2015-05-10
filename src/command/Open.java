@@ -5,12 +5,9 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
-import java.util.Scanner;
-import model.DoorStateOpen;
-import model.IDoorState;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
-import model.ILocation;
 import model.State;
 
 /**
@@ -20,8 +17,18 @@ import model.State;
 public class Open implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
-    public Open() {
+    public Open(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="OPEN";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<DIRECTION>", 2);

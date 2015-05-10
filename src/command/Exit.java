@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.ILocation;
 import model.IPlayer;
@@ -19,8 +20,18 @@ import model.State;
 public class Exit implements ICommand {
     private String name;
     private String result="";
+    private String description;
 
-    public Exit() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Exit(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="EXIT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">", 1);
@@ -40,14 +51,14 @@ public class Exit implements ICommand {
     @Override
     public String action (State curentState,String word2){
     //ISOS APOTHIKEYSH TOY STATE
-     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+  //   System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
      System.exit(0);
     return "";     
     }
 
     @Override
     public String action1 (State curentState){
-     System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
+ //    System.out.println("Thank you for playing '"+curentState.getPlayer().getName()+"'\nBye-bye!!!");
      System.exit(0);
     return "";   
     } 

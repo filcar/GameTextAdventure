@@ -5,7 +5,9 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+//import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.State;
 
@@ -16,12 +18,23 @@ import model.State;
 public class Close implements ICommand {
     private String name;
     private String result="";
+    private String description;
 
-    public Close() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Close(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="CLOSE";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
         syntaxs.put("<"+name+">"+"<ITEM>", 2);
+        description="...";
     }
 
     @Override

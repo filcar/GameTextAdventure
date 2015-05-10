@@ -5,11 +5,16 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
+import java.util.Map;
 import model.IItem;
+import model.IPlayer;
+import model.IWeapon;
 import typeOfItem.IShootable;
 import model.State;
 import model.WeaponGun;
+import typeOfItem.ICanShoot;
 
 /**
  *
@@ -17,9 +22,19 @@ import model.WeaponGun;
  */
 public class Shoot implements ICommand {
     private String name;
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 
-    public Shoot() {
+    public Shoot(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="SHOOT";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<ITEM>", 2);
@@ -44,11 +59,27 @@ public class Shoot implements ICommand {
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
             if(item instanceof IShootable){
-                if (curentState.getPlayer().getCurrentItem() instanceof WeaponGun){
-                    WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
+                if (curentState.getPlayer().getCurrentItem() instanceof ICanShoot){
+                    ICanShoot weapon=(ICanShoot)curentState.getPlayer().getCurrentItem();
                     int a=weapon.shoot((IShootable) item);
-                    if(a==0) curentState.getLocation().removeItem(item);
-                    if(a==1) result="...";
+                    result=((IShootable) item).getResult();
+                    if(a==0) 
+                    {
+                        if ((item instanceof IPlayer) & !((IPlayer)item).getMapItem().isEmpty())
+                            for (Map.Entry<String, IItem> entry : ((IPlayer)item).getMapItem().entrySet()) {
+                            result = result+"\na "+entry.getKey()+" dropted from "+item.getName();                                
+                            ((IPlayer)item).removeItem(entry.getValue());
+                            curentState.getLocation().addItem(entry.getValue());
+                        } 
+                        curentState.getLocation().removeItem(item);
+                    
+                    }
+                    if(a==1) {
+                        result=((IShootable) item).getResult();
+                        if (item instanceof IPlayer){
+                            result = result+"\n"+((IPlayer)item).damageAttack(curentState.getPlayer());
+                        }
+                    }
                     if(a==-1) result=("You don't have any bullet!\n Your gun is empty!"); 
                 }
                 else    result=("You must have and use a weapon to shoot " +item.getName());

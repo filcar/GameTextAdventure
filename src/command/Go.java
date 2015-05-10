@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.ILocation;
 import model.State;
@@ -16,8 +17,18 @@ import model.State;
  */
 public class Go implements ICommand {
     private String name;
+    private String description;
 
-    public Go() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Go(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="GO";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
@@ -46,7 +57,7 @@ public class Go implements ICommand {
 
             if (state.equals("opened")){
                 curentState.setLocation(location);
-                curentState.showCurentState(); 
+                result=curentState.showCurentState(); 
             }
             else {
                 result=("the Door is "+state);

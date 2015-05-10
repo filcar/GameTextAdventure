@@ -15,13 +15,13 @@ import typeOfItem.IShootable;
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon, ICanShoot, IConteiner {
+public class MultiGun implements IWeapon, ICanShoot,IConteiner {
     private String name;
-    private int bullet=5;
-    private int damage=50;
+    private int bullet=10;
+    private int damage=100;
     private String result;
 
-    public WeaponGun(String name,TokenType2 tokenType) {
+    public MultiGun(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
@@ -57,7 +57,7 @@ public class WeaponGun implements IWeapon, ICanShoot, IConteiner {
             if(obj.shooting(damage)<0) {
                 temp=0;
             }
-            bullet=bullet-1;
+            bullet=bullet-3;
 
         }
         return temp;
@@ -80,9 +80,9 @@ public class WeaponGun implements IWeapon, ICanShoot, IConteiner {
         BulletSet bulletset= (BulletSet)bullets;
         int temp=bulletset.getBullet();
         Integer sumBullet=temp+bullet;
-        Integer restBullet=sumBullet.compareTo(5);
+        Integer restBullet=sumBullet.compareTo(10);
         if(restBullet>=0)     {   
-            bullet = 5;
+            bullet = 10;
             temp = sumBullet-bullet;
             bulletset.setBullet(temp);
         }

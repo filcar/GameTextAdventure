@@ -5,7 +5,8 @@
  */
 package command;
 
-import static controler.Lexer.tokenType;
+import controler.TokenType2;
+import java.util.HashMap;
 import model.IGate;
 import model.IItemKey;
 import model.State;
@@ -17,8 +18,18 @@ import model.State;
 public class Lock implements ICommand {
     private String name;
     private String result="";
+    private String description;
 
-    public Lock() {
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Lock(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="LOCK";
         tokenType.addList(this);
         syntaxs.put("<"+name+">"+"<DIRECTION>", 2);
