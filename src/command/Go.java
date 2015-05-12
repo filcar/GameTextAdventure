@@ -17,6 +17,16 @@ import model.State;
  */
 public class Go implements ICommand {
     private String name;
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Go(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="GO";

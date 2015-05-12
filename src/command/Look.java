@@ -16,6 +16,16 @@ import model.State;
 public class Look implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Look(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="LOOK";

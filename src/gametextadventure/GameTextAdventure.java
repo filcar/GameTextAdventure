@@ -40,6 +40,7 @@ import model.IPlayer;
 import model.DoorKey;
 import model.LocationRoom;
 import model.Monster;
+import model.MultiGun;
 import model.Player;
 import model.State;
 import model.WeaponGun;
@@ -120,6 +121,7 @@ public class GameTextAdventure {
         //startup room
         IItem key = new DoorKey("KEY",tokenType);
         IItem pistol = new WeaponGun("PISTOL",tokenType);
+        IItem kalasnikof = new MultiGun("KALASNIKOF",tokenType);
         IItem monster = new Monster("MONSTER",tokenType);
         IItem bullet9 = new BulletSet("BULLET",tokenType);
         
@@ -231,6 +233,7 @@ public class GameTextAdventure {
     //    startupR.addItem(key);
         startupR.addItem(pistol);
         startupR.addItem(monster);
+        startupR.addItem(kalasnikof);
         startupR.addItem(bullet9);
         ((IPlayer)monster).addItem(key);
         

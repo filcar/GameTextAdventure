@@ -10,9 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 import model.IItem;
 import model.IPlayer;
+import model.IWeapon;
 import typeOfItem.IShootable;
 import model.State;
 import model.WeaponGun;
+import typeOfItem.ICanShoot;
 
 /**
  *
@@ -20,6 +22,16 @@ import model.WeaponGun;
  */
 public class Shoot implements ICommand {
     private String name;
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 
     public Shoot(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
@@ -47,8 +59,8 @@ public class Shoot implements ICommand {
         if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getLocation().getMapItem().get(word2);
             if(item instanceof IShootable){
-                if (curentState.getPlayer().getCurrentItem() instanceof WeaponGun){
-                    WeaponGun weapon=(WeaponGun)curentState.getPlayer().getCurrentItem();
+                if (curentState.getPlayer().getCurrentItem() instanceof ICanShoot){
+                    ICanShoot weapon=(ICanShoot)curentState.getPlayer().getCurrentItem();
                     int a=weapon.shoot((IShootable) item);
                     result=((IShootable) item).getResult();
                     if(a==0) 

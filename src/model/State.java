@@ -39,7 +39,7 @@ public class State {
     }
     
     public String  showCurentState(){
-    //Runtime.getRuntime().exec("cls");
+    
         String result1="-->"+location.getLocationTitle();
         result1=result1+"\n"+(location.getLocationDescription());
     //Λήψη στοιχείων για τις εξόδους

@@ -32,6 +32,7 @@ import model.ILocation;
 import model.IPlayer;
 import model.LocationRoom;
 import model.Monster;
+import model.MultiGun;
 import model.Player;
 import model.State;
 import model.WeaponGun;
@@ -80,6 +81,7 @@ public class StarterGame {
         //startup room
         IItem key = new DoorKey("KEY",tokenType);
         IItem pistol = new WeaponGun("PISTOL",tokenType);
+        IItem kalasnikof = new MultiGun("KALASNIKOF",tokenType);
         IItem monster = new Monster("MONSTER",tokenType);
         IItem bullet9 = new BulletSet("BULLET",tokenType);
         
@@ -210,6 +212,7 @@ public StarterGame() {
 //Add Items to room
        // startupR.addItem(key);
         startupR.addItem(pistol);
+        startupR.addItem(kalasnikof);
         startupR.addItem(monster);
         startupR.addItem(bullet9);
         ((IPlayer)monster).addItem(key);

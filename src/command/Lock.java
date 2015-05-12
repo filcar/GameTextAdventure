@@ -18,6 +18,16 @@ import model.State;
 public class Lock implements ICommand {
     private String name;
     private String result="";
+    private String description;
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public Lock(HashMap<String,Integer> syntaxs,TokenType2 tokenType) {
         this.name="LOCK";
