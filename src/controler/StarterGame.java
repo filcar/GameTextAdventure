@@ -30,6 +30,7 @@ import model.IGate;
 import model.IItem;
 import model.ILocation;
 import model.IPlayer;
+import model.InstanceGame;
 import model.LocationRoom;
 import model.Monster;
 import model.MultiGun;
@@ -62,7 +63,7 @@ public class StarterGame {
     //IDooreState
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
-     //Room
+//Room
      // ground floor
         ILocation startupR  = new LocationRoom("startupRoom","This is the entrance of the player");
         ILocation filtersR  = new LocationRoom("filtersRoom","This is the filters' room");
@@ -74,9 +75,10 @@ public class StarterGame {
         ILocation treasureR  = new LocationRoom("treasureRoom","This is the treasure's room");
      // basement
         ILocation dungeonR  = new LocationRoom("dungeonRoom","This is the dungeon room");
-     //initialize CurentState    
+//initialize CurentState    
         State curentState=new State(startupR, player);
-        HandlerCommand hc = new HandlerCommand(curentState);        
+        HandlerCommand hc = new HandlerCommand(curentState);
+        private InstanceGame instanceGame;
 //Items
         //startup room
         IItem key = new DoorKey("KEY",tokenType);
@@ -154,8 +156,14 @@ public StarterGame() {
         hc.register(use);
         hc.register(put);
                 
-        
-        
+        instanceGame.setState(curentState);
+        instanceGame.addLocations(startupR);
+        instanceGame.addLocations(filtersR);
+        instanceGame.addLocations(truncheonsR);
+        instanceGame.addLocations(witchNest);
+        instanceGame.addLocations(monsterLair);
+        instanceGame.addLocations(treasureR);
+        instanceGame.addLocations(dungeonR);
        
 //Gate of room
       
