@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fil
  */
-public class Gate implements IGate {
+public class Gate implements IGate, Serializable{
     private String name;
     private String direction;
     private IDoorState doorState;

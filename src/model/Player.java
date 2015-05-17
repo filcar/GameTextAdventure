@@ -5,13 +5,14 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author fil
  */
-public class Player implements IPlayer {
+public class Player implements IPlayer,Serializable {
     private String name;
     private int health=100;
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();

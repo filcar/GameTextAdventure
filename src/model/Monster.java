@@ -6,6 +6,7 @@
 package model;
 
 import controler.TokenType2;
+import java.io.Serializable;
 import typeOfItem.IShootable;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ import typeOfItem.INonTakeable;
  *
  * @author fil
  */
-public class Monster implements IPlayer, IItem,IShootable,INonTakeable{
+public class Monster implements IPlayer, IItem,IShootable,INonTakeable,Serializable{
     private String name;    
     private Random rand = new Random();
     private int health=(rand.nextInt(50))+70;

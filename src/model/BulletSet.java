@@ -6,13 +6,14 @@
 package model;
 
 import controler.TokenType2;
+import java.io.Serializable;
 import typeOfItem.ICanBePut;
 
 /**
  *
  * @author fil
  */
-public class BulletSet implements IItem,ICanBePut{
+public class BulletSet implements IItem,ICanBePut,Serializable{
     String name;
     String state;
     Integer bullet=5;

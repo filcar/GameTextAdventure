@@ -6,6 +6,7 @@
 package model;
 
 import controler.TokenType2;
+import java.io.Serializable;
 import typeOfItem.ICanBePut;
 import typeOfItem.ICanShoot;
 import typeOfItem.IConteiner;
@@ -15,7 +16,7 @@ import typeOfItem.IShootable;
  *
  * @author fil
  */
-public class WeaponGun implements IWeapon, ICanShoot,IConteiner {
+public class WeaponGun implements IWeapon, ICanShoot,IConteiner,Serializable {
     private String name;
     private int bullet=5;
     private int damage=50;

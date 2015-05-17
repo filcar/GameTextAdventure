@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author fil
  */
-public class DoorStateLock implements IDoorState {
+public class DoorStateLock implements IDoorState,Serializable{
     private String state;
     private String result;
     private IItemKey key;

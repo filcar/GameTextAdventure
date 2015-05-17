@@ -10,10 +10,12 @@ import command.Drop;
 import command.Exit;
 import command.Go;
 import command.ICommand;
+import command.Load;
 import command.Lock;
 import command.Look;
 import command.Open;
 import command.Put;
+import command.Save;
 import command.Shoot;
 import command.Take;
 import command.UnLock;
@@ -46,7 +48,8 @@ public class StarterGame {
 //initialization 
         HashMap<String,Integer> syntaxs = new HashMap<>();
         TokenType2 tokenType=new TokenType2();   
-      //  Lexer lexer = new Lexer();
+        private InstanceGame instanceGame = new InstanceGame();
+      //  COMMANDS
         IPlayer player = new Player("fil");
         ICommand go = new Go(syntaxs,tokenType);
         ICommand take = new Take(syntaxs,tokenType);
@@ -60,6 +63,8 @@ public class StarterGame {
         ICommand shoot= new Shoot(syntaxs,tokenType); 
         ICommand use =  new Use(syntaxs,tokenType);
         ICommand put = new Put(syntaxs,tokenType);
+        ICommand save = new Save(syntaxs,tokenType,instanceGame);
+        ICommand load = new Load(syntaxs,tokenType,instanceGame);
     //IDooreState
         IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
@@ -78,7 +83,7 @@ public class StarterGame {
 //initialize CurentState    
         State curentState=new State(startupR, player);
         HandlerCommand hc = new HandlerCommand(curentState);
-        private InstanceGame instanceGame;
+
 //Items
         //startup room
         IItem key = new DoorKey("KEY",tokenType);
@@ -137,7 +142,11 @@ public class StarterGame {
         IItem zaknafein = new Monster("ZAKNAFEIN",tokenType);
         IItem mielikki = new Monster("MIELIKKI",tokenType);
         private String result;
-        
+                //=============
+
+
+
+        //=============
         
 public StarterGame() {
           
@@ -155,16 +164,10 @@ public StarterGame() {
         hc.register(shoot);
         hc.register(use);
         hc.register(put);
+        hc.register(save);
+        hc.register(load);
                 
-        instanceGame.setState(curentState);
-        instanceGame.addLocations(startupR);
-        instanceGame.addLocations(filtersR);
-        instanceGame.addLocations(truncheonsR);
-        instanceGame.addLocations(witchNest);
-        instanceGame.addLocations(monsterLair);
-        instanceGame.addLocations(treasureR);
-        instanceGame.addLocations(dungeonR);
-       
+        
 //Gate of room
       
     
@@ -268,25 +271,35 @@ public StarterGame() {
         dungeonR.addItem(drizzt);
         dungeonR.addItem(zaknafein);
         dungeonR.addItem(mielikki);
+        tokenType.addHashmap();  
+//        
+        instanceGame.setState(curentState);
+        instanceGame.addLocations(startupR);        
+        instanceGame.addLocations(filtersR);
+        instanceGame.addLocations(truncheonsR);
+        instanceGame.addLocations(witchNest);
+        instanceGame.addLocations(monsterLair);
+        instanceGame.addLocations(treasureR);
+        instanceGame.addLocations(dungeonR);
+//     
         
-        
-        
-    // show current State
-        
-        tokenType.addHashmap();       
+     
     //loop to running
  
  }
 
-public String getResult() {
+
+
+public String getResult() {        
         result = curentState.showCurentState();
         return result;
     }
 
 
 public String go(String input){
-        Parser parser= new Parser(hc,tokenType.getTokenTypes(),syntaxs);
-        return (parser.parsing(input));
+       Parser parser= new Parser(hc,tokenType.getTokenTypes(),syntaxs);
+       result=parser.parsing(input);
+       return result;
     }   
 
 public int getHealth(){

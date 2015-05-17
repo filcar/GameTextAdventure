@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -12,10 +13,13 @@ import java.util.Map.Entry;
  *
  * @author fil
  */
-public class State {
+public class State implements Serializable{
     ILocation location;
     IPlayer player;
     String direction;
+
+    public State() {
+    }
 
 
     public void setPlayer(IPlayer player) {
