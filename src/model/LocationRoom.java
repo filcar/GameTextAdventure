@@ -5,13 +5,14 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author fil
  */
-public class LocationRoom implements ILocation {
+public class LocationRoom implements ILocation, Serializable{
     private String locationTitle;
     private String locationDescription;
     private HashMap<String, IGate> mapGate = new HashMap<String, IGate>();

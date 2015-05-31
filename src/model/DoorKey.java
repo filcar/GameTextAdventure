@@ -6,13 +6,14 @@
 package model;
 
 import controler.TokenType2;
+import java.io.Serializable;
 import typeOfItem.IShootable;
 
 /**
  *
  * @author fil
  */
-public class DoorKey implements IItemKey {
+public class DoorKey implements IItemKey,Serializable {
     private String name;
     private String state;
   
