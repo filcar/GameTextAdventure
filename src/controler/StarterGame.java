@@ -31,6 +31,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -337,8 +338,10 @@ public StarterGame() {
 //////        
 ////// 
 //////	try {
+//////         java.net.URL fileURL = getClass().getResource("/file/test_2.json");
+//////         String filJson= URLDecoder.decode(fileURL.getFile(), "UTF-8");
 ////// 		// convert user object to json string, and save to a file
-//////		mapper.writeValue(new File("c:\\tmp\\test.json"),locations);
+//////		mapper.writeValue(new File(filJson),locations);
 //////		// display to console
 //////		//System.out.println(mapper.writeValueAsString(locations));
 //////	} catch (JsonGenerationException e) {
@@ -394,7 +397,9 @@ private void loadNew() {
     mapper.enableDefaultTyping();
     
     try {
-	locations = mapper.readValue(new File("test_2.json"), HashMap.class);
+//        java.net.URL fileURL = getClass().getResource("test_2.json");
+//        String filJson= URLDecoder.decode(fileURL.getFile(), "UTF-8");
+        locations = mapper.readValue(new File("test_2.json"), HashMap.class);
         for (ILocation loc_t:locations.values()) {
             Iterator<IGate> iterG=loc_t.getMapGate().values().iterator();
             while(iterG.hasNext()){

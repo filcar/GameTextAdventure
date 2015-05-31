@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -75,7 +76,7 @@ public class Save implements ICommand {
     } 
     public String saving() throws FileNotFoundException, IOException{       
     // Write to disk with FileOutputStream
-        FileOutputStream file_out = new FileOutputStream("myobject.txt");
+        FileOutputStream file_out = new FileOutputStream("mygame.dat");
     // Write object with ObjectOutputStream
         ObjectOutputStream state_out = new ObjectOutputStream (file_out);
     // Write object out to disk
