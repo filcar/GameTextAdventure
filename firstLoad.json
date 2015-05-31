@@ -1,0 +1,685 @@
+{
+  "witchNest": {
+    "locationTitle": "witchNest",
+    "locationDescription": "This is the nests of the witches",
+    "mapGate": {
+      "NORTHEAST": {
+        "name": "orange",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "treasureRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "WEST": {
+        "name": "black",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "SOUTHWEST": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "witchNest",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "KALCHAS": {
+        "name": "KALCHAS",
+        "rand": {
+          "seed": {
+            "value": 146463305662189
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 92,
+        "damage": 8,
+        "result": "",
+        "mapItem": {}
+      },
+      "HAMMER": {
+        "name": "HAMMER",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CIRCE": {
+        "name": "CIRCE",
+        "rand": {
+          "seed": {
+            "value": 29169858022435
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 117,
+        "damage": 10,
+        "result": "",
+        "mapItem": {}
+      },
+      "GOLDENKEY": {
+        "name": "GOLDENKEY"
+      },
+      "BLADE": {
+        "name": "BLADE",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CASSANDRA": {
+        "name": "CASSANDRA",
+        "rand": {
+          "seed": {
+            "value": 42059508248975
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 94,
+        "damage": 7,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  },
+  "monsterLair": {
+    "locationTitle": "monsterLair",
+    "locationDescription": "This is the lairs of the monsters",
+    "mapGate": {
+      "NORTHEAST": {
+        "name": "turquoise",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "monsterLair",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "DOWN": {
+        "name": "yellow",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "weaponsRoom",
+        "locTitle2": "monsterLair",
+		"loc1": "",
+		"loc2": ""
+      },
+      "NORTHWEST": {
+        "name": "purple",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "monsterLair",
+        "locTitle2": "treasureRoom",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "SILVERKEY": {
+        "name": "SILVERKEY"
+      },
+      "CENTAUR": {
+        "name": "CENTAUR",
+        "rand": {
+          "seed": {
+            "value": 9168991928968
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 106,
+        "damage": 11,
+        "result": "",
+        "mapItem": {}
+      },
+      "DRAGON": {
+        "name": "DRAGON",
+        "rand": {
+          "seed": {
+            "value": 68390433908657
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 111,
+        "damage": 7,
+        "result": "",
+        "mapItem": {}
+      },
+      "SCISSORS": {
+        "name": "SCISSORS",
+        "bullet": 5,
+        "damage": 50
+      },
+      "RAZORS": {
+        "name": "RAZORS",
+        "bullet": 5,
+        "damage": 50
+      },
+      "GRIFFIN": {
+        "name": "GRIFFIN",
+        "rand": {
+          "seed": {
+            "value": 43134391704316
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 113,
+        "damage": 7,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  },
+  "treasureRoom": {
+    "locationTitle": "treasureRoom",
+    "locationDescription": "This is the treasure\u0027s room",
+    "mapGate": {
+      "SOUTHEAST": {
+        "name": "purple",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "monsterLair",
+        "locTitle2": "treasureRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "WEST": {
+        "name": "magenta",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "treasureRoom",
+        "locTitle2": "filtersRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "SOUTHWEST": {
+        "name": "orange",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "treasureRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "EAST": {
+        "name": "white",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "treasureRoom",
+        "locTitle2": "weaponsRoom",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "DIAMONDSWORD": {
+        "name": "DIAMONDSWORD",
+        "bullet": 5,
+        "damage": 50
+      },
+      "DWARF": {
+        "name": "DWARF",
+        "rand": {
+          "seed": {
+            "value": 211163418709662
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 75,
+        "damage": 6,
+        "result": "",
+        "mapItem": {}
+      },
+      "BRONZEKEY": {
+        "name": "BRONZEKEY"
+      },
+      "ANGEL": {
+        "name": "ANGEL",
+        "rand": {
+          "seed": {
+            "value": 255527172659210
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 93,
+        "damage": 8,
+        "result": "",
+        "mapItem": {}
+      },
+      "SCEPTER": {
+        "name": "SCEPTER",
+        "bullet": 5,
+        "damage": 50
+      },
+      "ELF": {
+        "name": "ELF",
+        "rand": {
+          "seed": {
+            "value": 173301391564711
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 103,
+        "damage": 14,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  },
+  "filtersRoom": {
+    "locationTitle": "filtersRoom",
+    "locationDescription": "This is the filters\u0027 room",
+    "mapGate": {
+      "WEST": {
+        "name": "magenta",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "treasureRoom",
+        "locTitle2": "filtersRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "UP": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "witchNest",
+		"loc1": "",
+		"loc2": ""
+      },
+      "SOUTH": {
+        "name": "red",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "EAST": {
+        "name": "blue",
+        "doorState": {
+          "state": "locked"
+        },
+        "key": {
+          "name": "KEY"
+        },
+        "locTitle1": "startupRoom",
+        "locTitle2": "filtersRoom",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "COBRA": {
+        "name": "COBRA",
+        "rand": {
+          "seed": {
+            "value": 241459741070389
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 112,
+        "damage": 13,
+        "result": "",
+        "mapItem": {}
+      },
+      "ALUMINIUMKEY": {
+        "name": "ALUMINIUMKEY"
+      },
+      "TOADSTOOLS": {
+        "name": "TOADSTOOLS",
+        "bullet": 5,
+        "damage": 50
+      },
+      "VIPER": {
+        "name": "VIPER",
+        "rand": {
+          "seed": {
+            "value": 73590014776341
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 104,
+        "damage": 11,
+        "result": "",
+        "mapItem": {}
+      },
+      "BELLADONNA": {
+        "name": "BELLADONNA",
+        "bullet": 5,
+        "damage": 50
+      },
+      "MANDRAKE": {
+        "name": "MANDRAKE",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CORALSNAKE": {
+        "name": "CORALSNAKE",
+        "rand": {
+          "seed": {
+            "value": 280554299165057
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 117,
+        "damage": 10,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  },
+  "startupRoom": {
+    "locationTitle": "startupRoom",
+    "locationDescription": "This is the entrance of the player",
+    "mapGate": {
+      "NORTH": {
+        "name": "red",
+        "doorState": {
+          "state": "locked"
+        },
+        "key": {
+          "name": "KEY"
+        },
+        "locTitle1": "startupRoom",
+        "locTitle2": "weaponsRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "WEST": {
+        "name": "blue",
+        "doorState": {
+          "state": "locked"
+        },
+        "key": {
+          "name": "KEY"
+        },
+        "locTitle1": "startupRoom",
+        "locTitle2": "filtersRoom",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "BULLET": {
+        "name": "BULLET",
+        "bullet": 5
+      },
+      "PISTOL": {
+        "name": "PISTOL",
+        "bullet": 5,
+        "damage": 50
+      },
+      "MONSTER": {
+        "name": "MONSTER",
+        "rand": {
+          "seed": {
+            "value": 27297163071718
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 115,
+        "damage": 11,
+        "result": "",
+        "mapItem": {
+          "KEY": {
+            "name": "KEY"
+          }
+        }
+      },
+      "KALASNIKOF": {
+        "name": "KALASNIKOF",
+        "bullet": 10,
+        "damage": 100
+      },
+      "KEY": {
+        "name": "KEY"
+      }
+    }
+  },
+  "weaponsRoom": {
+    "locationTitle": "weaponsRoom",
+    "locationDescription": "This is the weapons\u0027 room",
+    "mapGate": {
+      "NORTH": {
+        "name": "white",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "treasureRoom",
+        "locTitle2": "weaponsRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "SOUTHEAST": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "weaponsRoom",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "SOUTH": {
+        "name": "red",
+        "doorState": {
+          "state": "locked"
+        },
+        "key": {
+          "name": "KEY"
+        },
+        "locTitle1": "startupRoom",
+        "locTitle2": "weaponsRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "UP": {
+        "name": "yellow",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "weaponsRoom",
+        "locTitle2": "monsterLair",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "DARKELF": {
+        "name": "DARKELF",
+        "rand": {
+          "seed": {
+            "value": 15004191842857
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 119,
+        "damage": 14,
+        "result": "",
+        "mapItem": {}
+      },
+      "FASHIONKEY": {
+        "name": "FASHIONKEY"
+      },
+      "HECATONCHIRES": {
+        "name": "HECATONCHIRES",
+        "rand": {
+          "seed": {
+            "value": 5467568639104
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 77,
+        "damage": 13,
+        "result": "",
+        "mapItem": {}
+      },
+      "YATAGHAN": {
+        "name": "YATAGHAN",
+        "bullet": 5,
+        "damage": 50
+      },
+      "ORK": {
+        "name": "ORK",
+        "rand": {
+          "seed": {
+            "value": 196797762959982
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 88,
+        "damage": 11,
+        "result": "",
+        "mapItem": {}
+      },
+      "TRUNCHEON": {
+        "name": "TRUNCHEON",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CROSSBOW": {
+        "name": "CROSSBOW",
+        "bullet": 5,
+        "damage": 50
+      }
+    }
+  },
+  "dungeonRoom": {
+    "locationTitle": "dungeonRoom",
+    "locationDescription": "This is the dungeon room",
+    "mapGate": {
+      "NORTH": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "weaponsRoom",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "UP": {
+        "name": "red",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "EAST": {
+        "name": "turquoise",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "monsterLair",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      },
+      "NORTHWEST": {
+        "name": "black",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "dungeonRoom",
+		"loc1": "",
+		"loc2": ""
+      }
+    },
+    "mapItem": {
+      "DIAMONDKEY": {
+        "name": "DIAMONDKEY"
+      },
+      "MIELIKKI": {
+        "name": "MIELIKKI",
+        "rand": {
+          "seed": {
+            "value": 39909695179659
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 104,
+        "damage": 5,
+        "result": "",
+        "mapItem": {}
+      },
+      "BLUDGEON": {
+        "name": "BLUDGEON",
+        "bullet": 5,
+        "damage": 50
+      },
+      "DOUBLEAX": {
+        "name": "DOUBLEAX",
+        "bullet": 5,
+        "damage": 50
+      },
+      "DRIZZTDOURDEN": {
+        "name": "DRIZZTDOURDEN",
+        "rand": {
+          "seed": {
+            "value": 147255114912742
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 118,
+        "damage": 13,
+        "result": "",
+        "mapItem": {}
+      },
+      "ZAKNAFEIN": {
+        "name": "ZAKNAFEIN",
+        "rand": {
+          "seed": {
+            "value": 16437158828853
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 92,
+        "damage": 14,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  }
+}

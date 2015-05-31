@@ -1,0 +1,11 @@
+{"locationTitle":"startupRoom",
+	"locationDescription":"This is the entrance of the player",
+	"mapGate":{},
+	"mapItem":{
+				"BULLET":{"name":"BULLET","bullet":5},
+				"PISTOL":{"name":"PISTOL","bullet":5,"damage":50},
+				"MONSTER":{"name":"MONSTER","rand":{"seed":{"value":273384521445363},"nextNextGaussian":0.0,"haveNextNextGaussian":false},"health":98,"damage":7,"result":"","mapItem":{"KEY":{"name":"KEY"}}},
+				"KALASNIKOF":{"name":"KALASNIKOF","bullet":10,"damage":100},
+				"KEY":{"name":"KEY"}
+				}
+}

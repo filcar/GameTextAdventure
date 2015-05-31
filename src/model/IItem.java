@@ -5,6 +5,8 @@
  */
 package model;
 
+import controler.TokenType2;
+
 /**
  *
  * @author fil
@@ -18,5 +20,7 @@ public interface IItem {
     void setName(String name);
 
     void setState(String state);
+    
+    void regToToken(TokenType2 tokenType);
     
 }

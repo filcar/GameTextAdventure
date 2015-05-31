@@ -22,12 +22,17 @@ public class MultiGun implements IWeapon, ICanShoot,IConteiner,Serializable{
     private int damage=100;
     private String result;
 
+    public MultiGun() {
+    }
+
     public MultiGun(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
    
-    
+    public void regToToken(TokenType2 tokenType){
+        tokenType.addList(this);
+    }
     @Override
     public String getName() {
         return name;
@@ -67,12 +72,13 @@ public class MultiGun implements IWeapon, ICanShoot,IConteiner,Serializable{
 
     @Override
     public String getState() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public void setState(String state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override

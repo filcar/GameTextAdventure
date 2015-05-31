@@ -22,11 +22,16 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner,Serializable {
     private int damage=50;
     private String result;
 
+    public WeaponGun(){
+    }
+    
     public WeaponGun(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
-   
+    public void regToToken(TokenType2 tokenType){
+        tokenType.addList(this);
+    }   
     
     @Override
     public String getName() {
@@ -67,12 +72,13 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner,Serializable {
 
     @Override
     public String getState() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     @Override
     public void setState(String state) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   //     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override

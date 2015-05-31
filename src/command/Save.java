@@ -6,10 +6,12 @@
 package command;
 
 import controler.TokenType2;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,6 +27,7 @@ public class Save implements ICommand {
     private String result="";
     private String description;
     private InstanceGame instanceGame;
+    
     @Override
     public String getDescription() {
         return description;
@@ -71,13 +74,14 @@ public class Save implements ICommand {
         }
     return result;   
     } 
-    public String saving() throws FileNotFoundException, IOException{
+    public String saving() throws FileNotFoundException, IOException{       
     // Write to disk with FileOutputStream
-        FileOutputStream f_out = new FileOutputStream("myobject.txt");
+        FileOutputStream file_out = new FileOutputStream("mygame.dat");
     // Write object with ObjectOutputStream
-        ObjectOutputStream obj_out = new ObjectOutputStream (f_out);
+        ObjectOutputStream state_out = new ObjectOutputStream (file_out);
     // Write object out to disk
-        obj_out.writeObject ( instanceGame );
+        state_out.writeObject ( instanceGame );
+        state_out.close();
         return "GAME SAVED!!";
     }
     

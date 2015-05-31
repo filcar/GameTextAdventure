@@ -28,8 +28,8 @@ public class TokenType2 {
 
     public TokenType2() {
      //  String verb =" (GO|OPEN|CLOSE|DROP|EXIT|SHOOT|LOCK|LOOK|TAKE|UNLOCK|USE) ";
-       String verb ="\\b(GO|OPEN|EXIT)\\b";
-       String item="\\b(MONSTER|PISTOL|KEY)\\b";  
+       String verb=""; //="\\b(GO|OPEN|EXIT)\\b";
+       String item="";//="\\b(MONSTER|PISTOL|KEY)\\b";  
        direction="\\b(WEST|EAST|NORTH|SOUTH|NORTHWEST|NORTHEAST|SOUTHWEST|SOUTHEAST|UP|DOWN)\\b";
        prepos ="\\b(WITH|FOR|INTO|IN|BY)\\b";
        tokenTypes.put(TokType.VERB, verb);

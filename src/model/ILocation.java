@@ -11,7 +11,7 @@ import java.util.HashMap;
  *
  * @author fil
  */
-public interface ILocation {
+public interface  ILocation {
 
     String getLocationDescription();
     String getLocationTitle();

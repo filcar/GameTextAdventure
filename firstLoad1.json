@@ -1,0 +1,198 @@
+{
+  "witchNest": {
+    "locationTitle": "witchNest",
+    "locationDescription": "This is the nests of the witches",
+    "mapGate": {
+      "NORTHEAST": {
+        "name": "orange",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "treasureRoom",
+        "loc1": "witchNest",
+        "loc2": "treasureRoom"
+      },
+      "WEST": {
+        "name": "black",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "dungeonRoom",
+        "loc1": "witchNest",
+        "loc2": "dungeonRoom"
+      },
+      "SOUTHWEST": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "witchNest",
+        "loc1": "filtersRoom",
+        "loc2": "witchNest"
+      }
+    },
+    "mapItem": {
+      "KALCHAS": {
+        "name": "KALCHAS",
+        "rand": {
+          "seed": {
+            "value": 146463305662189
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 92,
+        "damage": 8,
+        "result": "",
+        "mapItem": {}
+      },
+      "HAMMER": {
+        "name": "HAMMER",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CIRCE": {
+        "name": "CIRCE",
+        "rand": {
+          "seed": {
+            "value": 29169858022435
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 117,
+        "damage": 10,
+        "result": "",
+        "mapItem": {}
+      },
+      "GOLDENKEY": {
+        "name": "GOLDENKEY"
+      },
+      "BLADE": {
+        "name": "BLADE",
+        "bullet": 5,
+        "damage": 50
+      },
+      "CASSANDRA": {
+        "name": "CASSANDRA",
+        "rand": {
+          "seed": {
+            "value": 42059508248975
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 94,
+        "damage": 7,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  },
+ "dungeonRoom": {
+    "locationTitle": "dungeonRoom",
+    "locationDescription": "This is the dungeon room",
+    "mapGate": {
+      "NORTH": {
+        "name": "green",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "weaponsRoom",
+        "locTitle2": "dungeonRoom",
+        "loc1": "weaponsRoom",
+        "loc2": "dungeonRoom"
+      },
+      "UP": {
+        "name": "red",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "filtersRoom",
+        "locTitle2": "dungeonRoom",
+        "loc1": "filtersRoom",
+        "loc2": "dungeonRoom"
+      },
+      "EAST": {
+        "name": "turquoise",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "monsterLair",
+        "locTitle2": "dungeonRoom",
+        "loc1": "monsterLair",
+        "loc2": "dungeonRoom"
+      },
+      "NORTHWEST": {
+        "name": "black",
+        "doorState": {
+          "state": "opened"
+        },
+        "locTitle1": "witchNest",
+        "locTitle2": "dungeonRoom",
+        "loc1": "witchNest",
+        "loc2": "dungeonRoom"
+      }
+    },
+    "mapItem": {
+      "DIAMONDKEY": {
+        "name": "DIAMONDKEY"
+      },
+      "MIELIKKI": {
+        "name": "MIELIKKI",
+        "rand": {
+          "seed": {
+            "value": 39909695179659
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 104,
+        "damage": 5,
+        "result": "",
+        "mapItem": {}
+      },
+      "BLUDGEON": {
+        "name": "BLUDGEON",
+        "bullet": 5,
+        "damage": 50
+      },
+      "DOUBLEAX": {
+        "name": "DOUBLEAX",
+        "bullet": 5,
+        "damage": 50
+      },
+      "DRIZZTDOURDEN": {
+        "name": "DRIZZTDOURDEN",
+        "rand": {
+          "seed": {
+            "value": 147255114912742
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 118,
+        "damage": 13,
+        "result": "",
+        "mapItem": {}
+      },
+      "ZAKNAFEIN": {
+        "name": "ZAKNAFEIN",
+        "rand": {
+          "seed": {
+            "value": 16437158828853
+          },
+          "nextNextGaussian": 0.0,
+          "haveNextNextGaussian": false
+        },
+        "health": 92,
+        "damage": 14,
+        "result": "",
+        "mapItem": {}
+      }
+    }
+  }
+}

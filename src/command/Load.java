@@ -11,6 +11,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -82,7 +83,7 @@ public class Load implements ICommand {
     } 
     public String loading() throws FileNotFoundException, IOException, ClassNotFoundException{
 // Read from disk using FileInputStream
-        FileInputStream f_in = new FileInputStream("myobject.txt");
+        FileInputStream f_in = new FileInputStream("mygame.dat");
 
 // Read object using ObjectInputStream
         ObjectInputStream obj_in = new ObjectInputStream (f_in);
