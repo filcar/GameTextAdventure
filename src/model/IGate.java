@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.HashMap;
+
 /**
  *
  * @author fil
@@ -19,7 +21,7 @@ public interface IGate {
 
     void setDirection(String gateName);
 
-    void setLeadToLocation(ILocation leadToLocation);
+    void setJoinLocations(HashMap<String,ILocation> map);
 
     public IDoorState getDoorState();
     

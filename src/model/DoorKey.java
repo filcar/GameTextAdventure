@@ -13,11 +13,16 @@ import typeOfItem.IShootable;
  *
  * @author fil
  */
-public class DoorKey implements IItemKey,Serializable {
+public class DoorKey implements IItem, IItemKey,Serializable {
     private String name;
     private String state;
+
+    public DoorKey() {
+    }
   
-    
+    public void regToToken(TokenType2 tokenType){
+        tokenType.addList(this);
+    }    
     //isos mia lista apo pragamta poy mporei na kanei
 
     @Override

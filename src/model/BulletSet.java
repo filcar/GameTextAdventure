@@ -18,8 +18,15 @@ public class BulletSet implements IItem,ICanBePut,Serializable{
     String state;
     Integer bullet=5;
 
+    public BulletSet() {
+    }
+
     public BulletSet(String name,TokenType2 tokenType) {
         this.name = name;
+        tokenType.addList(this);
+    }
+    
+    public void regToToken(TokenType2 tokenType){
         tokenType.addList(this);
     }
 

@@ -199,7 +199,9 @@ public class GuiGame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String tmp=jTextField1.getText();
         String result = starter.go(tmp);
-        show_result(result);
+        jTextPane1.setText(result);
+        jTextField1.setText("");
+        jLabel1.setText(""+starter.getHealth()); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

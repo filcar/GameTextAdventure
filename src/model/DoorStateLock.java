@@ -68,7 +68,7 @@ public class DoorStateLock implements IDoorState,Serializable{
         IDoorState closeState = new DoorStateClose();
         if(obj instanceof IGate){
             IGate gate = (IGate)obj;
-            if(gate.getKey().equals(key)){
+            if(gate.getKey().getName().equals(key.getName())){
                 gate.setDoorState(closeState);
                 result=("The door is unlocked but still closed!");
             }

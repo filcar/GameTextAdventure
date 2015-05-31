@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class LocationRoom implements ILocation, Serializable{
     private String locationTitle;
     private String locationDescription;
-    private HashMap<String, IGate> mapGate = new HashMap<String, IGate>();
+    private HashMap<String, IGate> mapGate= new HashMap<String, IGate>();
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
 
     public LocationRoom() {
@@ -28,7 +28,7 @@ public class LocationRoom implements ILocation, Serializable{
     
     @Override
     public void registerGate (Direct2 direction,IGate gate){
-            mapGate.put(direction.toString(), gate);
+        mapGate.put(direction.toString(), (Gate)gate);
            
         }
     
@@ -55,6 +55,7 @@ public class LocationRoom implements ILocation, Serializable{
 
     @Override
     public HashMap<String, IGate> getMapGate() {
+        
         return mapGate;
     }
 
