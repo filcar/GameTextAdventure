@@ -21,8 +21,17 @@ public class MultiGun implements IWeapon, ICanShoot,IConteiner,Serializable{
     private int bullet=10;
     private int damage=100;
     private String result;
+    private String imgFile="";
 
     public MultiGun() {
+    }
+
+    public String getImgFile() {
+        return imgFile;
+    }
+
+    public void setImgFile(String imgFile) {
+        this.imgFile = imgFile;
     }
 
     public MultiGun(String name,TokenType2 tokenType) {

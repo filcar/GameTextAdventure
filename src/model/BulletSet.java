@@ -14,13 +14,18 @@ import typeOfItem.ICanBePut;
  * @author fil
  */
 public class BulletSet implements IItem,ICanBePut,Serializable{
-    String name;
-    String state;
-    Integer bullet=5;
-
+    private String name;
+    private String state;
+    private Integer bullet=5;
+    private String imgFile="";
+    
     public BulletSet() {
     }
-
+    
+    public String getImgFile(){
+    return imgFile;
+    }
+    
     public BulletSet(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);

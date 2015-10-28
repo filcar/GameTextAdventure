@@ -22,7 +22,17 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable,Serializa
     private Random rand = new Random();
     private int health=(rand.nextInt(50))+70;
     private int damage=(rand.nextInt(10))+5;
+    private int energy=100;
     private String result="";
+    private String imgFile="";
+
+    public String getImgFile() {
+        return imgFile;
+    }
+
+    public void setImgFile(String imgFile) {
+        this.imgFile = imgFile;
+    }
 
     @Override
     public String damageAttack(IPlayer player) {
@@ -57,6 +67,16 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable,Serializa
         mapItem.put(item.getName(), item);
     }
 
+    @Override
+    public int getEnergy() {
+        return energy;
+    }
+
+    @Override
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+    
     @Override
     public int getHealth() {
         return health;

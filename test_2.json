@@ -1,28 +1,603 @@
-{"witchNest":["model.LocationRoom",{"locationTitle":"witchNest","locationDescription":"This is the nests of the witches",
-				"mapGate":{"NORTHEAST":["model.Gate",{"name":"orange","direction":null,"locTitle1":"witchNest","locTitle2":"treasureRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"WEST":["model.Gate",{"name":"black","direction":null,"locTitle1":"witchNest","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"SOUTHWEST":["model.Gate",{"name":"green","direction":null,"locTitle1":"filtersRoom","locTitle2":"witchNest","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},"mapItem":{"KALCHAS":["model.Monster",{"name":"KALCHAS","health":99,"result":"","mapItem":{},"currentItem":null,"state":null}],"HAMMER":["model.WeaponGun",{"name":"HAMMER","damages":50,"state":null}],"CIRCE":["model.Monster",{"name":"CIRCE","health":91,"result":"","mapItem":{},"currentItem":null,"state":null}],"GOLDENKEY":["model.DoorKey",{"name":"GOLDENKEY","state":null}],"BLADE":["model.WeaponGun",{"name":"BLADE","damages":50,"state":null}],"CASSANDRA":["model.Monster",{"name":"CASSANDRA","health":100,"result":"","mapItem":{},"currentItem":null,"state":null}]}}],
-"monsterLair":["model.LocationRoom",{"locationTitle":"monsterLair","locationDescription":"This is the lairs of the monsters",
-				"mapGate":{"NORTHEAST":["model.Gate",{"name":"turquoise","direction":null,"locTitle1":"monsterLair","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"DOWN":["model.Gate",{"name":"yellow","direction":null,"locTitle1":"weaponsRoom","locTitle2":"monsterLair","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"NORTHWEST":["model.Gate",{"name":"purple","direction":null,"locTitle1":"monsterLair","locTitle2":"treasureRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},"mapItem":{"SILVERKEY":["model.DoorKey",{"name":"SILVERKEY","state":null}],"CENTAUR":["model.Monster",{"name":"CENTAUR","health":71,"result":"","mapItem":{},"currentItem":null,"state":null}],"DRAGON":["model.Monster",{"name":"DRAGON","health":97,"result":"","mapItem":{},"currentItem":null,"state":null}],"SCISSORS":["model.WeaponGun",{"name":"SCISSORS","damages":50,"state":null}],"RAZORS":["model.WeaponGun",{"name":"RAZORS","damages":50,"state":null}],"GRIFFIN":["model.Monster",{"name":"GRIFFIN","health":87,"result":"","mapItem":{},"currentItem":null,"state":null}]}}],
-"treasureRoom":["model.LocationRoom",{"locationTitle":"treasureRoom","locationDescription":"This is the treasure's room",
-				"mapGate":{"SOUTHEAST":["model.Gate",{"name":"purple","direction":null,"locTitle1":"monsterLair","locTitle2":"treasureRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"WEST":["model.Gate",{"name":"magenta","direction":null,"locTitle1":"treasureRoom","locTitle2":"filtersRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"SOUTHWEST":["model.Gate",{"name":"orange","direction":null,"locTitle1":"witchNest","locTitle2":"treasureRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"EAST":["model.Gate",{"name":"white","direction":null,"locTitle1":"treasureRoom","locTitle2":"weaponsRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},"mapItem":{"DIAMONDSWORD":["model.WeaponGun",{"name":"DIAMONDSWORD","damages":50,"state":null}],"DWARF":["model.Monster",{"name":"DWARF","health":104,"result":"","mapItem":{},"currentItem":null,"state":null}],"BRONZEKEY":["model.DoorKey",{"name":"BRONZEKEY","state":null}],"ANGEL":["model.Monster",{"name":"ANGEL","health":96,"result":"","mapItem":{},"currentItem":null,"state":null}],"SCEPTER":["model.WeaponGun",{"name":"SCEPTER","damages":50,"state":null}],"ELF":["model.Monster",{"name":"ELF","health":97,"result":"","mapItem":{},"currentItem":null,"state":null}]}}],
-"filtersRoom":["model.LocationRoom",{"locationTitle":"filtersRoom","locationDescription":"This is the filters' Room",
-			"mapGate":{"WEST":["model.Gate",{"name":"magenta","direction":null,"locTitle1":"treasureRoom","locTitle2":"filtersRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],
-					"UP":["model.Gate",{"name":"green","direction":null,"locTitle1":"filtersRoom","locTitle2":"witchNest","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],
-					"SOUTH":["model.Gate",{"name":"red","direction":null,"locTitle1":"filtersRoom","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],
-					"EAST":["model.Gate",{"name":"blue","direction":null,"locTitle1":"startupRoom","locTitle2":"filtersRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},
-			"mapItem":{"COBRA":["model.Monster",{"name":"COBRA","health":114,"result":"","mapItem":{},"currentItem":null,"state":null}],"ALUMINIUMKEY":["model.DoorKey",{"name":"ALUMINIUMKEY","state":null}],"TOADSTOOLS":["model.WeaponGun",{"name":"TOADSTOOLS","damages":50,"state":null}],"VIPER":["model.Monster",{"name":"VIPER","health":74,"result":"","mapItem":{},"currentItem":null,"state":null}],"BELLADONNA":["model.WeaponGun",{"name":"BELLADONNA","damages":50,"state":null}],"MANDRAKE":["model.WeaponGun",{"name":"MANDRAKE","damages":50,"state":null}],"CORALSNAKE":["model.Monster",{"name":"CORALSNAKE","health":102,"result":"","mapItem":{},"currentItem":null,"state":null}]}}],
-"startupRoom":["model.LocationRoom",{"locationTitle":"startupRoom","locationDescription":"Βρίσκεσαι στην είσοδο του Κάστρου",
-            "mapGate":{"NORTH":["model.Gate",{"name":"red","direction":null,"locTitle1":"startupRoom","locTitle2":"weaponsRoom","doorState":["model.DoorStateLock",{"state":"locked"}],"key":["model.DoorKey",{"name":"KEY","state":null}]}],
-				    "WEST":["model.Gate",{"name":"blue","direction":null,"locTitle1":"startupRoom","locTitle2":"filtersRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},
-			"mapItem":{"BULLET":["model.BulletSet",{"name":"BULLET","state":null,"bullet":5}],
-					"PISTOL":["model.WeaponGun",{"name":"PISTOL","damages":50,"state":null}],
-					"MONSTER":["model.Monster",{"name":"MONSTER","health":117,"result":"","mapItem":{"KEY":["model.DoorKey",{"name":"KEY","state":null}]},"currentItem":null,"state":null}]}}],
-"weaponsRoom":["model.LocationRoom",{"locationTitle":"weaponsRoom","locationDescription":"This is the weapons' room",
-			"mapGate":{"NORTH":["model.Gate",{"name":"white","direction":null,"locTitle1":"treasureRoom","locTitle2":"weaponsRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],
-					"SOUTHEAST":["model.Gate",{"name":"green","direction":null,"locTitle1":"weaponsRoom","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"SOUTH":["model.Gate",{"name":"red","direction":null,"locTitle1":"startupRoom","locTitle2":"weaponsRoom","doorState":["model.DoorStateLock",{"state":"locked"}],"key":["model.DoorKey",{"name":"KEY","state":null}]}],"UP":["model.Gate",{"name":"yellow","direction":null,"locTitle1":"weaponsRoom","locTitle2":"monsterLair","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},
-			"mapItem":{"DARKELF":["model.Monster",{"name":"DARKELF","health":97,"result":"","mapItem":{},"currentItem":null,"state":null}],"FASHIONKEY":["model.DoorKey",{"name":"FASHIONKEY","state":null}],"HECATONCHIRES":["model.Monster",{"name":"HECATONCHIRES","health":73,"result":"","mapItem":{},"currentItem":null,"state":null}],"YATAGHAN":["model.WeaponGun",{"name":"YATAGHAN","damages":50,"state":null}],
-					"ORK":["model.Monster",{"name":"ORK","health":75,"result":"","mapItem":{},"currentItem":null,"state":null}],
-					"KALASNIKOF":["model.MultiGun",{"name":"KALASNIKOF","damages":100,"state":null}],
-					"TRUNCHEON":["model.WeaponGun",{"name":"TRUNCHEON","damages":50,"state":null}],"CROSSBOW":["model.WeaponGun",{"name":"CROSSBOW","damages":50,"state":null}]}}],
-"dungeonRoom":["model.LocationRoom",{"locationTitle":"dungeonRoom","locationDescription":"This is the dungeon room",
-			"mapGate":{"NORTH":["model.Gate",{"name":"green","direction":null,"locTitle1":"weaponsRoom","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"UP":["model.Gate",{"name":"red","direction":null,"locTitle1":"filtersRoom","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"EAST":["model.Gate",{"name":"turquoise","direction":null,"locTitle1":"monsterLair","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}],"NORTHWEST":["model.Gate",{"name":"black","direction":null,"locTitle1":"witchNest","locTitle2":"dungeonRoom","doorState":["model.DoorStateOpen",{"state":"opened"}],"key":null}]},
-			"mapItem":{"DIAMONDKEY":["model.DoorKey",{"name":"DIAMONDKEY","state":null}],"MIELIKKI":["model.Monster",{"name":"MIELIKKI","health":72,"result":"","mapItem":{},"currentItem":null,"state":null}],"BLUDGEON":["model.WeaponGun",{"name":"BLUDGEON","damages":50,"state":null}],"DOUBLEAX":["model.WeaponGun",{"name":"DOUBLEAX","damages":50,"state":null}],"DRIZZTDOURDEN":["model.Monster",{"name":"DRIZZTDOURDEN","health":94,"result":"","mapItem":{},"currentItem":null,"state":null}],"ZAKNAFEIN":["model.Monster",{"name":"ZAKNAFEIN","health":106,"result":"","mapItem":{},"currentItem":null,"state":null}]}}]}
+{
+    "witchNest": ["model.LocationRoom", {
+            "locationTitle": "witchNest",
+            "locationDescription": "This is the nests of the witches",
+            "mapGate": {
+                "NORTHEAST": ["model.Gate", {
+                        "name": "orange",
+                        "direction": null,
+                        "locTitle1": "witchNest",
+                        "locTitle2": "treasureRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "WEST": ["model.Gate", {
+                        "name": "black",
+                        "direction": null,
+                        "locTitle1": "witchNest",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "SOUTHWEST": ["model.Gate", {
+                        "name": "green",
+                        "direction": null,
+                        "locTitle1": "filtersRoom",
+                        "locTitle2": "witchNest",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "KALCHAS": ["model.Monster", {
+                        "name": "KALCHAS",
+                        "health": 99,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "HAMMER": ["model.WeaponGun", {
+                        "name": "HAMMER",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "CIRCE": ["model.Monster", {
+                        "name": "CIRCE",
+                        "health": 91,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "GOLDENKEY": ["model.DoorKey", {
+                        "name": "GOLDENKEY",
+                        "state": null
+                    }],
+                "BLADE": ["model.WeaponGun", {
+                        "name": "BLADE",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "CASSANDRA": ["model.Monster", {
+                        "name": "CASSANDRA",
+                        "health": 100,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "monsterLair": ["model.LocationRoom", {
+            "locationTitle": "monsterLair",
+            "locationDescription": "This is the lairs of the monsters",
+            "mapGate": {
+                "NORTHEAST": ["model.Gate", {
+                        "name": "turquoise",
+                        "direction": null,
+                        "locTitle1": "monsterLair",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "DOWN": ["model.Gate", {
+                        "name": "yellow",
+                        "direction": null,
+                        "locTitle1": "weaponsRoom",
+                        "locTitle2": "monsterLair",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "NORTHWEST": ["model.Gate", {
+                        "name": "purple",
+                        "direction": null,
+                        "locTitle1": "monsterLair",
+                        "locTitle2": "treasureRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "SILVERKEY": ["model.DoorKey", {
+                        "name": "SILVERKEY",
+                        "state": null
+                    }],
+                "CENTAUR": ["model.Monster", {
+                        "name": "CENTAUR",
+                        "health": 71,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "DRAGON": ["model.Monster", {
+                        "name": "DRAGON",
+                        "health": 97,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "SCISSORS": ["model.WeaponGun", {
+                        "name": "SCISSORS",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "RAZORS": ["model.WeaponGun", {
+                        "name": "RAZORS",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "GRIFFIN": ["model.Monster", {
+                        "name": "GRIFFIN",
+                        "health": 87,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "treasureRoom": ["model.LocationRoom", {
+            "locationTitle": "treasureRoom",
+            "locationDescription": "This is the treasure's room",
+            "mapGate": {
+                "SOUTHEAST": ["model.Gate", {
+                        "name": "purple",
+                        "direction": null,
+                        "locTitle1": "monsterLair",
+                        "locTitle2": "treasureRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "WEST": ["model.Gate", {
+                        "name": "magenta",
+                        "direction": null,
+                        "locTitle1": "treasureRoom",
+                        "locTitle2": "filtersRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "SOUTHWEST": ["model.Gate", {
+                        "name": "orange",
+                        "direction": null,
+                        "locTitle1": "witchNest",
+                        "locTitle2": "treasureRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "EAST": ["model.Gate", {
+                        "name": "white",
+                        "direction": null,
+                        "locTitle1": "treasureRoom",
+                        "locTitle2": "weaponsRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "DIAMONDSWORD": ["model.WeaponGun", {
+                        "name": "DIAMONDSWORD",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "DWARF": ["model.Monster", {
+                        "name": "DWARF",
+                        "health": 104,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "BRONZEKEY": ["model.DoorKey", {
+                        "name": "BRONZEKEY",
+                        "state": null
+                    }],
+                "ANGEL": ["model.Monster", {
+                        "name": "ANGEL",
+                        "health": 96,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "SCEPTER": ["model.WeaponGun", {
+                        "name": "SCEPTER",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "ELF": ["model.Monster", {
+                        "name": "ELF",
+                        "health": 97,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "filtersRoom": ["model.LocationRoom", {
+            "locationTitle": "filtersRoom",
+            "locationDescription": "This is the filters' Room",
+            "mapGate": {
+                "WEST": ["model.Gate", {
+                        "name": "magenta",
+                        "direction": null,
+                        "locTitle1": "treasureRoom",
+                        "locTitle2": "filtersRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "UP": ["model.Gate", {
+                        "name": "green",
+                        "direction": null,
+                        "locTitle1": "filtersRoom",
+                        "locTitle2": "witchNest",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "SOUTH": ["model.Gate", {
+                        "name": "red",
+                        "direction": null,
+                        "locTitle1": "filtersRoom",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "EAST": ["model.Gate", {
+                        "name": "blue",
+                        "direction": null,
+                        "locTitle1": "startupRoom",
+                        "locTitle2": "filtersRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "COBRA": ["model.Monster", {
+                        "name": "COBRA",
+                        "health": 114,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "ALUMINIUMKEY": ["model.DoorKey", {
+                        "name": "ALUMINIUMKEY",
+                        "state": null
+                    }],
+                "TOADSTOOLS": ["model.WeaponGun", {
+                        "name": "TOADSTOOLS",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "VIPER": ["model.Monster", {
+                        "name": "VIPER",
+                        "health": 74,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "BELLADONNA": ["model.WeaponGun", {
+                        "name": "BELLADONNA",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "MANDRAKE": ["model.WeaponGun", {
+                        "name": "MANDRAKE",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "CORALSNAKE": ["model.Monster", {
+                        "name": "CORALSNAKE",
+                        "health": 102,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "startupRoom": ["model.LocationRoom", {
+            "locationTitle": "startupRoom",
+            "locationDescription": "You are inside the Castle",
+            "mapGate": {
+                "NORTH": ["model.Gate", {
+                        "name": "red",
+                        "direction": null,
+                        "locTitle1": "startupRoom",
+                        "locTitle2": "weaponsRoom",
+                        "doorState": ["model.DoorStateLock", {
+                                "state": "locked"
+                            }],
+                        "key": ["model.DoorKey", {
+                                "name": "KEY",
+                                "state": null
+                            }]
+                    }],
+                "WEST": ["model.Gate", {
+                        "name": "blue",
+                        "direction": null,
+                        "locTitle1": "startupRoom",
+                        "locTitle2": "filtersRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "BULLET": ["model.BulletSet", {
+                        "name": "BULLET",
+                        "state": null,
+                        "bullet": 5
+                    }],
+                "PISTOL": ["model.WeaponGun", {
+                        "name": "PISTOL",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "ZOMBIE": ["model.Monster", {
+                        "name": "ZOMBIE",
+                        "health": 117,
+                        "result": "",
+                        "mapItem": {
+                            "KEY": ["model.DoorKey", {
+                                    "name": "KEY",
+                                    "state": null
+                                }]
+                        },
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "weaponsRoom": ["model.LocationRoom", {
+            "locationTitle": "weaponsRoom",
+            "locationDescription": "This is the weapons' room",
+            "mapGate": {
+                "NORTH": ["model.Gate", {
+                        "name": "white",
+                        "direction": null,
+                        "locTitle1": "treasureRoom",
+                        "locTitle2": "weaponsRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "SOUTHEAST": ["model.Gate", {
+                        "name": "green",
+                        "direction": null,
+                        "locTitle1": "weaponsRoom",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "SOUTH": ["model.Gate", {
+                        "name": "red",
+                        "direction": null,
+                        "locTitle1": "startupRoom",
+                        "locTitle2": "weaponsRoom",
+                        "doorState": ["model.DoorStateLock", {
+                                "state": "locked"
+                            }],
+                        "key": ["model.DoorKey", {
+                                "name": "KEY",
+                                "state": null
+                            }]
+                    }],
+                "UP": ["model.Gate", {
+                        "name": "yellow",
+                        "direction": null,
+                        "locTitle1": "weaponsRoom",
+                        "locTitle2": "monsterLair",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "DARKELF": ["model.Monster", {
+                        "name": "DARKELF",
+                        "health": 97,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "FASHIONKEY": ["model.DoorKey", {
+                        "name": "FASHIONKEY",
+                        "state": null
+                    }],
+                "HECATONCHIRES": ["model.Monster", {
+                        "name": "HECATONCHIRES",
+                        "health": 73,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "YATAGHAN": ["model.WeaponGun", {
+                        "name": "YATAGHAN",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "ORK": ["model.Monster", {
+                        "name": "ORK",
+                        "health": 75,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "KALASNIKOF": ["model.MultiGun", {
+                        "name": "KALASNIKOF",
+                        "damages": 100,
+                        "state": null
+                    }],
+                "TRUNCHEON": ["model.WeaponGun", {
+                        "name": "TRUNCHEON",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "CROSSBOW": ["model.WeaponGun", {
+                        "name": "CROSSBOW",
+                        "damages": 50,
+                        "state": null
+                    }]
+            }
+        }],
+    "dungeonRoom": ["model.LocationRoom", {
+            "locationTitle": "dungeonRoom",
+            "locationDescription": "This is the dungeon room",
+            "mapGate": {
+                "NORTH": ["model.Gate", {
+                        "name": "green",
+                        "direction": null,
+                        "locTitle1": "weaponsRoom",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "UP": ["model.Gate", {
+                        "name": "red",
+                        "direction": null,
+                        "locTitle1": "filtersRoom",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "EAST": ["model.Gate", {
+                        "name": "turquoise",
+                        "direction": null,
+                        "locTitle1": "monsterLair",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }],
+                "NORTHWEST": ["model.Gate", {
+                        "name": "black",
+                        "direction": null,
+                        "locTitle1": "witchNest",
+                        "locTitle2": "dungeonRoom",
+                        "doorState": ["model.DoorStateOpen", {
+                                "state": "opened"
+                            }],
+                        "key": null
+                    }]
+            },
+            "mapItem": {
+                "DIAMONDKEY": ["model.DoorKey", {
+                        "name": "DIAMONDKEY",
+                        "state": null
+                    }],
+                "MIELIKKI": ["model.Monster", {
+                        "name": "MIELIKKI",
+                        "health": 72,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "BLUDGEON": ["model.WeaponGun", {
+                        "name": "BLUDGEON",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "DOUBLEAX": ["model.WeaponGun", {
+                        "name": "DOUBLEAX",
+                        "damages": 50,
+                        "state": null
+                    }],
+                "DRIZZTDOURDEN": ["model.Monster", {
+                        "name": "DRIZZTDOURDEN",
+                        "health": 94,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }],
+                "ZAKNAFEIN": ["model.Monster", {
+                        "name": "ZAKNAFEIN",
+                        "health": 106,
+                        "result": "",
+                        "mapItem": {},
+                        "currentItem": null,
+                        "state": null
+                    }]
+            }
+        }],
+    "startup": ["model.LocationRoom", {
+            "locationTitle": "startup",
+            "locationDescription": "You are in front of the Haunted house,\nbut if you get in you won't get out again",
+            "mapGate": {
+                "NORTH": ["model.Gate", {
+                        "name": "Black",
+                        "direction": null,
+                        "locTitle1": "startupRoom",
+                        "locTitle2": "startup",
+                        "doorState": ["model.DoorStateLock", {
+                                "state": "opened"
+                            }],
+                        "key": null                           
+                    }]
+            },
+            "mapItem": {
+                "BULLET": ["model.BulletSet", {
+                        "name": "BULLET",
+                        "state": null,
+                        "bullet": 5
+                    }],
+                "BREAD":["model.Food",{
+                        "name":"BREAD",
+                        "state": null,
+                        "energy":10
+                }],
+                "PISTOL": ["model.WeaponGun", {
+                        "name": "PISTOL",
+                        "damages": 50,
+                        "state": null
+                    }]
+            }
+        }]
+}

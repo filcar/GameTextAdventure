@@ -5,9 +5,6 @@
  */
 package controler;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import command.Close;
 import command.Drop;
 import command.Exit;
@@ -20,43 +17,27 @@ import command.Open;
 import command.Put;
 import command.Save;
 import command.Shoot;
+import command.Eat;
 import command.Take;
 import command.UnLock;
 import command.Use;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.Type;
-import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-import model.BulletSet;
-import model.Direct2;
-import model.DoorKey;
 import model.DoorStateClose;
 import model.DoorStateLock;
-import model.Gate;
 import model.IDoorState;
 import model.IGate;
 import model.IItem;
 import model.ILocation;
 import model.IPlayer;
 import model.InstanceGame;
-import model.LocationRoom;
-import model.Monster;
-import model.MultiGun;
 import model.Player;
 import model.State;
-import model.WeaponGun;
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 
 
 /**
@@ -73,6 +54,7 @@ public class StarterGame {
         IPlayer player = new Player("fil");
         ICommand go = new Go(syntaxs,tokenType);
         ICommand take = new Take(syntaxs,tokenType);
+        ICommand eat = new Eat (syntaxs,tokenType);
         ICommand drop = new Drop(syntaxs,tokenType);
         ICommand exit = new Exit(syntaxs,tokenType);
         ICommand look = new Look(syntaxs,tokenType);
@@ -89,6 +71,7 @@ public class StarterGame {
        IDoorState doorClose = new DoorStateClose();
         IDoorState doorLock = new DoorStateLock();
 //Room
+        ILocation startup;
      // ground floor
         ILocation startupR;//  = new LocationRoom("startupRoom","This is the entrance of the player");
         ILocation filtersR;//  = new LocationRoom("filtersRoom","This is the filters' room");
@@ -171,11 +154,12 @@ public StarterGame() {
   loadNew(); 
     
      //initialize CurentState    
-        curentState=new State(startupR, player);
+        curentState=new State(startup, player);
         hc = new HandlerCommand(curentState);  
      //register commands
         hc.register(go);
         hc.register(take);
+        hc.register(eat);
         hc.register(exit);
         hc.register(look);
         hc.register(drop);
@@ -296,6 +280,7 @@ public StarterGame() {
             tokenType.addHashmap();  
 //////        
         instanceGame.setState(curentState);
+        instanceGame.addLocations(startup);
         instanceGame.addLocations(startupR);        
         instanceGame.addLocations(filtersR);
         instanceGame.addLocations(truncheonsR);
@@ -377,6 +362,11 @@ public int getHealth(){
         return health;
     }
 
+    public State getCurentState() {
+        return curentState;
+    }
+
+
 private void loadNew() {
 //// GSON
 //Gson gson = new Gson();
@@ -420,6 +410,7 @@ private void loadNew() {
                 }
             }
         }
+        startup=locations.get("startup");
         startupR=locations.get("startupRoom");
         filtersR  = locations.get("filtersRoom");
         truncheonsR  = locations.get("weaponsRoom");

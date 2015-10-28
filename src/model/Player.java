@@ -15,6 +15,7 @@ import java.util.HashMap;
 public class Player implements IPlayer,Serializable {
     private String name;
     private int health=100;
+    private int energy=100;
     private HashMap<String, IItem> mapItem = new HashMap<String, IItem>();
     private IItem currentItem=null;
     private int damage=25;
@@ -60,6 +61,16 @@ public class Player implements IPlayer,Serializable {
     @Override
     public int getHealth() {
         return health;
+    }
+
+    @Override
+    public int getEnergy() {
+        return energy;
+    }
+
+    @Override
+    public void setEnergy(int energy) {
+        this.energy = energy;
     }
 
     @Override
