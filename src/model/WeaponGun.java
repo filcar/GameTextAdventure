@@ -21,7 +21,7 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner,Serializable {
     private int bullet=5;
     private int damage=50;
     private String result;
-    private String imgFile="/image/pistol.png";
+    private String imgFile="";
     
     public WeaponGun(){
     }

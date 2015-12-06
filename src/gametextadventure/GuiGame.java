@@ -6,10 +6,15 @@
 package gametextadventure;
 
 import controler.StarterGame;
+import java.awt.CardLayout;
+import java.awt.GridLayout;
 import java.awt.event.KeyEvent;
+import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import model.IItem;
 
 /**
  *
@@ -30,6 +35,7 @@ public class GuiGame extends javax.swing.JFrame {
      //   ImageIcon icon2=new ImageIcon(imgURL2);
         jLabel1.setIcon(icon);
      //   jLabel2.setIcon(icon2);
+        
         Timer timer = new Timer();
         TimerTask task = new TimerTask()
                 {
@@ -45,7 +51,7 @@ public class GuiGame extends javax.swing.JFrame {
                         }
                     }
                 };
-        timer.scheduleAtFixedRate(task, 0, 2000);
+        timer.scheduleAtFixedRate(task, 0, 9000);
         
     }
 
@@ -74,6 +80,7 @@ public class GuiGame extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JToolBar.Separator();
         jLabel2 = new javax.swing.JLabel();
         bar1 = new javax.swing.JProgressBar();
+        jToolBar3 = new javax.swing.JToolBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("TextAdventureGame");
@@ -182,6 +189,11 @@ public class GuiGame extends javax.swing.JFrame {
         bar1.setToolTipText("");
         bar1.setValue(100);
 
+        jToolBar3.setFloatable(false);
+        jToolBar3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jToolBar3.setRollover(true);
+        jToolBar3.setName("Room"); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -198,7 +210,9 @@ public class GuiGame extends javax.swing.JFrame {
                         .addComponent(bar1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(92, 92, 92))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jTextField1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -210,7 +224,9 @@ public class GuiGame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jToolBar3, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,6 +247,7 @@ public class GuiGame extends javax.swing.JFrame {
     private void show_result (String result){
         jTextPane1.setText(result);
         jTextField1.setText("");
+        bar1.setValue(starter.getCurentState().getPlayer().getEnergy());
         
         if (starter.getCurentState().getPlayer().getCurrentItem()!=null)
         { 
@@ -239,7 +256,22 @@ public class GuiGame extends javax.swing.JFrame {
             ImageIcon icon2=new ImageIcon(imgURL2);
             jLabel2.setIcon(icon2);
         }
-    //    jLabel1.setText(""+starter.getHealth());    
+        HashMap<String, IItem> mapitem=starter.getCurentState().getLocation().getMapItem();
+        jToolBar3.removeAll();
+        for (HashMap.Entry<String, IItem> entry : mapitem.entrySet()) 
+            {
+            
+                String imgFile=entry.getValue().getImgFile();
+                java.net.URL imgURL2 = getClass().getResource(imgFile);
+                ImageIcon icon2=new ImageIcon(imgURL2); 
+                JLabel jlabel12 = new JLabel(new ImageIcon(imgURL2));
+                jlabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+                jlabel12.setToolTipText(entry.getValue().getName());
+                jToolBar3.add(jlabel12);
+            }
+        jToolBar3.repaint();
+        jToolBar3.validate();
+                        //    jLabel1.setText(""+starter.getHealth());    
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String tmp=jTextField1.getText();
@@ -325,5 +357,6 @@ private StarterGame starter = new StarterGame();
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
+    private javax.swing.JToolBar jToolBar3;
     // End of variables declaration//GEN-END:variables
 }

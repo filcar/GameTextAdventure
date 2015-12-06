@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author fil
  */
-public class Food implements IItem,Ieatable, Serializable{
+public class Food implements IItem,IEatable, Serializable{
     private String name;
     private String state;
     private String imgFile="";

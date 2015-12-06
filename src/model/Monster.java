@@ -24,7 +24,7 @@ public class Monster implements IPlayer, IItem,IShootable,INonTakeable,Serializa
     private int damage=(rand.nextInt(10))+5;
     private int energy=100;
     private String result="";
-    private String imgFile="";
+    private String imgFile="/image/monster.png";
 
     public String getImgFile() {
         return imgFile;

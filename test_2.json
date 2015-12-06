@@ -291,6 +291,12 @@
                         "currentItem": null,
                         "state": null
                     }],
+                "STEAK":["model.Food",{
+                        "name":"STEAK",
+                        "state": null,
+                        "energy":30,
+                        "imgFile":"/image/steak.png"
+                }],
                 "ALUMINIUMKEY": ["model.DoorKey", {
                         "name": "ALUMINIUMKEY",
                         "state": null
@@ -362,11 +368,6 @@
                         "state": null,
                         "bullet": 5
                     }],
-                "PISTOL": ["model.WeaponGun", {
-                        "name": "PISTOL",
-                        "damages": 50,
-                        "state": null
-                    }],
                 "ZOMBIE": ["model.Monster", {
                         "name": "ZOMBIE",
                         "health": 117,
@@ -378,6 +379,7 @@
                                 }]
                         },
                         "currentItem": null,
+                        "imgFile":"/image/Zombie.png",
                         "state": null
                     }]
             }
@@ -591,12 +593,14 @@
                 "BREAD":["model.Food",{
                         "name":"BREAD",
                         "state": null,
-                        "energy":10
+                        "energy":20,
+                        "imgFile":"/image/Bread.png"
                 }],
                 "PISTOL": ["model.WeaponGun", {
                         "name": "PISTOL",
                         "damages": 50,
-                        "state": null
+                        "state": null,
+                        "imgFile":"/image/pistol.png"
                     }]
             }
         }]

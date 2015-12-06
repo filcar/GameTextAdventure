@@ -9,7 +9,7 @@ import controler.TokenType2;
 import java.util.HashMap;
 import model.Food;
 import model.IItem;
-import model.Ieatable;
+import model.IEatable;
 import model.State;
 
 /**
@@ -54,7 +54,7 @@ public class Eat implements ICommand{
          if(curentState.getPlayer().getMapItem().containsKey(word2)){
     //    if(curentState.getLocation().getMapItem().containsKey(word2)){
             IItem item =curentState.getPlayer().getMapItem().get(word2);
-            if((item instanceof Ieatable)){
+            if((item instanceof IEatable)){
                int a= ((Food)item).getEnergy();
                 curentState.getPlayer().setEnergy(a+curentState.getPlayer().getEnergy());
                 curentState.getPlayer().removeItem(item);

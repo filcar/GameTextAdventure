@@ -16,7 +16,7 @@ import typeOfItem.IShootable;
 public class DoorKey implements IItem, IItemKey,Serializable {
     private String name;
     private String state;
-    private String imgFile="";
+    private String imgFile="/image/key.png";
 
     public DoorKey() {
     }

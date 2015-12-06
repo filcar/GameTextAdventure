@@ -17,7 +17,7 @@ public class BulletSet implements IItem,ICanBePut,Serializable{
     private String name;
     private String state;
     private Integer bullet=5;
-    private String imgFile="";
+    private String imgFile="/image/bullets.png";
     
     public BulletSet() {
     }
