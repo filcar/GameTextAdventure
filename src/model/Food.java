@@ -7,42 +7,30 @@ package model;
 
 import controler.TokenType2;
 import java.io.Serializable;
-import typeOfItem.IShootable;
 
 /**
  *
  * @author fil
  */
-public class DoorKey implements IItem, IItemKey,Serializable {
+public class Food implements IItem,IEatable, Serializable{
     private String name;
     private String state;
-    private String imgFile="/image/key.png";
-
-    public DoorKey() {
+    private String imgFile="";
+    private int energy;
+    
+    public Food() {
     }
 
-    public String getImgFile() {
-        return imgFile;
-    }
-
-    public void setImgFile(String imgFile) {
-        this.imgFile = imgFile;
-    }
-  
-    public void regToToken(TokenType2 tokenType){
+    public Food(String name,TokenType2 tokenType) {
+        this.name = name;
         tokenType.addList(this);
-    }    
-    //isos mia lista apo pragamta poy mporei na kanei
+    }
+
+
 
     @Override
     public String getName() {
         return name;
-        
-    }
-
-    public DoorKey(String name,TokenType2 tokenType) {
-        this.name = name;
-        tokenType.addList(this);
     }
 
     @Override
@@ -50,6 +38,14 @@ public class DoorKey implements IItem, IItemKey,Serializable {
         this.name = name;
     }
 
+    public int getEnergy() {
+        return energy;
+    }
+
+    public void setEnergy(int energy) {
+        this.energy = energy;
+    }
+    
     @Override
     public String getState() {
         return state;
@@ -59,5 +55,20 @@ public class DoorKey implements IItem, IItemKey,Serializable {
     public void setState(String state) {
         this.state = state;
     }
+
+    @Override
+    public String getImgFile() {
+        return imgFile;
+    }
+
+    public void setImgFile(String imgFile) {
+        this.imgFile = imgFile;
+    }
+
+    @Override
+    public void regToToken(TokenType2 tokenType) {
+        tokenType.addList(this);
+    }
+
     
 }

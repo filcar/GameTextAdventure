@@ -15,7 +15,7 @@ import command.Look;
 import command.Open;
 import command.Put;
 import command.Shoot;
-import command.Take;
+import command.Eat;
 import command.UnLock;
 import command.Use;
 import controler.HandlerCommand;
@@ -70,7 +70,7 @@ public class GameTextAdventure {
       //  Lexer lexer = new Lexer();
         IPlayer player = new Player("fil");
         ICommand go = new Go(syntaxs,tokenType);
-        ICommand take = new Take(syntaxs,tokenType);
+        ICommand take = new Eat(syntaxs,tokenType);
         ICommand drop = new Drop(syntaxs,tokenType);
         ICommand exit = new Exit(syntaxs,tokenType);
         ICommand look = new Look(syntaxs,tokenType);

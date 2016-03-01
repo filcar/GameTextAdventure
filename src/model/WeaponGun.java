@@ -21,14 +21,25 @@ public class WeaponGun implements IWeapon, ICanShoot,IConteiner,Serializable {
     private int bullet=5;
     private int damage=50;
     private String result;
-
+    private String imgFile="";
+    
     public WeaponGun(){
+    }
+
+    @Override
+    public String getImgFile() {
+        return imgFile;//"/image/pistol.png";
+    }
+
+    public void setImgFile(String imgFile) {
+        this.imgFile = imgFile;
     }
     
     public WeaponGun(String name,TokenType2 tokenType) {
         this.name = name;
         tokenType.addList(this);
     }
+    @Override
     public void regToToken(TokenType2 tokenType){
         tokenType.addList(this);
     }   

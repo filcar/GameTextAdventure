@@ -19,6 +19,8 @@ public interface IPlayer {
     void addItem(IItem item);
 
     int getHealth();
+    
+    int getEnergy();
 
     HashMap<String, IItem> getMapItem();
 
@@ -27,6 +29,8 @@ public interface IPlayer {
     void removeItem(IItem item);
 
     void setHealth(int health);
+    
+    void setEnergy(int energy);
 
     void setName(String name);
     

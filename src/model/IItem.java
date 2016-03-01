@@ -23,4 +23,6 @@ public interface IItem {
     
     void regToToken(TokenType2 tokenType);
     
+    public String getImgFile();
+    
 }
